@@ -1,1 +1,12 @@
 <h3>Projects - new</h3>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <input placeholder="Name" formControlName="name">
+    <input placeholder="Repository URL" formControlName="repoUrl">
+    <input placeholder="Site URL" formControlName="siteUrl">
+    <input placeholder="Category" formControlName="category">
+    <textarea placeholder="Description" formControlName="description"></textarea>
+    <p>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+    </p>
+</form>

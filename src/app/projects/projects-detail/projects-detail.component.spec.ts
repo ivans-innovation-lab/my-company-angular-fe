@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectsDetailComponent } from './projects-detail.component';
+import { ProjectsService } from '../shared/projects.service';
+import { HttpModule } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
+import { Http, BaseRequestOptions } from '@angular/http';
+import { EventManager } from '../../shared/event-manager.service';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 describe('ProjectsDetailComponent', () => {
   let component: ProjectsDetailComponent;
@@ -8,9 +15,21 @@ describe('ProjectsDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectsDetailComponent ]
+      declarations: [ProjectsDetailComponent],
+      providers: [
+        ProjectsService,
+        MockBackend,
+        EventManager,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          useFactory: (backend, options) => new Http(backend, options),
+          deps: [MockBackend, BaseRequestOptions]
+        }
+      ],
+      imports: [RouterTestingModule, HttpModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  blogPostQueryBaseUrl: 'http://localhost:8080/api/blogposts',
+  blogPostCommandBaseUrl: 'http://localhost:8080/api/blogpostcommands',
+  projectsQueryBaseUrl: 'http://localhost:8080/api/projects',
+  projectsCommandBaseUrl: 'http://localhost:8080/api/projectcommands'
 };

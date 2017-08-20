@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BlogModule} from './blog/blog.module';
-import { ProjectsModule} from './projects/projects.module';
+import { BlogModule } from './blog/blog.module';
+import { ProjectsModule } from './projects/projects.module';
+import { HttpModule } from '@angular/http';
+import { EventManager } from './shared/event-manager.service';
+
 
 @NgModule({
   declarations: [
@@ -13,10 +16,11 @@ import { ProjectsModule} from './projects/projects.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
     BlogModule,
     ProjectsModule
   ],
-  providers: [],
+  providers: [EventManager],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

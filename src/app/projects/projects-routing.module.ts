@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsNewComponent } from './projects-new/projects-new.component';
+import { ProjectsDetailComponent } from './projects-detail/projects-detail.component';
+
 
 const routes: Routes = [
   {
@@ -15,7 +17,7 @@ const routes: Routes = [
         children: [
           {
             path: ':id',
-            component: ProjectsComponent
+            component: ProjectsDetailComponent
           },
           {
             path: 'action/new',

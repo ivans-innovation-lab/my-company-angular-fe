@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BlogComponent } from './blog.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogNewComponent } from './blog-new/blog-new.component';
 
@@ -15,7 +16,7 @@ const routes: Routes = [
         children: [
           {
             path: ':id',
-            component: BlogComponent
+            component: BlogDetailComponent
           },
           {
             path: 'action/new',
