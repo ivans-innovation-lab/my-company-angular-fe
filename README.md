@@ -1,4 +1,4 @@
-# My Company - Angular Frontend
+# My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
 
