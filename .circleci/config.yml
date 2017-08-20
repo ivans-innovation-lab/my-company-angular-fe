@@ -33,3 +33,9 @@ notify:
   webhooks:
   # A list of hashes representing hooks. Only the url field is supported.
     - url: https://webhook.atomist.com/atomist/circle
+
+workflows:
+  version: 2
+  my-company-angular-fe-workflow:
+    jobs:
+      - build
