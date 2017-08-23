@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: my-company-angular-fe-{{ checksum "yarn.lock" }}
+          key: my-company-angular-fe-{{ checksum "package.json" }}
       - run:
           name: install-dependencies
           command: yarn install
