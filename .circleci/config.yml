@@ -7,18 +7,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: my-company-angular-fe-{{ checksum "package.json" }}
+          key: my-company-angular-fe1-{{ checksum "package.json" }}
       - run:
           name: install-dependencies
           command: yarn install
       - save_cache:
-          key: my-company-angular-fe-{{ checksum "package.json" }}
+          key: my-company-angular-fe1-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
             - ./node_modules
       - run:
           name: angular-build
-          command: yarn ng -- build --prod --aot --no-progress
+          command: yarn ng -- build  --no-progress
       - run:
           name: angular-test
           command: yarn test -- --single-run --no-progress
