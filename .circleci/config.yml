@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~
+    working_directory: /home/circleci/my-company-angular-fe
     docker:
       - image: circleci/node:6-browsers
     steps:
@@ -12,7 +12,7 @@ jobs:
           name: install-dependencies
           command: yarn install
       - save_cache:
-          key: my-company-angular-fe-{{ checksum "yarn.lock" }}
+          key: my-company-angular-fe-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
             - ./node_modules
