@@ -8,7 +8,9 @@ import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import {MaterialModule} from '@angular/material';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 describe('ProjectsNewComponent', () => {
   let component: ProjectsNewComponent;
@@ -28,7 +30,7 @@ describe('ProjectsNewComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule, MaterialModule]
+      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule]
     })
     .compileComponents();
   }));
