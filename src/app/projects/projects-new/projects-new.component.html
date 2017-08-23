@@ -1,12 +1,26 @@
-<h3>Projects - new</h3>
+<md-card >
+  <md-card-title>New Project</md-card-title>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-    <input placeholder="Name" formControlName="name">
-    <input placeholder="Repository URL" formControlName="repoUrl">
-    <input placeholder="Site URL" formControlName="siteUrl">
-    <input placeholder="Category" formControlName="category">
-    <textarea placeholder="Description" formControlName="description"></textarea>
-    <p>
-        <button type="submit" [disabled]="!form.valid">Submit</button>
-    </p>
-</form>
+  <md-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+      <md-input-container floatingPlaceholder=true style="width: 100%">
+        <input mdInput placeholder="Name" formControlName="name">
+      </md-input-container>
+      <md-input-container floatingPlaceholder=true style="width: 100%">
+        <input mdInput placeholder="Repository URL" formControlName="repoUrl">
+      </md-input-container>
+      <md-input-container floatingPlaceholder=true style="width: 100%">
+        <input mdInput placeholder="Site URL" formControlName="siteUrl">
+      </md-input-container>
+      <md-input-container floatingPlaceholder=true style="width: 100%">
+        <input mdInput placeholder="Category" formControlName="category">
+      </md-input-container>
+      <md-input-container floatingPlaceholder=true style="width: 100%">
+        <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+      </md-input-container>
+      <p>
+        <button md-raised-button color="primary"  type="submit" [disabled]="!form.valid">Submit</button>
+      </p>
+    </form>
+  </md-card-content>
+</md-card >

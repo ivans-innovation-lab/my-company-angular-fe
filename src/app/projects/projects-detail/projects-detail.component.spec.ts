@@ -7,6 +7,7 @@ import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@angular/material';
 
 
 describe('ProjectsDetailComponent', () => {
@@ -27,7 +28,7 @@ describe('ProjectsDetailComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule]
+      imports: [RouterTestingModule, HttpModule, MaterialModule]
     })
       .compileComponents();
   }));

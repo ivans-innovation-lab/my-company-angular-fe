@@ -7,6 +7,8 @@ import { HttpModule } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { EventManager } from '../../shared/event-manager.service';
+import { MaterialModule } from '@angular/material';
+
 
 describe('BlogListComponent', () => {
   let component: BlogListComponent;
@@ -26,7 +28,7 @@ describe('BlogListComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule]
+      imports: [RouterTestingModule, HttpModule, MaterialModule]
     })
       .compileComponents();
   }));

@@ -8,13 +8,17 @@ import { ProjectsDetailComponent } from './projects-detail/projects-detail.compo
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsService } from './shared/projects.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   declarations: [ProjectsComponent, ProjectsNewComponent, ProjectsDetailComponent, ProjectsListComponent],
   providers: [ProjectsService]

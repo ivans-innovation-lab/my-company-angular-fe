@@ -8,6 +8,9 @@ import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 describe('BlogNewComponent', () => {
@@ -28,7 +31,7 @@ describe('BlogNewComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule]
+      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule]
     })
     .compileComponents();
   }));
