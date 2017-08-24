@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /home/circleci/my-company-angular-fe/
+    working_directory: /home/circleci/my-company-angular-fe/src
     docker:
       - image: circleci/node:6-browsers
     steps:
