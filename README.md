@@ -2,7 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
 
-It is a Front-end Angular 4 application.
+It is a Front-end Angular 4 application and it requires my-company restfull API. Please run the [backend application](https://github.com/ivans-innovation-lab/my-company-monolith) first.
+Feel free to configure your [environments](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/environments).
 
 ## Development server
 
