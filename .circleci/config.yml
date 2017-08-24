@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /home/circleci
+    working_directory: /home/circleci/my-company
     docker:
       - image: circleci/node:6-browsers
     steps:
@@ -15,7 +15,7 @@ jobs:
           key: my-company-angular-fe1-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
-            - /node_modules
+            - /home/circleci/my-company/node_modules
       - run:
           name: angular-build
           command: yarn ng -- build --prod --aot --no-progress
