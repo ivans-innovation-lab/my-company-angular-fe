@@ -7,12 +7,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: my-company-angular-fe1-{{ checksum "package.json" }}
+          key: my-company-angular-fe2-{{ checksum "package.json" }}
       - run:
           name: install-dependencies
           command: yarn install
       - save_cache:
-          key: my-company-angular-fe1-{{ checksum "package.json" }}
+          key: my-company-angular-fe2-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
             - /home/circleci/my-company/node_modules
