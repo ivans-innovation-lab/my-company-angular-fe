@@ -53,6 +53,7 @@
       "config": "./karma.conf.js"
     }
   },
+  "stylePreprocessorOptions": { "includePaths": [ "../node_modules" ] },
   "defaults": {
     "styleExt": "css",
     "component": {}
