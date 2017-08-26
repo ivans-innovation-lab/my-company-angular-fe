@@ -4,6 +4,13 @@ import { MaterialModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
+import { UserService } from './shared/user.service';
+import { AuthenticationService } from './shared/authentication.service';
+import { AuthGuard } from './shared/guards/auth-guard.service';
+import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
+import { AuthHttp } from 'angular2-jwt';
+import { authHttpServiceFactory } from './app.module';
+import { Http, RequestOptions } from '@angular/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,6 +21,17 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        UserService,
+        AuthenticationService,
+        AuthGuard,
+        AdminAuthGuard,
+        {
+          provide: AuthHttp,
+          useFactory: authHttpServiceFactory,
+          deps: [Http, RequestOptions]
+        }
+      ]
     }).compileComponents();
   }));
 
