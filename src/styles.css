@@ -25,3 +25,8 @@
     color: #f4f6f9;
     background-color: indigo;
   }
+
+ md-toolbar-row {
+    justify-content: space-between;
+  }
+  

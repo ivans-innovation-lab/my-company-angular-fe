@@ -17,6 +17,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthenticationService } from './shared/authentication.service';
 import { AuthGuard } from './shared/guards/auth-guard.service';
 import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
+import { HomeComponent } from './home/home.component';
 
 
 export function authHttpServiceFactory(http: Http) {
@@ -33,7 +34,8 @@ export function authHttpServiceFactory(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

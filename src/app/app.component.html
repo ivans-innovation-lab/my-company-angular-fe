@@ -1,13 +1,18 @@
-<h1>{{title}}</h1>
 <md-toolbar>
-  <nav>
-    <a routerLink="/blog" routerLinkActive="active">Blog</a>
-    <a routerLink="/projects" routerLinkActive="active">Projects</a>
-  </nav>
+  <h1>{{title}}</h1>
+
+  <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+  </button>
+
 </md-toolbar>
+<md-menu x-position="before" #menu="mdMenu">
+  <button md-menu-item [routerLink]="['/blog']">Blog</button>
+  <button md-menu-item [routerLink]="['/projects']">Projects</button>
+  <button *ngIf="isAdminUser" class="md-warn" md-menu-item (click)="logout()">Logout admin</button>
+  <button *ngIf="isUser" class="md-warn" md-menu-item (click)="logout()">Logout user</button>
+</md-menu>
 
 <div class="app-content">
-    <p *ngIf="isAdminUser">You are admin! <button (click)="logout()">Logout</button></p>
-    <p *ngIf="isUser">You are user! <button (click)="logout()">Logout</button></p>
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
