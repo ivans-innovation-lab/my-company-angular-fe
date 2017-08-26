@@ -5,15 +5,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogModule } from './blog/blog.module';
 import { ProjectsModule } from './projects/projects.module';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { EventManager } from './shared/event-manager.service';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { TOKEN_NAME } from './shared/auth.constant';
+import { UserService } from './shared/user.service';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthenticationService } from './shared/authentication.service';
+import { AuthGuard } from './shared/guards/auth-guard.service';
+import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
 
+
+export function authHttpServiceFactory(http: Http) {
+  return new AuthHttp(new AuthConfig({
+    headerPrefix: 'Bearer',
+    tokenName: TOKEN_NAME,
+    globalHeaders: [{'Content-Type': 'application/json'}],
+    noJwtError: false,
+    noTokenScheme: true,
+    tokenGetter: (() => localStorage.getItem(TOKEN_NAME))
+  }), http);
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +42,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BlogModule,
     ProjectsModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [EventManager],
+  providers: [
+    EventManager,
+    UserService,
+    AuthenticationService,
+    AuthGuard,
+    AdminAuthGuard,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

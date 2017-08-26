@@ -8,5 +8,6 @@ export const environment = {
   blogPostQueryBaseUrl: 'http://localhost:8080/api/blogposts',
   blogPostCommandBaseUrl: 'http://localhost:8080/api/blogpostcommands',
   projectsQueryBaseUrl: 'http://localhost:8080/api/projects',
-  projectsCommandBaseUrl: 'http://localhost:8080/api/projectcommands'
+  projectsCommandBaseUrl: 'http://localhost:8080/api/projectcommands',
+  authTokenUrl: 'http://localhost:8080/oauth/token'
 };

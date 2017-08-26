@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Response } from '@angular/http';
 import { ProjectModel } from './project.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable()
 export class ProjectsService {
 
-    constructor(private http: Http) { }
+    constructor(private http: AuthHttp) { }
 
     private extractListData(res: Response) {
         const body = res.json();
@@ -32,9 +33,6 @@ export class ProjectsService {
     }
 
     public addProject(project: ProjectModel): Observable<any> {
-        const headers = new Headers({ 'Content-Type': 'application/json' });
-        const options = new RequestOptions({ headers: headers });
-
-        return this.http.post(environment.projectsCommandBaseUrl, project, options);
+        return this.http.post(environment.projectsCommandBaseUrl, project);
     }
 }

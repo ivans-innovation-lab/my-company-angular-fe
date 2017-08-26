@@ -5,6 +5,9 @@
     <a routerLink="/projects" routerLinkActive="active">Projects</a>
   </nav>
 </md-toolbar>
+
 <div class="app-content">
-  <router-outlet></router-outlet>
+    <p *ngIf="isAdminUser">You are admin! <button (click)="logout()">Logout</button></p>
+    <p *ngIf="isUser">You are user! <button (click)="logout()">Logout</button></p>
+    <router-outlet></router-outlet>
 </div>

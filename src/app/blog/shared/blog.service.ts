@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Response } from '@angular/http';
 import { BlogModel } from './blog.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { AuthHttp } from 'angular2-jwt';
 
 
 @Injectable()
 export class BlogService {
 
-  constructor(private http: Http) { }
+  constructor(private http: AuthHttp) { }
 
   private extractListData(res: Response) {
     const body = res.json();
@@ -22,10 +23,7 @@ export class BlogService {
   }
 
   public getBlogPosts(): Observable<BlogModel[]> {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.get(environment.blogPostQueryBaseUrl, options)
+    return this.http.get(environment.blogPostQueryBaseUrl)
       .map(this.extractListData);
   }
 
@@ -36,9 +34,6 @@ export class BlogService {
   }
 
   public addBlogPost(post: BlogModel): Observable<any> {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.post(environment.blogPostCommandBaseUrl, post, options);
+    return this.http.post(environment.blogPostCommandBaseUrl, post);
   }
 }
