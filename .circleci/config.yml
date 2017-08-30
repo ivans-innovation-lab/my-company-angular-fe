@@ -6,28 +6,66 @@ jobs:
       - image: circleci/node:6-browsers
     steps:
       - checkout
+
       - restore_cache:
           key: my-company-angular-fe2-{{ checksum "package.json" }}
+
       - run:
           name: install-dependencies
           command: yarn install
+
       - save_cache:
           key: my-company-angular-fe2-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
             - /home/circleci/my-company/node_modules
+
+       - run:
+          name: angular-clean-dist
+          command: rm -rf dist
+
       - run:
           name: angular-build
-          command: yarn ng -- build --prod --aot --no-progress
+          command: yarn ng build --prod --aot
+
+      - run:
+          name: angular-clean-dist
+          command: |
+            cd dist
+            touch Staticfile
+
       - run:
           name: angular-test
           command: yarn test -- --single-run --no-progress
+
       - store_artifacts:
           path: test-results.xml
           prefix: tests
+
+      - persist_to_workspace:
+              root: dist/
+              paths:
+                - .
+
+  staging:
+    steps:
+      - attach_workspace:
+          at: workspace/
       - run:
-          name: angular-lint
-          command: yarn lint
+          name: Install CloudFoundry CLI
+          command: |
+            curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+            sudo dpkg -i cf-cli_amd64.deb
+            cf -v
+      - deploy:
+          name: Deploy to Staging - PWS CLoudFoundry (CF_PASSWORD variable required)
+          command: |
+            cf api https://api.run.pivotal.io
+            cf auth idugalic@gmail.com $CF_PASSWORD
+            cf target -o idugalic -s Stage
+            cd workspace
+            cf push stage-my-company-angular-fe --no-start
+            cf start stage-my-company-angular-fe
 
 notify:
   webhooks:
@@ -39,3 +77,9 @@ workflows:
   my-company-angular-fe-workflow:
     jobs:
       - build
+      - staging
+          requires:
+            - build
+           filters:
+             branches:
+               only: master
