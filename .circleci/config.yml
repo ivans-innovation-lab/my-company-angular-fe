@@ -30,7 +30,7 @@ jobs:
             mkdir ~/stage
             rm -rf dist ~/stage
             yarn ng build --stage
-            cp -R dist/* ~.stage/
+            cp -R dist/* ~/stage/
             touch ~/stage/Staticfile
 
       - run:
