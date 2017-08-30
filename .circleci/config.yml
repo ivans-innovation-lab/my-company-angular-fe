@@ -30,12 +30,18 @@ jobs:
 
       - run:
           name: angular-build
-          command: yarn ng build --stage
+          command: yarn ng build --stage --output-path=stage
+
+      - run:
+                name: angular-build
+                command: yarn ng build --prod --output-path=prod
 
       - run:
           name: angular-clean-dist
           command: |
-            cd dist
+            cd stage
+            touch Staticfile
+            cd ../prod
             touch Staticfile
 
       - store_artifacts:
@@ -43,9 +49,10 @@ jobs:
           prefix: tests
 
       - persist_to_workspace:
-              root: dist/
+              root: /home/circleci/my-company/
               paths:
-                - .
+                - stage/
+                - prod/
 
   staging:
     docker:
