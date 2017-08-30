@@ -27,20 +27,20 @@ jobs:
       - run:
           name: angular-build-stage
           command: |
-            mkdir stage
-            rm -rf dist stage
+            mkdir ~/stage
+            rm -rf dist ~/stage
             yarn ng build --stage
-            cp -R dist/* stage/
-            touch stage/Staticfile
+            cp -R dist/* ~.stage/
+            touch ~/stage/Staticfile
 
       - run:
           name: angular-build-prod
           command: |
-            mkdir prod
-            rm -rf dist prod
+            mkdir ~/prod
+            rm -rf dist ~/prod
             yarn ng build --prod
-            cp -R dist/* prod/
-            touch prod/Staticfile
+            cp -R dist/* ~/prod/
+            touch ~/prod/Staticfile
 
 
       - persist_to_workspace:
