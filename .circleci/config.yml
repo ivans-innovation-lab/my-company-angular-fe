@@ -85,12 +85,12 @@ workflows:
   version: 2
   my-company-angular-fe-workflow:
     jobs:
-       - build
-             context: org-global
-       - staging:
-             context: org-global
-             requires:
-               - build
-             filters:
-               branches:
-                 only: master
+      - build
+            context: org-global
+      - staging:
+            context: org-global
+            requires:
+              - build
+            filters:
+              branches:
+                only: master
