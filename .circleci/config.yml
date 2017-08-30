@@ -24,10 +24,6 @@ jobs:
           name: angular-test
           command: yarn test -- --single-run --no-progress
 
-      - store_artifacts:
-          path: test-results.xml
-          prefix: tests
-
       - run:
           name: angular-build-stage
           command: |
