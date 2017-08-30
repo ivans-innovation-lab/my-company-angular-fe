@@ -25,18 +25,22 @@ jobs:
           command: rm -rf dist
 
       - run:
+          name: angular-test
+          command: yarn test -- --single-run --no-progress
+
+      - run:
           name: angular-build
-          command: yarn ng build --prod --aot
+          command: yarn ng build --stage --op=dist/stage
+
+      - run:
+          name: angular-build
+          command: yarn ng build --prod --op=dist/prod
 
       - run:
           name: angular-clean-dist
           command: |
             cd dist
             touch Staticfile
-
-      - run:
-          name: angular-test
-          command: yarn test -- --single-run --no-progress
 
       - store_artifacts:
           path: test-results.xml
@@ -65,7 +69,7 @@ jobs:
             cf api https://api.run.pivotal.io
             cf auth idugalic@gmail.com $CF_PASSWORD
             cf target -o idugalic -s Stage
-            cd workspace
+            cd workspace/stage
             cf push stage-my-company-angular-fe --no-start
             cf start stage-my-company-angular-fe
 
