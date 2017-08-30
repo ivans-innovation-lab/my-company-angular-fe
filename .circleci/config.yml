@@ -79,7 +79,9 @@ workflows:
   my-company-angular-fe-workflow:
     jobs:
        - build
+           context: org-global
        - staging:
+           context: org-global
            requires:
              - build
            filters:
