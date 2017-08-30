@@ -9,6 +9,12 @@ Feel free to configure your [environments](https://github.com/ivans-innovation-l
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+You can choose `blog` or `projects` from the menu on the right. You will be prompted for credentials:
+ - username: john.doe    ; password: jwtpass  ; role: USER
+ - username: admin.admin ; password: jwtpass  ; role: ADMIN
+
+Blog and Projects require authenticated user in any role, but to create blog or project you should be in the role of ADMIN.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
