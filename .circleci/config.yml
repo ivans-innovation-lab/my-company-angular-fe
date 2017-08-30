@@ -76,10 +76,10 @@ workflows:
   version: 2
   my-company-angular-fe-workflow:
     jobs:
-      - build
-      - staging
-          requires:
-            - build
+       - build
+       - staging:
+           requires:
+             - build
            filters:
              branches:
                only: master
