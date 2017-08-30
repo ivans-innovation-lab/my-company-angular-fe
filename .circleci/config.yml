@@ -20,7 +20,7 @@ jobs:
             - ~/.cache/yarn
             - /home/circleci/my-company/node_modules
 
-       - run:
+      - run:
           name: angular-clean-dist
           command: rm -rf dist
 
