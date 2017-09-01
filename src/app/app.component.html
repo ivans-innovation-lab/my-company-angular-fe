@@ -1,6 +1,6 @@
-<md-toolbar>
+<md-toolbar color="primary">
   <h1>{{title}}</h1>
-
+  <span class="fill-remaining-space"></span>
   <button md-icon-button [md-menu-trigger-for]="menu">
       <md-icon>more_vert</md-icon>
   </button>
@@ -13,6 +13,5 @@
   <button *ngIf="isUser" class="md-warn" md-menu-item (click)="logout()">Logout user</button>
 </md-menu>
 
-<div class="app-content">
-  <router-outlet></router-outlet>
-</div>
+
+<router-outlet></router-outlet>

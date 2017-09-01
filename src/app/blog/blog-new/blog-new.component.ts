@@ -8,7 +8,7 @@ import { BlogModel } from '../shared/blog.model';
 @Component({
   selector: 'app-blog-new',
   templateUrl: './blog-new.component.html',
-  styleUrls: ['./blog-new.component.css']
+  styleUrls: ['./blog-new.component.scss']
 })
 export class BlogNewComponent implements OnInit {
 

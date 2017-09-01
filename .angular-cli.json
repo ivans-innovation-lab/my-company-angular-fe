@@ -9,8 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        "sw.js"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,10 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "deeppurple-amber.css"
+        "styles/styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/hammerjs/hammer.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -56,9 +56,9 @@
       "config": "./karma.conf.js"
     }
   },
-  "stylePreprocessorOptions": { "includePaths": [ "../node_modules" ] },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

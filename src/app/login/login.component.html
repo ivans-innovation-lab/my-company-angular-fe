@@ -1,26 +1,30 @@
-<md-card>
-  <md-card-title>Login</md-card-title>
-
-  <md-card-content>
-
-    <div class="form-wrapper">
-      <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-          <md-input-container floatingPlaceholder=true style="width: 100%">
-            <input mdInput name="username" [(ngModel)]="model.username" #username="ngModel" required placeholder="admin.admin" />
-          </md-input-container>
-          <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-          <md-input-container floatingPlaceholder=true style="width: 100%">
-            <input mdInput type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="jwtpass"/>
-          </md-input-container>
-          <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-        </div>
-        <div class="form-group">
-          <button [disabled]="loading" md-raised-button color="primary" type="submit">Sign In</button>
-        </div>
-        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-      </form>
-    </div>
-  </md-card-content>
+<section>
+  <header>
+    <h3 class="primary-color">Login</h3>
+  </header>
+  <article>
+    <md-card>
+      <md-card-content class="text-center">
+        <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <md-input-container fxFlexFill>
+              <input mdInput name="username" [(ngModel)]="model.username" #username="ngModel" required placeholder="admin.admin" />
+            </md-input-container>
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <md-input-container fxFlexFill>
+              <input mdInput type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="jwtpass"
+              />
+            </md-input-container>
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+          <div class="form-group">
+            <button [disabled]="loading" md-raised-button color="primary" type="submit">Sign In</button>
+          </div>
+          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        </form>
+      </md-card-content>
+    </md-card>
+  </article>
+</section>
