@@ -35,4 +35,8 @@ export class UserService {
     isUser(): boolean {
         return this.accessToken && !this.isAdmin;
     }
+
+    isAuthenticated(): boolean {
+        return this.accessToken && true;
+    }
 }

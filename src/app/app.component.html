@@ -1,17 +1,46 @@
-<md-toolbar color="primary">
-  <h1>{{title}}</h1>
-  <span class="fill-remaining-space"></span>
-  <button md-icon-button [md-menu-trigger-for]="menu">
-      <md-icon>more_vert</md-icon>
-  </button>
+<md-sidenav-container>
+  <md-sidenav #sidenav class="sidenav">
 
-</md-toolbar>
-<md-menu x-position="before" #menu="mdMenu">
-  <button md-menu-item [routerLink]="['/blog']">Blog</button>
-  <button md-menu-item [routerLink]="['/projects']">Projects</button>
-  <button *ngIf="isAdminUser" class="md-warn" md-menu-item (click)="logout()">Logout admin</button>
-  <button *ngIf="isUser" class="md-warn" md-menu-item (click)="logout()">Logout user</button>
-</md-menu>
-
-
-<router-outlet></router-outlet>
+    <md-nav-list>
+      <a *ngIf="isAuthenticated" md-list-item (click)="logout()">
+        <md-icon md-list-icon>face</md-icon>
+        <span md-line>Logout</span>
+        <span *ngIf="isAdminUser" md-line class="secondary">admin</span>
+        <span *ngIf="isUser" md-line class="secondary">user</span>
+      </a>
+      <md-divider *ngIf="isAuthenticated"></md-divider>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['/']">
+        <md-icon md-list-icon>Home</md-icon>
+        <span md-line>Home</span>
+        <span md-line class="secondary"></span>
+      </a>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['/blog']">
+        <md-icon md-list-icon>comments</md-icon>
+        <span md-line>Blog</span>
+        <span md-line class="secondary"></span>
+      </a>
+      <a md-list-item (click)="sidenav.close()" [routerLink]="['/projects']">
+        <md-icon md-list-icon>list</md-icon>
+        <span md-line>Projects</span>
+        <span md-line class="secondary"></span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+  <div class="demo-sidenav-content">
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="sidenav.open()">
+          <md-icon>menu</md-icon>
+      </button>
+      <span>{{title}}</span>
+      <span class="fill-remaining-space"></span>
+      <md-nav-list>
+          <a md-list-item href="https://github.com/ivans-innovation-lab/my-company-angular-fe">
+            <md-icon md-list-icon>code</md-icon>
+            <span md-line>Source code</span>
+          </a>
+      </md-nav-list>
+      
+    </md-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>

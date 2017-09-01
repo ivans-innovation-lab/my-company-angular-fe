@@ -25,4 +25,8 @@ export class AppComponent {
   get isUser() {
     return this.userService.isUser();
   }
+
+  get isAuthenticated() {
+    return this.userService.isAuthenticated();
+  }
 }
