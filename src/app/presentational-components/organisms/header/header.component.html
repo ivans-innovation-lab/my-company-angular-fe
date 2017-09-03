@@ -1,0 +1,13 @@
+<md-toolbar color="primary">
+  
+  <ng-content></ng-content>
+  
+  <span>{{title}}</span>
+  <span class="fill-remaining-space"></span>
+  <md-nav-list>
+      <a md-list-item href="{{sourceCodeUrl}}">
+        <md-icon md-list-icon>code</md-icon>
+        <span md-line>Source code</span>
+      </a>
+  </md-nav-list>
+</md-toolbar>

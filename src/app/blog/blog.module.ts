@@ -10,12 +10,18 @@ import { BlogService } from './shared/blog.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrganismsModule } from '../presentational-components/organisms/organisms.module';
+import { MoleculesModule } from '../presentational-components/molecules/molecules.module';
+import { AtomsModule } from '../presentational-components/atoms/atoms.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     BlogRoutingModule,
+    OrganismsModule,
+    MoleculesModule,
+    AtomsModule,
     ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule
