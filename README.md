@@ -3,7 +3,41 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
 
 It is a Front-end Angular 4 application and it requires my-company restfull API. Please run the [backend application](https://github.com/ivans-innovation-lab/my-company-monolith) first.
-Feel free to configure your [environments](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/environments).
+
+## Feature Components vs Presentational Components
+
+Feature and Presentation Component Design pattern has been called many things such as:
+
+ - Container Components vs Presentational Components
+ - Smart/Dumb Components
+ - Stateful/Stateless Components
+ 
+### Feature components
+
+A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are sill very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the `projects.component` is our Feature Component and **it is composed of many Presentation components**.
+
+### Presentational components
+
+**Presentation Components behave like pure functions** taking in the data via @Input and emitting data via @Output (or some global event bus). This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a `side-item.component` takes in a @Input of a product to display. This allows the `side-item.component` component to have the only responsibility of rendering a the item when the data is passed to it.
+
+There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`projects-list.component`, `projects-detail.component`, `projects-new.component`) can help elevate this.
+
+Many if not **most Presentation Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s fantastic book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+
+## Progressive Web Application (Work In Progress)
+
+PWAs leverage Transport Layer Security (TLS), webapp manifests, and service workers to make an application installable with offline capabilities. In other words, a PWA is like a native app on your phone, but it’s built with web technologies like HTML5, JavaScript, and CSS3. If built right, a PWA is indistinguishable from a native application.
+
+I like the simple list that Alex Russell lists on [What, Exactly, Makes Something A Progressive Web App?](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/).
+
+ - Originate from a Secure Origin. Served over TLS and green padlock displays (no active mixed content).
+ - Load while offline (even if only a custom offline page). By implication, this means that Progressive Web Apps require Service Workers.
+ - Reference a Web App Manifest with at least the following properties:
+   - name
+   - short_name
+   - start_url
+   - display with a value of standalone or fullscreen. 
+   - An icon at least 144×144 large in png format. E.g.: "icons": [ { "src": "/images/icon-144.png", "sizes": "144x144", "type": "image/png" } ]
 
 ## Development server
 
@@ -31,21 +65,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
-
-## Progressive Web Application (Work In Progress)
-
-PWAs leverage Transport Layer Security (TLS), webapp manifests, and service workers to make an application installable with offline capabilities. In other words, a PWA is like a native app on your phone, but it’s built with web technologies like HTML5, JavaScript, and CSS3. If built right, a PWA is indistinguishable from a native application.
-
-I like the simple list that Alex Russell lists on [What, Exactly, Makes Something A Progressive Web App?](https://infrequently.org/2016/09/what-exactly-makes-something-a-progressive-web-app/).
-
- - Originate from a Secure Origin. Served over TLS and green padlock displays (no active mixed content).
- - Load while offline (even if only a custom offline page). By implication, this means that Progressive Web Apps require Service Workers.
- - Reference a Web App Manifest with at least the following properties:
-   - name
-   - short_name
-   - start_url
-   - display with a value of standalone or fullscreen. 
-   - An icon at least 144×144 large in png format. E.g.: "icons": [ { "src": "/images/icon-144.png", "sizes": "144x144", "type": "image/png" } ]
 
 ## Further help
 
