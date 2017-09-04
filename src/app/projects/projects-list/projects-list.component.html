@@ -1,28 +1,40 @@
-<md-card >
-  <md-card-content>
-    <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Repo URL</th>
-        <th>Site URL</th>
-        <th>Description</th>
-        <th>Category</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let project of projects">
-        <td><a [routerLink]="[project.id]">{{ project.name }}</a></td>
-        <td>{{project.repoUrl}}</td>
-        <td>{{project.siteUrl}}</td>
-        <td>{{project.description}}</td>
-        <td>{{project.category}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button [routerLink]="'action/new'">Create New Project</button>
-  </md-card-actions>
-</md-card>
+<app-main-list>
+  <md-table #table [dataSource]="dataSource">
+    <ng-container mdColumnDef="id">
+      <md-header-cell *mdHeaderCellDef> Id </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="name">
+      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <md-cell *mdCellDef="let element"> <a [routerLink]="[element.id]">{{ element.name }}</a> </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="repoUrl">
+      <md-header-cell *mdHeaderCellDef> Repo URL </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.repoUrl}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="siteUrl">
+      <md-header-cell *mdHeaderCellDef> Site URL </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.siteUrl}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="description">
+      <md-header-cell *mdHeaderCellDef> Description </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.description}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="category">
+      <md-header-cell *mdHeaderCellDef> Category </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.category}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+
+  <button md-button [routerLink]="'action/new'">Create New Project</button>
+</app-main-list>
+
 <router-outlet></router-outlet>

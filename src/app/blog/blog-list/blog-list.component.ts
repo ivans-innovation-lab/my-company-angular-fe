@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../shared/blog.service';
 import { BlogModel } from '../shared/blog.model';
 import { EventManager } from '../../shared/event-manager.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-blog-list',
@@ -10,23 +12,41 @@ import { EventManager } from '../../shared/event-manager.service';
 })
 export class BlogListComponent implements OnInit {
 
+  dataSource: BlogDataSource;
+  displayedColumns = ['id', 'title', 'renderContent', 'publishAt', 'category'];
   blogPosts: BlogModel[];
-  errorMessage: string;
 
-  constructor(private blogService: BlogService, private eventManager: EventManager) { }
+  constructor(private blogService: BlogService, private eventManager: EventManager) {
+    this.dataSource = new BlogDataSource(blogService);
+  }
 
   ngOnInit(): void {
     this.getBlogPosts();
     this.registerChange();
   }
 
-  registerChange() {
-      this.eventManager.subscribe('blogPostListModification', (response) => this.getBlogPosts());
+  private registerChange() {
+    this.eventManager.subscribe('blogPostListModification', (response) => this.getBlogPosts());
   }
 
-  getBlogPosts(): void {
-    this.blogService.getBlogPosts().subscribe(
-                                      blogPosts => this.blogPosts = blogPosts,
-                                      error =>  this.errorMessage = <any>error);
+  private getBlogPosts(): void {
+    this.dataSource.disconnect();
+    this.dataSource = new BlogDataSource(this.blogService);
   }
+}
+
+export class BlogDataSource extends DataSource<any> {
+
+  projects: BlogModel[];
+
+  constructor(private blogService: BlogService) {
+    super();
+  }
+
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<BlogModel[]> {
+    return this.blogService.getBlogPosts();
+  }
+
+  disconnect() { }
 }

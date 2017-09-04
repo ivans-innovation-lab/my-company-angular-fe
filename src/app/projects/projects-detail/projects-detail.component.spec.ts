@@ -14,6 +14,9 @@ import { AuthGuard } from '../../shared/guards/auth-guard.service';
 import { AdminAuthGuard } from '../../shared/guards/admin-auth-guard.service';
 import { AuthHttp } from 'angular2-jwt';
 import { authHttpServiceFactory } from '../../app.module';
+import { OrganismsModule } from '../../presentational-components/organisms/organisms.module';
+import { MoleculesModule } from '../../presentational-components/molecules/molecules.module';
+import { AtomsModule } from '../../presentational-components/atoms/atoms.module';
 
 
 describe('ProjectsDetailComponent', () => {
@@ -43,7 +46,7 @@ describe('ProjectsDetailComponent', () => {
           deps: [Http, RequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule, MaterialModule]
+      imports: [RouterTestingModule, HttpModule, MaterialModule, OrganismsModule, MoleculesModule, AtomsModule]
     })
       .compileComponents();
   }));

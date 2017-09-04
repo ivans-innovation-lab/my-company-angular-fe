@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../shared/projects.service';
 import { ProjectModel } from '../shared/project.model';
 import { EventManager } from '../../shared/event-manager.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-projects-list',
@@ -10,24 +12,40 @@ import { EventManager } from '../../shared/event-manager.service';
 })
 export class ProjectsListComponent implements OnInit {
 
-  projects: ProjectModel[];
-  errorMessage: string;
+  dataSource: ProjectsDataSource;
+  displayedColumns = ['id', 'name', 'repoUrl', 'siteUrl', 'description', 'category'];
 
-  constructor(private projectsService: ProjectsService, private eventManager: EventManager) { }
+  constructor(private projectsService: ProjectsService, private eventManager: EventManager) {
+    this.dataSource = new ProjectsDataSource(projectsService);
+   }
 
   ngOnInit(): void {
-    this.getProjects();
     this.registerChange();
   }
 
-  registerChange() {
+  private registerChange() {
     this.eventManager.subscribe('projectListModification', (response) => this.getProjects());
   }
 
   private getProjects(): void {
-    this.projectsService.getProjects().subscribe(
-      projects => this.projects = projects,
-      error => this.errorMessage = <any>error);
+    this.dataSource.disconnect();
+    this.dataSource = new ProjectsDataSource(this.projectsService);
   }
 
+}
+
+export class ProjectsDataSource extends DataSource<any> {
+
+  projects: ProjectModel[];
+
+  constructor(private projectsService: ProjectsService) {
+    super();
+  }
+
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<ProjectModel[]> {
+    return this.projectsService.getProjects();
+  }
+
+  disconnect() { }
 }
