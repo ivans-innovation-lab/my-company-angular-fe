@@ -1,8 +1,6 @@
 # My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.
-
-It is a Front-end Angular 4 application and it requires my-company restfull API. Please run the [backend application](https://github.com/ivans-innovation-lab/my-company-monolith) first.
+This application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4. It is a client for a [backend - restfull API](https://github.com/ivans-innovation-lab/my-company-monolith). 
 
 ## Feature Components vs Presentational Components
 
@@ -38,6 +36,12 @@ I like the simple list that Alex Russell lists on [What, Exactly, Makes Somethin
    - start_url
    - display with a value of standalone or fullscreen. 
    - An icon at least 144×144 large in png format. E.g.: "icons": [ { "src": "/images/icon-144.png", "sizes": "144x144", "type": "image/png" } ]
+
+## Backend - API
+
+This application requires 'my-company' restfull API. 
+
+Please run the [backend application](https://github.com/ivans-innovation-lab/my-company-monolith) first.
 
 ## Development server
 
