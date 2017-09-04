@@ -2,10 +2,10 @@
  
   <md-sidenav #sidenav class="sidenav">
     <app-side-menu>
-      <app-side-item *ngIf="isAuthenticated" primaryTitle="Logout" routerLinkUrl="/" icon="face" (click)="logout(); sidenav.close()"></app-side-item> 
-      <app-side-item primaryTitle="Home" routerLinkUrl="/" icon="Home" (click)="sidenav.close()"></app-side-item>
-      <app-side-item primaryTitle="Blog" routerLinkUrl="/blog" icon="comments" (click)="sidenav.close()"></app-side-item>
-      <app-side-item primaryTitle="Projects" routerLinkUrl="/projects" icon="list" (click)="sidenav.close()"></app-side-item>
+      <app-side-menu-item *ngIf="isAuthenticated" primaryTitle="Logout" routerLinkUrl="/" icon="face" (click)="logout(); sidenav.close()"></app-side-menu-item> 
+      <app-side-menu-item primaryTitle="Home" routerLinkUrl="/" icon="Home" (click)="sidenav.close()"></app-side-menu-item>
+      <app-side-menu-item primaryTitle="Blog" routerLinkUrl="/blog" icon="comments" (click)="sidenav.close()"></app-side-menu-item>
+      <app-side-menu-item primaryTitle="Projects" routerLinkUrl="/projects" icon="list" (click)="sidenav.close()"></app-side-menu-item>
     </app-side-menu>
   </md-sidenav>
 

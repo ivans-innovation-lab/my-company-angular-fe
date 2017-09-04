@@ -12,15 +12,14 @@ import { AuthHttp } from 'angular2-jwt';
 import { authHttpServiceFactory } from './app.module';
 import { Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OrganismsModule } from './presentational-components/organisms/organisms.module';
-import { MoleculesModule } from './presentational-components/molecules/molecules.module';
-import { AtomsModule } from './presentational-components/atoms/atoms.module';
+import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule, MaterialModule, BrowserAnimationsModule, OrganismsModule, MoleculesModule, AtomsModule
+        RouterTestingModule, MaterialModule, BrowserAnimationsModule, PresentationalComponentsModule
       ],
       declarations: [
         AppComponent

@@ -18,9 +18,7 @@ import { AuthenticationService } from './shared/authentication.service';
 import { AuthGuard } from './shared/guards/auth-guard.service';
 import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
 import { HomeComponent } from './home/home.component';
-import { OrganismsModule } from './presentational-components/organisms/organisms.module';
-import { AtomsModule } from './presentational-components/atoms/atoms.module';
-import { MoleculesModule } from './presentational-components/molecules/molecules.module';
+import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
 
 
 export function authHttpServiceFactory(http: Http) {
@@ -46,9 +44,7 @@ export function authHttpServiceFactory(http: Http) {
     HttpModule,
     BlogModule,
     ProjectsModule,
-    OrganismsModule,
-    MoleculesModule,
-    AtomsModule,
+    PresentationalComponentsModule,
     MaterialModule,
     BrowserAnimationsModule,
     BrowserModule,

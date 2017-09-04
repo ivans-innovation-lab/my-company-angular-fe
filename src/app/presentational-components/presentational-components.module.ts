@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { MainListComponent } from './main-list/main-list.component';
 import { MainDetailComponent } from './main-detail/main-detail.component';
+import { SideMenuItemComponent } from './side-menu-item/side-menu-item.component';
+
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { MainDetailComponent } from './main-detail/main-detail.component';
     RouterModule,
     BrowserAnimationsModule
   ],
-  declarations: [SideMenuComponent, FooterComponent, HeaderComponent, MainComponent, MainListComponent, MainDetailComponent],
-  exports: [SideMenuComponent, FooterComponent, HeaderComponent, MainComponent, MainListComponent, MainDetailComponent]
+  declarations: [SideMenuComponent, FooterComponent, HeaderComponent, MainComponent, MainListComponent, MainDetailComponent,
+     SideMenuItemComponent],
+  exports: [SideMenuComponent, FooterComponent, HeaderComponent, MainComponent, MainListComponent, MainDetailComponent, 
+     SideMenuItemComponent]
 })
-export class OrganismsModule { }
+export class PresentationalComponentsModule { }

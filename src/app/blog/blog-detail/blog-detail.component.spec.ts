@@ -14,9 +14,7 @@ import { AuthGuard } from '../../shared/guards/auth-guard.service';
 import { AdminAuthGuard } from '../../shared/guards/admin-auth-guard.service';
 import { AuthHttp } from 'angular2-jwt';
 import { authHttpServiceFactory } from '../../app.module';
-import { AtomsModule } from '../../presentational-components/atoms/atoms.module';
-import { MoleculesModule } from '../../presentational-components/molecules/molecules.module';
-import { OrganismsModule } from '../../presentational-components/organisms/organisms.module';
+import { PresentationalComponentsModule } from '../../presentational-components/presentational-components.module';
 
 describe('BlogDetailComponent', () => {
   let component: BlogDetailComponent;
@@ -45,7 +43,7 @@ describe('BlogDetailComponent', () => {
           deps: [Http, RequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule, MaterialModule, OrganismsModule, MoleculesModule, AtomsModule]
+      imports: [RouterTestingModule, HttpModule, MaterialModule, PresentationalComponentsModule]
     })
     .compileComponents();
   }));

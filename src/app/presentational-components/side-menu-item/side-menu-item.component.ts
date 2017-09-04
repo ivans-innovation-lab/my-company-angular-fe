@@ -8,11 +8,11 @@ import {
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-side-item',
-  templateUrl: './side-item.component.html',
-  styleUrls: ['./side-item.component.scss']
+  selector: 'app-side-menu-item',
+  templateUrl: './side-menu-item.component.html',
+  styleUrls: ['./side-menu-item.component.scss']
 })
-export class SideItemComponent implements OnInit {
+export class SideMenuItemComponent implements OnInit {
 
   @Input() primaryTitle: string;
   @Input() secondaryTitle: string;
