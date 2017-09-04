@@ -81,9 +81,9 @@ workflows:
   my-company-angular-fe-workflow:
     jobs:
        - build
-       - staging:
-           requires:
-             - build
-           filters:
-             branches:
-               only: master
+      #  - staging:
+      #      requires:
+      #        - build
+      #      filters:
+      #        branches:
+      #          only: master
