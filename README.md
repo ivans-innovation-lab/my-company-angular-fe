@@ -1,6 +1,8 @@
 # My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4. It is a client for a [backend - restfull API](https://github.com/ivans-innovation-lab/my-company-monolith). 
+This is an example application. The idea is to practice atomic design methodology with the help of Angular 4 framework.
+
+This application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
 
 ## Feature Components vs Presentational Components
 
@@ -22,11 +24,13 @@ Many if not **most Presentation Components can be abstracted into a style guide 
 
 There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since presentation component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`blog-list.component`, `blog-detail.component`, `blog-new.component`) can help elevate this. The communication between feature components is event driven, and enables loose coupling. For example a `blog-new.component` will trigger an event on successfull creation of a blog post, and `blog-list.component` is subscribed to it so it can re-fetch  and refresh a list of blog posts.
 
-#### Home example
+Let's place components into a layout and articulate the design’s underlying content structure:
+
+#### Home 'template'
 
 ![My Company - Home](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Home.png)
 
-#### Blog post detail example
+#### Blog post detail 'template'
 
 ![My Company - Blog](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Blog.png)
 
