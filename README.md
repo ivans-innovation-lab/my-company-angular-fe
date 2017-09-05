@@ -12,15 +12,23 @@ Feature and Presentation Component Design pattern has been called many things su
  
 ### Feature components
 
-A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are sill very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the `projects.component` is our Feature Component and **it is composed of many Presentation components**.
+A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are sill very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the `blog.component` is our Feature Component and **it is composed of many Presentation components**.
 
 ### Presentational components
 
 **Presentation Components behave like pure functions** taking in the data via @Input and emitting data via @Output (or some global event bus). This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a `side-item.component` takes in a @Input of a product to display. This allows the `side-item.component` component to have the only responsibility of rendering a the item when the data is passed to it.
 
-There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`projects-list.component`, `projects-detail.component`, `projects-new.component`) can help elevate this.
+There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`blog-list.component`, `blog-detail.component`, `blog-new.component`) can help elevate this.
 
 Many if not **most Presentation Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s fantastic book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+
+#### Home
+
+![My Company - Home](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Home.png)
+
+#### Blog post detail example
+
+![My Company - Blog](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Blog.png)
 
 ## Progressive Web Application (Work In Progress)
 
