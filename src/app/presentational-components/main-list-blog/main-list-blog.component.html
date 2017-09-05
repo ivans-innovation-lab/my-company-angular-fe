@@ -1,0 +1,33 @@
+<app-main-list>
+    <md-table #table [dataSource]="dataSource">
+      <ng-container mdColumnDef="id">
+        <md-header-cell *mdHeaderCellDef> Id </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+      </ng-container>
+  
+      <ng-container mdColumnDef="title">
+        <md-header-cell *mdHeaderCellDef> Title </md-header-cell>
+        <md-cell *mdCellDef="let element"> <a [routerLink]="[element.id]">{{ element.title }}</a> </md-cell>
+      </ng-container>
+  
+      <ng-container mdColumnDef="renderContent">
+        <md-header-cell *mdHeaderCellDef> Content </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.renderContent}} </md-cell>
+      </ng-container>
+  
+      <ng-container mdColumnDef="publishAt">
+        <md-header-cell *mdHeaderCellDef> Publish at </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.publishAt}} </md-cell>
+      </ng-container>
+  
+      <ng-container mdColumnDef="category">
+        <md-header-cell *mdHeaderCellDef> Category </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.category}} </md-cell>
+      </ng-container>
+  
+      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+  
+    <button md-button [routerLink]="'action/new'">Create New Post</button>
+  </app-main-list>

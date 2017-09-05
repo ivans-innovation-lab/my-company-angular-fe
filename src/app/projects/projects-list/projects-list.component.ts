@@ -13,7 +13,6 @@ import { Observable } from 'rxjs/Observable';
 export class ProjectsListComponent implements OnInit {
 
   dataSource: ProjectsDataSource;
-  displayedColumns = ['id', 'name', 'repoUrl', 'siteUrl', 'description', 'category'];
 
   constructor(private projectsService: ProjectsService, private eventManager: EventManager) {
     this.dataSource = new ProjectsDataSource(projectsService);

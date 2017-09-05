@@ -13,9 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class BlogListComponent implements OnInit {
 
   dataSource: BlogDataSource;
-  displayedColumns = ['id', 'title', 'renderContent', 'publishAt', 'category'];
   blogPosts: BlogModel[];
-
   constructor(private blogService: BlogService, private eventManager: EventManager) {
     this.dataSource = new BlogDataSource(blogService);
   }
@@ -42,8 +40,7 @@ export class BlogDataSource extends DataSource<any> {
   constructor(private blogService: BlogService) {
     super();
   }
-
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  
   connect(): Observable<BlogModel[]> {
     return this.blogService.getBlogPosts();
   }

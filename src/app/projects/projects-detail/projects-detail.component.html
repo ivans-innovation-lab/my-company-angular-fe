@@ -1,24 +1,2 @@
-<app-main-detail title="Project detail">
-  <md-list class="app-list" *ngIf="project">
-    <md-list-item>
-      <h3 md-line>Name</h3>
-      <p md-line>{{project.name}}</p>
-    </md-list-item>
-    <md-list-item>
-      <h3 md-line>Repo URL</h3>
-      <p md-line>{{project.repoUrl}}</p>
-    </md-list-item>
-    <md-list-item>
-      <h3 md-line>Site URL</h3>
-      <p md-line>{{project.siteUrl}}</p>
-    </md-list-item>
-    <md-list-item>
-      <h3 md-line>Description</h3>
-      <p md-line>{{project.description}}</p>
-    </md-list-item>
-    <md-list-item>
-      <h3 md-line>Category</h3>
-      <p md-line>{{project.category}}</p>
-    </md-list-item>
-  </md-list>
-</app-main-detail>
+<app-main-detail-project [project]="project">
+</app-main-detail-project>
