@@ -55,7 +55,7 @@ Please run the [backend application](https://github.com/ivans-innovation-lab/my-
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-You can choose `blog` or `projects` from the menu on the right. You will be prompted for credentials:
+You can choose `blog` or `projects` from the menu on the left. You will be prompted for credentials:
  - username: john.doe    ; password: jwtpass  ; role: USER
  - username: admin.admin ; password: jwtpass  ; role: ADMIN
 
