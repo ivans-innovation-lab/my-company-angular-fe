@@ -18,9 +18,9 @@ A **Feature component** is a top level component that contains all other compone
 
 **Presentation Components behave like pure functions** taking in the data via @Input and emitting data via @Output (or some global event bus). This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a `side-item.component` takes in a @Input of a product to display. This allows the `side-item.component` component to have the only responsibility of rendering a the item when the data is passed to it.
 
-There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`blog-list.component`, `blog-detail.component`, `blog-new.component`) can help elevate this.
-
 Many if not **most Presentation Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s fantastic book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+
+There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since presentation component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`blog-list.component`, `blog-detail.component`, `blog-new.component`) can help elevate this. The communication between feature components is event driven, and enables loose coupling. For example a `blog-new.component` will trigger an event on successfull creation of a blog post, and `blog-list.component` is subscribed to it so it can re-fetch  and refresh a list of blog posts.
 
 #### Home example
 
