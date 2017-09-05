@@ -22,7 +22,7 @@ There are downsides to this though. As the feature grows in complexity we may ha
 
 Many if not **most Presentation Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s fantastic book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
 
-#### Home
+#### Home example
 
 ![My Company - Home](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Home.png)
 
