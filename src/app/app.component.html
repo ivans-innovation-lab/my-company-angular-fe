@@ -2,8 +2,8 @@
  
   <md-sidenav #sidenav class="sidenav">
     <app-side-menu>
-      <app-side-menu-item *ngIf="isAuthenticated" primaryTitle="Logout" routerLinkUrl="/" icon="face" (click)="logout(); sidenav.close()"></app-side-menu-item> 
-      <app-side-menu-item primaryTitle="Home" routerLinkUrl="/" icon="Home" (click)="sidenav.close()"></app-side-menu-item>
+      <app-side-menu-item *ngIf="isAuthenticated" primaryTitle="Logout" routerLinkUrl="/" icon="account_box" (click)="logout(); sidenav.close()"></app-side-menu-item> 
+      <app-side-menu-item primaryTitle="Home" routerLinkUrl="/" icon="home" (click)="sidenav.close()"></app-side-menu-item>
       <app-side-menu-item primaryTitle="Blog" routerLinkUrl="/blog" icon="comments" (click)="sidenav.close()"></app-side-menu-item>
       <app-side-menu-item primaryTitle="Projects" routerLinkUrl="/projects" icon="list" (click)="sidenav.close()"></app-side-menu-item>
     </app-side-menu>

@@ -1,8 +1,11 @@
-<section>
-  <header>
-    <h5 class="primary-color">{{title}}</h5>
-  </header>
-  <article>
-    <ng-content></ng-content>
-  </article>
-</section>
+<main>
+  <md-card>
+    <md-card-title>{{title}}</md-card-title>
+    <md-card-subtitle>
+      <p>{{subTitle}}</p>
+    </md-card-subtitle>
+    <md-card-content>
+      <ng-content></ng-content>
+    </md-card-content>
+  </md-card>
+</main>

@@ -28,6 +28,6 @@
       <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
       <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
     </md-table>
-  
-    <button md-button [routerLink]="'action/new'">Create New Post</button>
+    
+    <button color="primary" md-raised-button [routerLink]="'action/new'">Create New Post</button>
   </app-main-list>
