@@ -1,28 +1,28 @@
 <app-main-detail title="Blog detail">
-    <md-list class="app-list" *ngIf="blogPost">
-      <md-list-item>
-        <h3 md-line>Title</h3>
-        <p md-line>{{blogPost.title}}</p>
-      </md-list-item>
-      <md-list-item>
-        <h3 md-line>Publish at</h3>
-        <p md-line>{{blogPost.publishAt | date}}</p>
-      </md-list-item>
-      <md-list-item>
-        <h3 md-line>Category</h3>
-        <p md-line>{{blogPost.category}}</p>
-      </md-list-item>
-      <md-list-item>
-        <h3 md-line>Slug</h3>
-        <p md-line>{{blogPost.publicSlug}}</p>
-      </md-list-item>
-      <md-list-item>
-        <h3 md-line>Draft</h3>
-        <p md-line>{{blogPost.draft}}</p>
-      </md-list-item>
-      <md-list-item>
-        <h3 md-line>Content</h3>
-        <p md-line>{{blogPost.renderContent}}</p>
-      </md-list-item>
-    </md-list>
-  </app-main-detail>
+  <md-tab-group>
+    <md-tab label="Properties">
+      <md-list class="app-list" *ngIf="blogPost">
+        <md-list-item>
+          Title: {{blogPost.title}}
+        </md-list-item>
+        <md-list-item>
+          Published at: {{blogPost.publishAt | date}}
+        </md-list-item>
+        <md-list-item>
+          Category: {{blogPost.category}}
+        </md-list-item>
+        <md-list-item>
+          Slug: {{blogPost.publicSlug}}
+        </md-list-item>
+        <md-list-item>
+          Draft: {{blogPost.draft}}
+        </md-list-item>
+        <md-list-item>
+          Content: {{blogPost.renderContent}}
+        </md-list-item>
+      </md-list>
+    </md-tab>
+    <md-tab label="Actions">
+    </md-tab>
+  </md-tab-group>
+</app-main-detail>
