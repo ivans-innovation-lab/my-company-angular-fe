@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
-  blogPostQueryBaseUrl: 'https://stage-my-company-monolith.cfapps.io//api/blogposts',
-  blogPostCommandBaseUrl: 'https://stage-my-company-monolith.cfapps.io//api/blogpostcommands',
-  projectsQueryBaseUrl: 'https://stage-my-company-monolith.cfapps.io/api/projects',
-  projectsCommandBaseUrl: 'https://stage-my-company-monolith.cfapps.io//api/projectcommands',
-  authTokenUrl: 'https://stage-my-company-monolith.cfapps.io//oauth/token'
+  blogPostQueryBaseUrl: 'http://localhost:8080/api/blogposts',
+  blogPostCommandBaseUrl: 'http://localhost:8080/api/blogpostcommands',
+  projectsQueryBaseUrl: 'http://localhost:8080/api/projects',
+  projectsCommandBaseUrl: 'http://localhost:8080/api/projectcommands',
+  authTokenUrl: 'http://localhost:8080/oauth/token'
 };

@@ -89,3 +89,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - https://coryrylan.com/blog/angular-design-patterns-feature-and-presentation-components
  - http://bradfrost.com/blog/post/atomic-web-design/
  - https://angular.io/guide/quickstart
+ - https://medium.com/@amcdnl/service-worker-pwas-with-the-angular-cli-98a8f16d62d6

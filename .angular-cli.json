@@ -29,7 +29,8 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
         "stage": "environments/environment.stage.ts"
-      }
+      },
+      "serviceWorker": true
     }
   ],
   "e2e": {
