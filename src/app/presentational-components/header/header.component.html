@@ -1,7 +1,9 @@
 <header>
   <md-toolbar color="primary">
 
-    <ng-content></ng-content>
+     <button md-icon-button (click)="openSideNav()">
+      <md-icon>menu</md-icon>
+    </button>
 
     <span>{{title}}</span>
     <span class="fill-remaining-space"></span>

@@ -18,10 +18,13 @@ export class SideMenuItemComponent implements OnInit {
   @Input() secondaryTitle: string;
   @Input() icon: string;
   @Input() routerLinkUrl: string;
-
+  @Input() nav;
   constructor() { }
 
   ngOnInit() {
   }
 
+  closeSideNav() {
+    this.nav.close();
+  }
 }

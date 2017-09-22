@@ -9,10 +9,14 @@ export class HeaderComponent implements OnInit {
 
   @Input() title: string;
   @Input() sourceCodeUrl: string;
-
+  @Input() nav;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openSideNav() {
+    this.nav.open();
   }
 
 }

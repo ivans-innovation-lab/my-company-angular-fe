@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,7 +9,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
-  constructor() { }
+  @Input() nav;
+  @Input() authenticated;
+  constructor(private router: Router, private userService: UserService) {
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
+  }
 
   ngOnInit() {
   }

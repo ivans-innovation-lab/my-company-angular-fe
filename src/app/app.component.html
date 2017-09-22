@@ -1,19 +1,10 @@
 <md-sidenav-container>
- 
-  <md-sidenav #sidenav class="sidenav">
-    <app-side-menu>
-      <app-side-menu-item *ngIf="isAuthenticated" primaryTitle="Logout" routerLinkUrl="/" icon="account_box" (click)="logout(); sidenav.close()"></app-side-menu-item> 
-      <app-side-menu-item primaryTitle="Home" routerLinkUrl="/" icon="home" (click)="sidenav.close()"></app-side-menu-item>
-      <app-side-menu-item primaryTitle="Blog" routerLinkUrl="/blog" icon="comments" (click)="sidenav.close()"></app-side-menu-item>
-      <app-side-menu-item primaryTitle="Projects" routerLinkUrl="/projects" icon="list" (click)="sidenav.close()"></app-side-menu-item>
-    </app-side-menu>
+
+  <md-sidenav #mySidenav class="sidenav">
+    <app-side-menu [nav]="mySidenav" [authenticated]="isAuthenticated"></app-side-menu>
   </md-sidenav>
 
-  <app-header title="{{title}}" sourceCodeUrl="https://github.com/ivans-innovation-lab/my-company-angular-fe">
-    <button md-icon-button (click)="sidenav.open()">
-      <md-icon>menu</md-icon>
-    </button>
-  </app-header>
+  <app-header [title]="title" [nav]="mySidenav" sourceCodeUrl="https://github.com/ivans-innovation-lab/my-company-angular-fe"></app-header>
 
   <router-outlet></router-outlet>
 
