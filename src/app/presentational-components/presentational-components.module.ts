@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -14,6 +13,7 @@ import { MainDetailProjectComponent } from './main-detail-project/main-detail-pr
 import { MainDetailBlogComponent } from './main-detail-blog/main-detail-blog.component';
 import { MainListBlogComponent } from './main-list-blog/main-list-blog.component';
 import { MainListProjectsComponent } from './main-list-projects/main-list-projects.component';
+import { MaterialModule } from '@angular/material';
 
 
 @NgModule({

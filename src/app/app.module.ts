@@ -7,7 +7,6 @@ import { BlogModule } from './blog/blog.module';
 import { ProjectsModule } from './projects/projects.module';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { EventManager } from './shared/event-manager.service';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TOKEN_NAME } from './shared/auth.constant';
@@ -19,6 +18,7 @@ import { AuthGuard } from './shared/guards/auth-guard.service';
 import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
+import { MaterialModule } from '@angular/material';
 
 
 export function authHttpServiceFactory(http: Http) {
@@ -45,9 +45,9 @@ export function authHttpServiceFactory(http: Http) {
     BlogModule,
     ProjectsModule,
     PresentationalComponentsModule,
-    MaterialModule,
     BrowserAnimationsModule,
     BrowserModule,
+    MaterialModule,
     ReactiveFormsModule,
     FormsModule
   ],
