@@ -14,7 +14,7 @@ Feature and Presentation Component Design pattern has been called many things su
  
 ### Feature components
 
-A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are sill very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the `blog.component` is our Feature Component and **it is composed of many Presentation components**.
+A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the `blog.component` is our Feature Component and **it is composed of many Presentation components**.
 
 ### Presentational components
 
