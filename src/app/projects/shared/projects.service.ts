@@ -5,15 +5,20 @@ import { ProjectModel } from './project.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { AuthHttp } from 'angular2-jwt';
+import { ProjectsModel } from './projects.model';
 
 @Injectable()
 export class ProjectsService {
+    projects: ProjectsModel;
 
     constructor(private http: AuthHttp) { }
 
     private extractListData(res: Response) {
         const body = res.json();
-        return body._embedded.projects || {};
+        this.projects = new ProjectsModel();
+        this.projects.page = body.page;
+        this.projects.projects = body._embedded.projects || {};
+        return this.projects;
     }
 
     private extractSingleData(res: Response) {
@@ -21,7 +26,7 @@ export class ProjectsService {
         return body || {};
     }
 
-    public getProjects(): Observable<ProjectModel[]> {
+    public getProjects(): Observable<ProjectsModel> {
         return this.http.get(environment.projectsQueryBaseUrl)
             .map(this.extractListData);
     }

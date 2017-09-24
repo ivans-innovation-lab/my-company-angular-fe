@@ -27,4 +27,5 @@ export class EventManager {
     destroy(subscriber: Subscription) {
         subscriber.unsubscribe();
     }
+
 }

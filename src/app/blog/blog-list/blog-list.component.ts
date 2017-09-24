@@ -13,13 +13,12 @@ import { Observable } from 'rxjs/Observable';
 export class BlogListComponent implements OnInit {
 
   dataSource: BlogDataSource;
-  blogPosts: BlogModel[];
+  
   constructor(private blogService: BlogService, private eventManager: EventManager) {
     this.dataSource = new BlogDataSource(blogService);
   }
 
   ngOnInit(): void {
-    this.getBlogPosts();
     this.registerChange();
   }
 
@@ -35,12 +34,10 @@ export class BlogListComponent implements OnInit {
 
 export class BlogDataSource extends DataSource<any> {
 
-  projects: BlogModel[];
-
   constructor(private blogService: BlogService) {
     super();
   }
-  
+
   connect(): Observable<BlogModel[]> {
     return this.blogService.getBlogPosts();
   }
