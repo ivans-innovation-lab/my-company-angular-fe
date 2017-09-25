@@ -70,7 +70,7 @@ Please follow the instructions below to run it:
 $ git clone https://github.com/ivans-innovation-lab/my-company-monolith.git
 ```
 
-### Step 3: Run it
+#### Step 3: Run it
 
 ```bash
 $ cd my-company-monolith
