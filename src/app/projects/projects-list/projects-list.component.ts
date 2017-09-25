@@ -50,14 +50,6 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
     super();
   }
 
-  // private getData() {
-  //   this.subject = new BehaviorSubject<ProjectModel[]>([]);
-  //   this.projectsService.getProjects()
-  //     .do((dto: ProjectsModel) => this.subject.next(dto.projects))
-  //     .subscribe((dto: ProjectsModel) => this.page = dto.page);
-
-  // }
-
   private getData(page: string, size: string) {
     this.subject = new BehaviorSubject<ProjectModel[]>([]);
     console.log('##########' + page);
@@ -70,7 +62,7 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<ProjectModel[]> {
-    if (this.pageEvent !== null && this.pageEvent.pageIndex !== null && this.pageEvent.pageSize !== null) {
+    if (this.pageEvent !== null) {
       this.getData(this.pageEvent.pageIndex + '', this.pageEvent.pageSize + '');
     } else {
       this.getData(null, null);
