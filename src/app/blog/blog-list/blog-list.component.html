@@ -1,3 +1,3 @@
-<app-main-list-blog [dataSource]="dataSource" [displayedColumns]="['id', 'title', 'renderContent', 'publishAt', 'category']"> </app-main-list-blog>
+<app-main-list-blog (paginatorPageEvent)="pageChanged($event)" [dataSource]="dataSource" [displayedColumns]="['id', 'title', 'renderContent', 'publishAt', 'category']"> </app-main-list-blog>
 
 <router-outlet></router-outlet>

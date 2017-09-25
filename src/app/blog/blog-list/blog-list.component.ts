@@ -4,6 +4,10 @@ import { BlogModel } from '../shared/blog.model';
 import { EventManager } from '../../shared/event-manager.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { PageModel } from '../../shared/page.model';
+import { PageEvent } from '@angular/material';
+import { BlogsModel } from '../shared/blogs.model';
 
 @Component({
   selector: 'app-blog-list',
@@ -13,9 +17,9 @@ import { Observable } from 'rxjs/Observable';
 export class BlogListComponent implements OnInit {
 
   dataSource: BlogDataSource;
-  
+
   constructor(private blogService: BlogService, private eventManager: EventManager) {
-    this.dataSource = new BlogDataSource(blogService);
+    this.dataSource = new BlogDataSource(blogService, null);
   }
 
   ngOnInit(): void {
@@ -23,24 +27,47 @@ export class BlogListComponent implements OnInit {
   }
 
   private registerChange() {
-    this.eventManager.subscribe('blogPostListModification', (response) => this.getBlogPosts());
+    this.eventManager.subscribe('blogPostListModification', (response) => {
+      this.dataSource.disconnect();
+      this.dataSource = new BlogDataSource(this.blogService, null);
+    });
   }
 
-  private getBlogPosts(): void {
+  pageChanged(pageEvent: PageEvent) {
     this.dataSource.disconnect();
-    this.dataSource = new BlogDataSource(this.blogService);
+    this.dataSource = new BlogDataSource(this.blogService, pageEvent);
   }
 }
 
-export class BlogDataSource extends DataSource<any> {
+export class BlogDataSource extends DataSource<BlogModel> {
+  subject: BehaviorSubject<BlogModel[]>;
+  page: PageModel;
 
-  constructor(private blogService: BlogService) {
+  constructor(private blogService: BlogService, private pageEvent: PageEvent) {
     super();
   }
 
-  connect(): Observable<BlogModel[]> {
-    return this.blogService.getBlogPosts();
+  private getData(page: string, size: string) {
+    this.subject = new BehaviorSubject<BlogModel[]>([]);
+    this.blogService.getBlogPostsByParams(page, size)
+      .do((dto: BlogsModel) => this.subject.next(dto.blogposts))
+      .subscribe((dto: BlogsModel) => this.page = dto.page);
+
   }
 
-  disconnect() { }
+  connect(): Observable<BlogModel[]> {
+    if (this.pageEvent !== null) {
+      this.getData(this.pageEvent.pageIndex + '', this.pageEvent.pageSize + '');
+    } else {
+      this.getData('0', '5');
+    }
+
+    return Observable.merge(this.subject);
+  }
+
+  disconnect() {
+    this.subject.complete();
+    this.subject.observers = [];
+  }
 }
+
