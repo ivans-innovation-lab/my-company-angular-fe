@@ -31,12 +31,10 @@ export class BlogNewComponent implements OnInit {
       draft: new FormControl(true),
       category: new FormControl(''),
       broadcast: new FormControl(true),
-      publishAt: new FormControl('')
+      publishAt: new FormControl(new Date())
     });
   }
   onSubmit({ value, valid }: { value: BlogModel, valid: boolean }) {
-    const ngbDate = this.form.controls['publishAt'].value;
-    value.publishAt = new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day);
     this.blogPostsService.addBlogPost(value).subscribe(response => this.onSaveSuccess(response), () => this.onSaveError());
   }
 

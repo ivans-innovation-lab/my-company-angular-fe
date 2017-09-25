@@ -13,8 +13,11 @@
         <input mdInput placeholder="Public Slug" formControlName="publicSlug">
       </md-input-container>
       <md-input-container floatingPlaceholder=true style="width: 100%">
-        <input mdInput placeholder="Published At" formControlName="publishAt">
+        <input mdInput placeholder="Published At" [mdDatepicker]="myDatepicker" formControlName="publishAt">
+        <md-datepicker-toggle mdSuffix [for]="myDatepicker"></md-datepicker-toggle>
+        <md-datepicker #myDatepicker></md-datepicker>
       </md-input-container>
+      
       <p style="width: 100%">
         <md-select placeholder="Category" formControlName="category" style="width: 100%">
           <md-option value="ENGINEERING">Engineering</md-option>

@@ -28,8 +28,21 @@ export class BlogListComponent implements OnInit {
 
   private registerChange() {
     this.eventManager.subscribe('blogPostListModification', (response) => {
+
       this.dataSource.disconnect();
-      this.dataSource = new BlogDataSource(this.blogService, null);
+
+      const pageEvent: PageEvent = new PageEvent();
+      pageEvent.length = this.dataSource.page.totalElements + 1;
+      pageEvent.pageSize = this.dataSource.page.size;
+      if (pageEvent.length % pageEvent.pageSize === 1) {
+        pageEvent.pageIndex = this.dataSource.page.totalPages;
+      } else {
+      pageEvent.pageIndex = this.dataSource.page.totalPages - 1;
+      }
+
+      this.dataSource = new BlogDataSource(this.blogService, pageEvent);
+
+
     });
   }
 

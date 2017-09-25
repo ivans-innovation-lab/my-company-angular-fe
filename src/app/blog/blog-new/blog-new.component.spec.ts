@@ -8,7 +8,7 @@ import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService } from '../../shared/user.service';
 import { AuthenticationService } from '../../shared/authentication.service';
@@ -46,7 +46,7 @@ describe('BlogNewComponent', () => {
           deps: [Http, RequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule]
+      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule, MdNativeDateModule, MaterialModule, BrowserAnimationsModule]
     })
     .compileComponents();
   }));
