@@ -2,9 +2,9 @@
 
 This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
 
-[Atomic design]((http://bradfrost.com/blog/post/atomic-web-design/)) methodology is used, with the help of [Angular material design components](https://material.angular.io).
+[Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) methodology is used, with the help of [Angular material design components](https://material.angular.io).
 
-The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith).
+The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith) that exposes a JWT enabled authorization (OAuth2) endpoints.
 
 It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
 
@@ -85,7 +85,7 @@ You can choose `blog` or `projects` from the menu on the left. You will be promp
  - username: john.doe    ; password: jwtpass  ; role: USER
  - username: admin.admin ; password: jwtpass  ; role: ADMIN
 
-Blog and Projects require authenticated user in any role, but to create blog or project you should be in the role of ADMIN.
+Blog and Projects require authenticated user in any role, but to create blog or project you should be in the role of ADMIN. Backend API application is using OAuth2 with JWT token.
 
 ## Code scaffolding
 
