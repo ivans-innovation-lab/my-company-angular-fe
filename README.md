@@ -1,12 +1,16 @@
 # My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This is an example application. The idea is to practice atomic design methodology with the help of Angular 4 framework.
+This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
 
-This application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
+[Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) methodology is used, with the help of [Angular material design components](https://material.angular.io).
+
+The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith) that exposes a JWT enabled authorization (OAuth2) endpoints.
+
+It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
 
 ## Feature Components vs Presentational Components
 
-Feature and Presentation Component Design pattern has been called many things such as:
+Feature and Presentational Component Design pattern has been called many things such as:
 
  - Container Components vs Presentational Components
  - Smart/Dumb Components
@@ -14,15 +18,15 @@ Feature and Presentation Component Design pattern has been called many things su
  
 ### Feature components
 
-A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the `blog.component` is our Feature Component and **it is composed of many Presentation components**.
+A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the [`blog.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/blob/master/src/app/blog/blog.component.ts) is our Feature Component and **it is composed of many Presentational components**.
 
 ### Presentational components
 
-**Presentation Components behave like pure functions** taking in the data via @Input and emitting data via @Output (or some global event bus). This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a `side-item.component` takes in a @Input of an item to display. This allows the `side-item.component` component to have the only responsibility of rendering the item when the data is passed to it.
+**Presentational Components behave like pure functions** taking in the data via @Input and emitting data via @Output. This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a [`side-item.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/presentational-components/side-menu-item) takes in a @Input of an item to display. This allows the `side-item.component` component to have the only responsibility of rendering the item when the data is passed to it.
 
-Many if not **most Presentation Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+Many if not **most Presentational Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
 
-There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since presentation component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** (`blog-list.component`, `blog-detail.component`, `blog-new.component`) can help elevate this. The communication between feature components is event driven, and enables loose coupling. For example a `blog-new.component` will trigger an event on successfull creation of a blog post, and `blog-list.component` is subscribed to it so it can re-fetch  and refresh a list of blog posts.
+There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since presentation component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** ([`blog-list.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/blog/blog-list), [`blog-detail.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/blog/blog-detail), [`blog-new.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/blog/blog-new)) can help elevate this. The communication between feature components is event driven, and enables loose coupling. For example a `blog-new.component` will trigger an event on successfull creation of a blog post, and `blog-list.component` is subscribed to it so it can re-fetch  and refresh a list of blog posts.
 
 Let's place components into a layout and articulate the design’s underlying content structure:
 
@@ -34,7 +38,7 @@ Let's place components into a layout and articulate the design’s underlying co
 
 ![My Company - Blog](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Blog.png)
 
-## Progressive Web Application (Work In Progress)
+## Progressive Web Application
 
 PWAs leverage Transport Layer Security (TLS), webapp manifests, and service workers to make an application installable with offline capabilities. In other words, a PWA is like a native app on your phone, but it’s built with web technologies like HTML5, JavaScript, and CSS3. If built right, a PWA is indistinguishable from a native application.
 
@@ -51,9 +55,27 @@ I like the simple list that Alex Russell lists on [What, Exactly, Makes Somethin
 
 ## Backend - API
 
-This application requires 'my-company' restfull API. 
+This application requires a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith). 
 
-Please run the [backend application](https://github.com/ivans-innovation-lab/my-company-monolith) first.
+Please follow the instructions below to run it:
+
+### Prerequisite
+
+- [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Git](https://git-scm.com/) 
+
+#### Step 1: Clone the project
+
+```bash
+$ git clone https://github.com/ivans-innovation-lab/my-company-monolith.git
+```
+
+#### Step 3: Run it
+
+```bash
+$ cd my-company-monolith
+$ ./mvnw spring-boot:run
+```
 
 ## Development server
 
@@ -63,7 +85,7 @@ You can choose `blog` or `projects` from the menu on the left. You will be promp
  - username: john.doe    ; password: jwtpass  ; role: USER
  - username: admin.admin ; password: jwtpass  ; role: ADMIN
 
-Blog and Projects require authenticated user in any role, but to create blog or project you should be in the role of ADMIN.
+Blog and Projects require authenticated user in any role, but to create blog or project you should be in the role of ADMIN. Backend API application is using OAuth2 with JWT token.
 
 ## Code scaffolding
 
