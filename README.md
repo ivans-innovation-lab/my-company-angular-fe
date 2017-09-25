@@ -1,8 +1,12 @@
 # My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This is an example application. The idea is to practice atomic design methodology with the help of Angular 4 framework.
+This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
 
-This application was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
+[Atomic design]((http://bradfrost.com/blog/post/atomic-web-design/)) methodology is used, with the help of Angular 4 framework and [Angular material design components](https://material.angular.io).
+
+The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith)
+
+It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
 
 ## Feature Components vs Presentational Components
 
