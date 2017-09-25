@@ -2,7 +2,7 @@
 
 This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
 
-[Atomic design]((http://bradfrost.com/blog/post/atomic-web-design/)) methodology is used, with the help of Angular 4 framework and [Angular material design components](https://material.angular.io).
+[Atomic design]((http://bradfrost.com/blog/post/atomic-web-design/)) methodology is used, with the help of [Angular material design components](https://material.angular.io).
 
 The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith).
 
