@@ -1,8 +1,3 @@
-<app-main-list-projects (paginatorPageEvent)="pageEvent = $event" [dataSource]="dataSource" [displayedColumns]="['id', 'name', 'repoUrl', 'siteUrl', 'description', 'category']"></app-main-list-projects>
-<div *ngIf="pageEvent">
-    <h5>Page Change Event Properties</h5>
-    <div>List length: {{pageEvent.length}}</div>
-    <div>Page size: {{pageEvent.pageSize}}</div>
-    <div>Page index: {{pageEvent.pageIndex}}</div>
-  </div>
+<app-main-list-projects (paginatorPageEvent)="pageChanged($event)" [dataSource]="dataSource" [displayedColumns]="['id', 'name', 'repoUrl', 'siteUrl', 'description', 'category']"></app-main-list-projects>
+
 <router-outlet></router-outlet>

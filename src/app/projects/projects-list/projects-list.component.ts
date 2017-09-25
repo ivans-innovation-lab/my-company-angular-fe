@@ -17,10 +17,10 @@ import { PageModel } from '../../shared/page.model';
 export class ProjectsListComponent implements OnInit {
 
   dataSource: ProjectsDataSource;
-  pageEvent: PageEvent;
+
 
   constructor(private projectsService: ProjectsService, private eventManager: EventManager) {
-    this.dataSource = new ProjectsDataSource(this.projectsService);
+    this.dataSource = new ProjectsDataSource(this.projectsService, null);
   }
 
   ngOnInit(): void {
@@ -30,8 +30,13 @@ export class ProjectsListComponent implements OnInit {
   private registerChange() {
     this.eventManager.subscribe('projectListModification', (response) => {
       this.dataSource.disconnect();
-      this.dataSource = new ProjectsDataSource(this.projectsService);
+      this.dataSource = new ProjectsDataSource(this.projectsService, null);
     });
+  }
+
+  pageChanged(pageEvent: PageEvent) {
+    this.dataSource.disconnect();
+    this.dataSource = new ProjectsDataSource(this.projectsService, pageEvent);
   }
 
 
@@ -41,13 +46,23 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
   subject: BehaviorSubject<ProjectModel[]>;
   page: PageModel;
 
-  constructor(private projectsService: ProjectsService) {
+  constructor(private projectsService: ProjectsService, private pageEvent: PageEvent) {
     super();
   }
 
-  private getData() {
+  // private getData() {
+  //   this.subject = new BehaviorSubject<ProjectModel[]>([]);
+  //   this.projectsService.getProjects()
+  //     .do((dto: ProjectsModel) => this.subject.next(dto.projects))
+  //     .subscribe((dto: ProjectsModel) => this.page = dto.page);
+
+  // }
+
+  private getData(page: string, size: string) {
     this.subject = new BehaviorSubject<ProjectModel[]>([]);
-    this.projectsService.getProjects()
+    console.log('##########' + page);
+    console.log('##########' + size);
+    this.projectsService.getProjectsByParams(page, size)
       .do((dto: ProjectsModel) => this.subject.next(dto.projects))
       .subscribe((dto: ProjectsModel) => this.page = dto.page);
 
@@ -55,7 +70,12 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
 
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<ProjectModel[]> {
-    this.getData();
+    if (this.pageEvent !== null && this.pageEvent.pageIndex !== null && this.pageEvent.pageSize !== null) {
+      this.getData(this.pageEvent.pageIndex + '', this.pageEvent.pageSize + '');
+    } else {
+      this.getData(null, null);
+    }
+
     return Observable.merge(this.subject);
   }
 

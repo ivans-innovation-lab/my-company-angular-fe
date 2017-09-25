@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Response } from '@angular/http';
+import { Response, RequestOptions } from '@angular/http';
 import { ProjectModel } from './project.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -28,6 +28,12 @@ export class ProjectsService {
 
     public getProjects(): Observable<ProjectsModel> {
         return this.http.get(environment.projectsQueryBaseUrl)
+            .map(this.extractListData);
+    }
+
+    public getProjectsByParams(page: string, size: string): Observable<ProjectsModel> {
+
+        return this.http.get(environment.projectsQueryBaseUrl + '?page=' + page + '&size=' + size)
             .map(this.extractListData);
     }
 
