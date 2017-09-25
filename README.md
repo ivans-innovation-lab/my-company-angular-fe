@@ -18,7 +18,7 @@ A **Feature component** is a top level component that contains all other compone
 
 ### Presentational components
 
-**Presentation Components behave like pure functions** taking in the data via @Input and emitting data via @Output (or some global event bus). This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a `side-item.component` takes in a @Input of an item to display. This allows the `side-item.component` component to have the only responsibility of rendering the item when the data is passed to it.
+**Presentational Components behave like pure functions** taking in the data via @Input and emitting data via @Output. This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a `side-item.component` takes in a @Input of an item to display. This allows the `side-item.component` component to have the only responsibility of rendering the item when the data is passed to it.
 
 Many if not **most Presentation Components can be abstracted into a style guide or UI library** for the project. To get ideas of component design and style guide maintainability I recommend Brad Frost’s book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
 
