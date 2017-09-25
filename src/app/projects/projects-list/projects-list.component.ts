@@ -39,7 +39,6 @@ export class ProjectsListComponent implements OnInit {
     this.dataSource = new ProjectsDataSource(this.projectsService, pageEvent);
   }
 
-
 }
 
 export class ProjectsDataSource extends DataSource<ProjectModel> {
@@ -52,20 +51,17 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
 
   private getData(page: string, size: string) {
     this.subject = new BehaviorSubject<ProjectModel[]>([]);
-    console.log('##########' + page);
-    console.log('##########' + size);
     this.projectsService.getProjectsByParams(page, size)
       .do((dto: ProjectsModel) => this.subject.next(dto.projects))
       .subscribe((dto: ProjectsModel) => this.page = dto.page);
 
   }
 
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<ProjectModel[]> {
     if (this.pageEvent !== null) {
       this.getData(this.pageEvent.pageIndex + '', this.pageEvent.pageSize + '');
     } else {
-      this.getData(null, null);
+      this.getData('0', '5');
     }
 
     return Observable.merge(this.subject);
