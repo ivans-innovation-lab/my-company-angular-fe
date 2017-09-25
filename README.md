@@ -4,7 +4,7 @@ This is an example application. We have tried to find an appropriate balance bet
 
 [Atomic design]((http://bradfrost.com/blog/post/atomic-web-design/)) methodology is used, with the help of Angular 4 framework and [Angular material design components](https://material.angular.io).
 
-The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith)
+The application consumes a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith).
 
 It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
 
@@ -55,9 +55,27 @@ I like the simple list that Alex Russell lists on [What, Exactly, Makes Somethin
 
 ## Backend - API
 
-This application requires 'my-company' restfull API. 
+This application requires a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith). 
 
-Please run the [backend application](https://github.com/ivans-innovation-lab/my-company-monolith) first.
+Please follow the instructions below to run it:
+
+### Prerequisite
+
+- [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Git](https://git-scm.com/) 
+
+#### Step 1: Clone the project
+
+```bash
+$ git clone https://github.com/ivans-innovation-lab/my-company-monolith.git
+```
+
+### Step 3: Run it
+
+```bash
+$ cd my-company-monolith
+$ ./mvnw spring-boot:run
+```
 
 ## Development server
 
