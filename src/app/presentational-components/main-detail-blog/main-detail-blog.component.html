@@ -1,26 +1,15 @@
 <app-main-detail title="Blog detail">
   <md-tab-group>
     <md-tab label="Properties">
-      <md-list class="app-list" *ngIf="blogPost">
-        <md-list-item>
-          Title: {{blogPost.title}}
-        </md-list-item>
-        <md-list-item>
-          Published at: {{blogPost.publishAt | date}}
-        </md-list-item>
-        <md-list-item>
-          Category: {{blogPost.category}}
-        </md-list-item>
-        <md-list-item>
-          Slug: {{blogPost.publicSlug}}
-        </md-list-item>
-        <md-list-item>
-          Draft: {{blogPost.draft}}
-        </md-list-item>
-        <md-list-item>
-          Content: {{blogPost.renderContent}}
-        </md-list-item>
-      </md-list>
+      <md-card>
+        <md-card-title>{{blogPost?.title}}</md-card-title>
+        <md-card-subtitle>
+          <p>{{blogPost?.category}} | Draft: {{blogPost?.draft}} | {{blogPost?.publishAt | date}}</p>
+        </md-card-subtitle>
+        <md-card-content>
+          {{blogPost?.renderContent}}
+        </md-card-content>
+      </md-card>
     </md-tab>
     <md-tab label="Actions">
     </md-tab>
