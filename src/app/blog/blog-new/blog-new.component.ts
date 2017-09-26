@@ -25,13 +25,13 @@ export class BlogNewComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      title: new FormControl(''),
-      rawContent: new FormControl(''),
-      publicSlug: new FormControl(''),
+      title: new FormControl('', Validators.required),
+      rawContent: new FormControl('', Validators.required),
+      publicSlug: new FormControl('', Validators.required),
       draft: new FormControl(true),
       category: new FormControl(''),
       broadcast: new FormControl(true),
-      publishAt: new FormControl(new Date())
+      publishAt: new FormControl(new Date(), Validators.required)
     });
   }
   onSubmit({ value, valid }: { value: BlogModel, valid: boolean }) {
