@@ -19,7 +19,7 @@ export class BlogListComponent implements OnInit {
   dataSource: BlogDataSource;
 
   constructor(private blogService: BlogService, private eventManager: EventManager) {
-    this.dataSource = new BlogDataSource(blogService, null);
+    this.dataSource = new BlogDataSource(this.blogService, null);
   }
 
   ngOnInit(): void {
