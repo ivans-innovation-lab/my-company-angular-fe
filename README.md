@@ -70,12 +70,22 @@ Please follow the instructions below to run it:
 $ git clone https://github.com/ivans-innovation-lab/my-company-monolith.git
 ```
 
-#### Step 3: Run it
+#### Step 2: Run it
 
 ```bash
 $ cd my-company-monolith
 $ ./mvnw spring-boot:run
 ```
+
+#### Step 3 (optional): Browse the database
+
+ - Open the browser and navigate to: http://localhost:8080/h2-console
+ - Set JDBC URL to: jdbc:h2:mem:my-company
+ - Connect
+
+#### Step 4 (optional): Browse the API specification
+
+- Open the browser and navigate to: http://localhost:8080/swagger-ui.html
 
 ## Development server
 
