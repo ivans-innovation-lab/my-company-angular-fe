@@ -17,6 +17,7 @@ import { MaterialModule } from '@angular/material';
 import { MainNewComponent } from './main-new/main-new.component';
 import { MainNewBlogComponent } from './main-new-blog/main-new-blog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MainNewProjectComponent } from './main-new-project/main-new-project.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MainListBlogComponent,
     MainListProjectsComponent,
     MainNewComponent,
-    MainNewBlogComponent
+    MainNewBlogComponent,
+    MainNewProjectComponent
   ],
   exports: [
     SideMenuComponent,
@@ -56,7 +58,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MainListBlogComponent,
     MainListProjectsComponent,
     MainNewComponent,
-    MainNewBlogComponent
+    MainNewBlogComponent,
+    MainNewProjectComponent
   ]
 })
 export class PresentationalComponentsModule { }
