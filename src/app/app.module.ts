@@ -20,12 +20,11 @@ import { HomeComponent } from './home/home.component';
 import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
 
-
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
     headerPrefix: 'Bearer',
     tokenName: TOKEN_NAME,
-    globalHeaders: [{'Content-Type': 'application/json'}],
+    globalHeaders: [{ 'Content-Type': 'application/json' }],
     noJwtError: false,
     noTokenScheme: true,
     tokenGetter: (() => localStorage.getItem(TOKEN_NAME))

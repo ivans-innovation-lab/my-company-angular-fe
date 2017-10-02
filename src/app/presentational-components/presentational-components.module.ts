@@ -14,12 +14,17 @@ import { MainDetailBlogComponent } from './main-detail-blog/main-detail-blog.com
 import { MainListBlogComponent } from './main-list-blog/main-list-blog.component';
 import { MainListProjectsComponent } from './main-list-projects/main-list-projects.component';
 import { MaterialModule } from '@angular/material';
+import { MainNewComponent } from './main-new/main-new.component';
+import { MainNewBlogComponent } from './main-new-blog/main-new-blog.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule,
     BrowserAnimationsModule
   ],
@@ -34,7 +39,9 @@ import { MaterialModule } from '@angular/material';
     MainDetailProjectComponent,
     MainDetailBlogComponent,
     MainListBlogComponent,
-    MainListProjectsComponent
+    MainListProjectsComponent,
+    MainNewComponent,
+    MainNewBlogComponent
   ],
   exports: [
     SideMenuComponent,
@@ -47,7 +54,9 @@ import { MaterialModule } from '@angular/material';
     MainDetailProjectComponent,
     MainDetailBlogComponent,
     MainListBlogComponent,
-    MainListProjectsComponent
+    MainListProjectsComponent,
+    MainNewComponent,
+    MainNewBlogComponent
   ]
 })
 export class PresentationalComponentsModule { }
