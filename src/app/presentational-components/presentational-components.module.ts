@@ -50,16 +50,17 @@ import { MainNewProjectComponent } from './main-new-project/main-new-project.com
     FooterComponent,
     HeaderComponent,
     MainComponent,
-    MainListComponent,
-    MainDetailComponent,
     SideMenuItemComponent,
     MainDetailProjectComponent,
     MainDetailBlogComponent,
     MainListBlogComponent,
     MainListProjectsComponent,
-    MainNewComponent,
     MainNewBlogComponent,
     MainNewProjectComponent
+    // *** Excluding template components ***
+    //MainListComponent,
+    //MainDetailComponent,
+    //MainNewComponent
   ]
 })
 export class PresentationalComponentsModule { }
