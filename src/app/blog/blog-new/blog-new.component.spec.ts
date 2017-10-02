@@ -16,6 +16,7 @@ import { AuthGuard } from '../../shared/guards/auth-guard.service';
 import { AdminAuthGuard } from '../../shared/guards/admin-auth-guard.service';
 import { AuthHttp } from 'angular2-jwt';
 import { authHttpServiceFactory } from '../../app.module';
+import { PresentationalComponentsModule } from '../../presentational-components/presentational-components.module';
 
 
 
@@ -25,7 +26,7 @@ describe('BlogNewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlogNewComponent ],
+      declarations: [BlogNewComponent],
       providers: [
         BlogService,
         MockBackend,
@@ -46,9 +47,12 @@ describe('BlogNewComponent', () => {
           deps: [Http, RequestOptions]
         }
       ],
-      imports: [RouterTestingModule, HttpModule, ReactiveFormsModule, MdNativeDateModule, MaterialModule, BrowserAnimationsModule]
+      imports: [
+        RouterTestingModule, HttpModule, ReactiveFormsModule, MdNativeDateModule, MaterialModule, BrowserAnimationsModule,
+        PresentationalComponentsModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
