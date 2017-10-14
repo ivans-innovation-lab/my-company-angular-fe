@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
     error = '';
     redirectUrl: string;
 
-    constructor(private router: Router,
+    constructor(
+        private router: Router,
         private activatedRoute: ActivatedRoute,
         private authenticationService: AuthenticationService,
         private userService: UserService) {
@@ -24,7 +25,6 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.userService.logout();
     }
 
     login() {
