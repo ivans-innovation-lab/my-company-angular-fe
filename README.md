@@ -53,6 +53,10 @@ I like the simple list that Alex Russell lists on [What, Exactly, Makes Somethin
    - display with a value of standalone or fullscreen. 
    - An icon at least 144×144 large in png format. E.g.: "icons": [ { "src": "/images/icon-144.png", "sizes": "144x144", "type": "image/png" } ]
 
+For this application I have choosen (beta 16) version of @angular/service-worker. It integrates with Angular CLI, search for configuration `"serviceWorker": true` in `angular-cli.json`. You can find more about the plans for Angular PWA support here: https://medium.com/@webmaxru/a-new-angular-service-worker-creating-automatic-progressive-web-apps-part-1-theory-37d7d7647cc7
+
+Please use [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en). It is an open-source, automated tool for improving the performance, quality, and correctness of your web apps. It will generate a nice report for you.
+
 ## Backend - API
 
 This application requires a [restfull API](https://github.com/ivans-innovation-lab/my-company-monolith). 
@@ -122,3 +126,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - http://bradfrost.com/blog/post/atomic-web-design/
  - https://angular.io/guide/quickstart
  - https://medium.com/@amcdnl/service-worker-pwas-with-the-angular-cli-98a8f16d62d6
+ - https://medium.com/@webmaxru/a-new-angular-service-worker-creating-automatic-progressive-web-apps-part-1-theory-37d7d7647cc7
