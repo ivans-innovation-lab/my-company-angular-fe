@@ -10,6 +10,9 @@ export class UserService {
     isAdmin: boolean;
 
     constructor() {
+        if (localStorage.getItem(TOKEN_NAME)) {
+            this.login(localStorage.getItem(TOKEN_NAME));
+        }
     }
 
     login(accessToken: string) {
