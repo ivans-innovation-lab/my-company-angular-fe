@@ -1,4 +1,4 @@
-# My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
+# [projects](http://ivans-innovation-lab.github.io/projects)/My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
 This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
 
