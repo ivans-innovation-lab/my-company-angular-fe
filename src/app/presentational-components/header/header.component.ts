@@ -15,8 +15,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  openSideNav() {
-    this.nav.open();
+  toggleSideNav() {
+    this.nav.toggle();
   }
 
 }
