@@ -12,6 +12,9 @@ const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent,
+    data: {
+      breadcrumb: 'Projects'
+  },
     canActivate: [AuthGuard],
     children: [
       {
@@ -22,11 +25,17 @@ const routes: Routes = [
           {
             path: ':id',
             component: ProjectsDetailComponent,
+            data: {
+              breadcrumb: 'Detail'
+          },
             canActivate: [AuthGuard]
           },
           {
             path: 'action/new',
             component: ProjectsNewComponent,
+            data: {
+              breadcrumb: 'New'
+          },
             canActivate: [AuthGuard, AdminAuthGuard],
           }
         ]

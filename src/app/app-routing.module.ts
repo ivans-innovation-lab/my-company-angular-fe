@@ -6,11 +6,17 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: 'login',
+    data: {
+      breadcrumb: 'Login'
+  },
     component: LoginComponent
   },
   {
     path: '',
     component: HomeComponent,
+    data: {
+      breadcrumb: 'Home'
+  },
     children: []
   }
 ];

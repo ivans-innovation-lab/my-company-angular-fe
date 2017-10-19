@@ -18,6 +18,8 @@ import { MainNewComponent } from './main-new/main-new.component';
 import { MainNewBlogComponent } from './main-new-blog/main-new-blog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainNewProjectComponent } from './main-new-project/main-new-project.component';
+import { BreadcrumbsModule } from 'ng2-breadcrumbs';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { MainNewProjectComponent } from './main-new-project/main-new-project.com
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BreadcrumbsModule,
   ],
   declarations: [
     SideMenuComponent,
@@ -43,7 +46,8 @@ import { MainNewProjectComponent } from './main-new-project/main-new-project.com
     MainListProjectsComponent,
     MainNewComponent,
     MainNewBlogComponent,
-    MainNewProjectComponent
+    MainNewProjectComponent,
+    BreadcrumbsComponent
   ],
   exports: [
     SideMenuComponent,
@@ -56,7 +60,8 @@ import { MainNewProjectComponent } from './main-new-project/main-new-project.com
     MainListBlogComponent,
     MainListProjectsComponent,
     MainNewBlogComponent,
-    MainNewProjectComponent
+    MainNewProjectComponent,
+    BreadcrumbsComponent
     // *** Excluding template components ***
     //MainListComponent,
     //MainDetailComponent,

@@ -19,6 +19,7 @@ import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
+import { BreadcrumbsModule } from 'ng2-breadcrumbs';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -49,7 +50,8 @@ export function authHttpServiceFactory(http: Http) {
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MdNativeDateModule
+    MdNativeDateModule,
+    BreadcrumbsModule,
   ],
   providers: [
     EventManager,
