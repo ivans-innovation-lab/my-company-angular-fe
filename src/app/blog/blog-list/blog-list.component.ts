@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { PageModel } from '../../shared/page.model';
 import { PageEvent } from '@angular/material';
 import { BlogsModel } from '../shared/blogs.model';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-blog-list',
@@ -17,70 +18,65 @@ import { BlogsModel } from '../shared/blogs.model';
 export class BlogListComponent implements OnInit {
 
   dataSource: BlogDataSource;
+  pageChange: Subject<PageEvent>;
 
   constructor(private blogService: BlogService, private eventManager: EventManager) {
-    this.dataSource = new BlogDataSource(this.blogService, null);
   }
 
   ngOnInit(): void {
-    this.registerChange();
-  }
-
-  private registerChange() {
-    this.eventManager.subscribe('blogPostListModification', (response) => {
-
-      this.dataSource.disconnect();
-
-      const pageEvent: PageEvent = new PageEvent();
-      pageEvent.length = this.dataSource.page.totalElements + 1;
-      pageEvent.pageSize = this.dataSource.page.size;
-      if (pageEvent.length % pageEvent.pageSize === 1) {
-        pageEvent.pageIndex = this.dataSource.page.totalPages;
-      } else {
-      pageEvent.pageIndex = this.dataSource.page.totalPages - 1;
-      }
-
-      this.dataSource = new BlogDataSource(this.blogService, pageEvent);
-
-
-    });
+    this.pageChange = new Subject();
+    this.dataSource = new BlogDataSource(this.blogService, this.pageChange, this.eventManager);
   }
 
   pageChanged(pageEvent: PageEvent) {
-    this.dataSource.disconnect();
-    this.dataSource = new BlogDataSource(this.blogService, pageEvent);
+    /** Sending 'page event' to the stream */
+    this.pageChange.next(pageEvent);
   }
+
 }
 
+/** ###################### Data source ########################## **/
 export class BlogDataSource extends DataSource<BlogModel> {
-  subject: BehaviorSubject<BlogModel[]>;
   page: PageModel;
 
-  constructor(private blogService: BlogService, private pageEvent: PageEvent) {
+  constructor(private blogService: BlogService, private pageChange: Subject<PageEvent>, private eventManager: EventManager) {
     super();
   }
 
-  private getData(page: string, size: string) {
-    this.subject = new BehaviorSubject<BlogModel[]>([]);
-    this.blogService.getBlogPostsByParams(page, size)
-      .do((dto: BlogsModel) => this.subject.next(dto.blogposts))
-      .subscribe((dto: BlogsModel) => this.page = dto.page);
-
-  }
-
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<BlogModel[]> {
-    if (this.pageEvent !== null) {
-      this.getData(this.pageEvent.pageIndex + '', this.pageEvent.pageSize + '');
-    } else {
-      this.getData('0', '5');
-    }
+    const displayDataChanges = [
+      this.pageChange,
+      this.eventManager.observable.filter((event) => event.name === 'blogPostListModification')
+    ];
 
-    return Observable.merge(this.subject);
+    const startPageEvent = new PageEvent();
+    startPageEvent.pageIndex = 0;
+    startPageEvent.pageSize = 20;
+
+    /** Merging 'blogPostListModification' and 'page changed' streams **/
+    return Observable.merge(...displayDataChanges)
+      .startWith(startPageEvent)
+      .switchMap((event) => {
+        /** Check the type of an event in the stream.
+            In case of 'blogPostListModification' event set the page index and the page size to initial values **/
+        if (event.pageIndex || event.pageSize) {
+          return this.blogService.getBlogPostsByParams(event.pageIndex + '', event.pageSize + '');
+        } else {
+          return this.blogService.getBlogPostsByParams(startPageEvent.pageIndex + '', startPageEvent.pageSize + '');
+        }
+      })
+      .map(data => {
+        this.page = data.page;
+
+        return data.blogposts;
+      })
+      .catch((error) => {
+        console.error(error);
+        return Observable.of([]);
+      });
   }
-
   disconnect() {
-    this.subject.complete();
-    this.subject.observers = [];
   }
 }
 
