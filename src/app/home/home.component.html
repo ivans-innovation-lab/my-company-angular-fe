@@ -1,15 +1,128 @@
 <app-main title="">
   <md-card>
-   <p> " The trust of our clients is our main focus. We are accompanying your digital transformation and ensure creating value for you. "</p>
-   <p> " We make sure that you deliver quality soulutions fast. "</p>
-   <p> " We analyze current technology environment, </p>
-   <p>   and recommend solutions for improvement. "</p>
-   <p> " We have exposure to multiple platforms."</p>
-   <p> " We understand the political climate, and we are able to navigate the politics."</p>
-   <p> " We define architecture and design principles to guide technology decisions."</p>
-   <p> " We ensure compliance with the architecture."</p>
-   <p> " We possess exceptional interpersonal skills. "</p>
-   <p> " You inovate. We live your successes."</p>
-   <p> " Let's shake the market !"</p>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly stretch">
+          <div class="sec1" fxFlex="33" fxFlex.xs="33">
+            <p> " The trust of our clients is our main focus. We are accompanying your digital transformation and ensure creating
+              value for you. "</p>
+            <img src="../../assets/img/trust.jpg" alt="Trust" />
+          </div>
+          <div class="sec2" fxFlex="33" fxFlex.xs="33">
+            <p> " We define architecture and design principles to guide technology decisions for the enterprise."</p>
+            <img src="../../assets/img/architecture2.jpg" alt="Architecture" />
+          </div>
+          <div class="sec3" fxFlex="33" fxFlex.xs="33">
+            <p> " Your journey is our journey. You innovate. We live your successes. Let's shake the market !"</p>
+            <img src="../../assets/img/innovate.jpg" alt="Innovate" />
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title>Architecture, culture and process</md-card-title>
+    <md-card-subtitle>The ultimate goal is to deliver better software faster. Today, that invariably means continuous delivery – for an installed
+      product – or continuous deployment for an -aaS product.</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly stretch">
+          <div class="sec1" fxFlex="33" fxFlex.xs="33">
+            <p>Visualize Your Architecture</p>
+            <iframe id="myEmbeddedDiagram" src="https://structurizr.com/embed/36994?diagram=Components&diagramSelector=false&iframe=myEmbeddedDiagram"
+              width="100%" marginwidth="0" marginheight="0" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+          </div>
+          <div class="sec3" fxFlex="33" fxFlex.xs="33">
+            <p>Bring your development flow into Slack</p>
+            <div class="grey-content">Atomist makes it easy to take action in Slack so you don't have to switch in and out of other tools. See commits,
+              issues, and PRs in Slack, and comment on an issue, merge a PR, or create a release right then and there, without
+              breaking your stride. Code with confidence, safe in the knowledge that your team knows what’s happening.
+              <a
+                href="http://idugalic.pro/Bots-Are-Here/">Read more ...</a>
+            </div>
+            <img src="../../assets/img/atomist_4.png" alt="Atomist" />
+          </div>
+          <div class="sec2" fxFlex="33" fxFlex.xs="33">
+            <p>The key pattern introduced in continuous delivery is the deployment pipeline</p>
+            <div class="grey-content">In the deployment pipeline pattern, every change in version control triggers a process (usually in a CI server)
+              which creates deployable packages and runs automated unit tests and other validations such as static code analysis.
+              This first step is optimized so that it takes only a few minutes to run. If this initial commit stage fails,
+              the problem must be fixed immediately—nobody should check in more work on a broken commit stage. Every passing
+              commit stage triggers the next step in the pipeline, which might consist of a more comprehensive set of automated
+              tests.
+              <a href="http://idugalic.pro/Continuous-delivery-in-the-cloud/">Read more ...</a>
+            </div>
+            <img src="../../assets/img/CD.png" alt="Process" />
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+    <md-card-title>Blue-Green Deployment</md-card-title>
+    <md-card-subtitle>Release technique that reduces downtime and risk by running two identical production environments called Blue and Green.
+      As you prepare a new release of your software, deployment and the final stage of testing takes place in the environment
+      that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch
+      the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle. This technique
+      can eliminate downtime due to application deployment. In addition, blue-green deployment reduces risk: if something
+      unexpected happens with your new release on Green, you can immediately roll back to the last version by switching back
+      to Blue.
+      <a href="http://idugalic.pro/Continuous-delivery-in-the-cloud/">Read more ...</a>
+    </md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly stretch">
+          <div fxFlex="99" fxFlex.xs="99">
+            <img src="../../assets/img/cloudfoundry.png" alt="CloudFoundry PWS" />
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title>Atomic design</md-card-title>
+    <md-card-subtitle>"A style guide is an artifact of design process. A design system is a living, funded product with a roadmap & backlog,
+      serving an ecosystem."
+      <p>- Nathan Curtis</p>
+    </md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-evenly stretch">
+          <div class="sec1" fxFlex="48" fxFlex.xs="48">
+            <p>Design System</p>
+            <div class="grey-content">To set ourselves up for long-term success, we must fundamentally shift our outlook around what we’re actually
+              creating. Rather than thinking of final applications as our sole responsibility, we must recognize that the
+              design system is what underpins our final products and pattern libraries.</div>
+            <img src="../../assets/img/workflow-system-first.png" alt="Atomic design" />
+          </div>
+          <div class="sec2" fxFlex="48" fxFlex.xs="48">
+            <p>Feature Components vs Presentational Components</p>
+            <div class="grey-content">A Feature component is a top level component that contains all other components in our feature. This commonly
+              is a routed component in Angular. Presentational Components behave like pure functions taking in the data via
+              @Input and emitting data via @Output.
+              <a href="http://lab.idugalic.pro/my-company-angular-fe/">Read more ...</a>
+            </div>
+            <img src="../../assets/img/MyCompanyFE-Home.png" alt="featureVsPresentation" />
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <md-card-title>Documentation</md-card-title>
+    <md-card-subtitle>
+      For some executives, digital is a new way of engaging with customers. For others, it’s about technology. It’s tempting to
+      look for simple definitions, but to be meaningful and sustainable, We believe that digital should be seen less as a
+      thing and more a way of doing things. To help make this definition more concrete, we have broken it down into three
+      attributes:
+      <ul>
+        <li>creating value at the new frontiers of the business world,</li>
+        <li>creating value in the processes that execute a vision of customer experiences,</li>
+        <li>and building foundational capabilities that support the entire structure.</li>
+      </ul>
+      The main focus of this <a href="https://docs.lab.idugalic.pro/">document</a> is the third part of the definition - "building foundational capabilities that
+      support the entire structure". <a href="https://docs.lab.idugalic.pro/">Read more ...</a>
+    </md-card-subtitle>
   </md-card>
 </app-main>

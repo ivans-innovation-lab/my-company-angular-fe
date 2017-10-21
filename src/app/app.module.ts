@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
 import { BreadcrumbsModule } from 'ng2-breadcrumbs';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -52,6 +53,7 @@ export function authHttpServiceFactory(http: Http) {
     FormsModule,
     MdNativeDateModule,
     BreadcrumbsModule,
+    FlexLayoutModule
   ],
   providers: [
     EventManager,

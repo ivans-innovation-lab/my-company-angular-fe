@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'blog',
     component: BlogComponent,
     data: {
-      breadcrumb: 'Blog'
+      breadcrumb: 'blog'
   },
     canActivate: [AuthGuard],
     children: [
@@ -25,7 +25,7 @@ const routes: Routes = [
             path: ':id',
             component: BlogDetailComponent,
             data: {
-              breadcrumb: 'Detail'
+              breadcrumb: 'detail'
           },
             canActivate: [AuthGuard]
           },
@@ -33,7 +33,7 @@ const routes: Routes = [
             path: 'action/new',
             component: BlogNewComponent,
             data: {
-              breadcrumb: 'New'
+              breadcrumb: 'new'
           },
             canActivate: [AuthGuard, AdminAuthGuard]
           }

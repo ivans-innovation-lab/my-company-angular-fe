@@ -1,12 +1,19 @@
-md-card.mat-card{
-    background-image: url("../../assets/img/digital-transformation.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;    
+.sec1, .sec2, .sec3 {
+    padding-top:20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align:center;
 }
-md-card.mat-card p{
-    font-size:140%;
-    font-family:palatino;
-    font-style: italic;
-    color:white;
-    // background-color: white;
+img {
+    width: 100%;
+    height: auto;
+}
+p {
+    min-height: 60px;
+    text-transform: uppercase;
+    
+}
+.grey-content{
+    color:grey;
+    text-align:justify
 }
