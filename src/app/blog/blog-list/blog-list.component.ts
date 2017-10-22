@@ -52,7 +52,7 @@ export class BlogDataSource extends DataSource<BlogModel> {
 
     const startPageEvent = new PageEvent();
     startPageEvent.pageIndex = 0;
-    startPageEvent.pageSize = 20;
+    startPageEvent.pageSize = 5;
 
     /** Merging 'blogPostListModification' and 'page changed' streams **/
     return Observable.merge(...displayDataChanges)

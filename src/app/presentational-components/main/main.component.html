@@ -1,7 +1,7 @@
 <main>
   <md-card>
-    <md-card-title>{{title}}</md-card-title>
-    <md-card-subtitle>
+    <md-card-title *ngIf="title">{{title}}</md-card-title>
+    <md-card-subtitle *ngIf="subTitle">
       <p>{{subTitle}}</p>
     </md-card-subtitle>
     <md-card-content>

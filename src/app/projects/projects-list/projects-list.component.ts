@@ -52,7 +52,7 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
 
     const startPageEvent = new PageEvent();
     startPageEvent.pageIndex = 0;
-    startPageEvent.pageSize = 20;
+    startPageEvent.pageSize = 5;
 
     /** Merging 'projectListModification' and 'page changed' streams **/
     return Observable.merge(...displayDataChanges)
