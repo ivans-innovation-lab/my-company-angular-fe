@@ -6,17 +6,17 @@
               <md-input-container fxFlexFill>
                 <input mdInput name="username" [(ngModel)]="model.username" #username="ngModel" required placeholder="admin.admin" />
               </md-input-container>
-              <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+              <div *ngIf="f.submitted && !username.valid" class="alert alert-danger">Username is required</div>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
               <md-input-container fxFlexFill>
                 <input mdInput type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required placeholder="jwtpass"
                 />
               </md-input-container>
-              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+              <div *ngIf="f.submitted && !password.valid" class="alert alert-danger">Password is required</div>
             </div>
             <div class="form-group">
-              <button [disabled]="loading" md-raised-button color="primary" type="submit">Sign In</button>
+              <button [disabled]="loading" md-raised-button color="accent" type="submit">Sign In</button>
             </div>
             <div *ngIf="error" class="alert alert-danger">{{error}}</div>
           </form>
