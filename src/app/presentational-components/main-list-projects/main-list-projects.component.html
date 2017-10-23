@@ -12,12 +12,12 @@
 
     <ng-container mdColumnDef="repoUrl">
       <md-header-cell *mdHeaderCellDef> Repo URL </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.repoUrl}} </md-cell>
+      <md-cell *mdCellDef="let element"> <a href="{{element.repoUrl}}" target="_blank">{{element.repoUrl}}</a></md-cell>
     </ng-container>
 
     <ng-container mdColumnDef="siteUrl">
       <md-header-cell *mdHeaderCellDef> Site URL </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.siteUrl}} </md-cell>
+      <md-cell *mdCellDef="let element"> <a href="{{element.siteUrl}}" target="_blank">{{element.siteUrl}}</a></md-cell>
     </ng-container>
 
     <ng-container mdColumnDef="description">
