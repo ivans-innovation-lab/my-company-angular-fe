@@ -38,7 +38,7 @@ Let's place components into a layout and articulate the design’s underlying co
 
 ![My Company - Blog](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Blog.png)
 
-## Progressive Web Application
+## Progressive web application
 
 PWAs leverage Transport Layer Security (TLS), webapp manifests, and service workers to make an application installable with offline capabilities. In other words, a PWA is like a native app on your phone, but it’s built with web technologies like HTML5, JavaScript, and CSS3. If built right, a PWA is indistinguishable from a native application.
 
