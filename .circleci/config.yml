@@ -71,7 +71,7 @@ jobs:
             cf push stage-my-company-angular-fe --no-start
             cf start stage-my-company-angular-fe
 
-production:
+  production:
     docker:
       - image: circleci/node:6-browsers
     steps:
