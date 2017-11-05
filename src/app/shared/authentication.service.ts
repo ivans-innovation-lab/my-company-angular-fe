@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { TOKEN_AUTH_USERNAME, TOKEN_AUTH_PASSWORD } from './auth.constant';
-import { environment } from '../../environments/environment';
+import { environment } from '../environment';
 
 
 @Injectable()
