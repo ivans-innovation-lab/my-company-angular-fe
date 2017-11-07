@@ -30,7 +30,7 @@ There are downsides to this though. As the feature grows in complexity we may ha
 
 Let's place components into a layout and articulate the design’s underlying content structure:
 
-#### Home 'template'
+#### Home template
 
 ![My Company - Home](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Home.png)
 
