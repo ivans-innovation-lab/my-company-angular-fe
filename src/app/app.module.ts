@@ -21,6 +21,7 @@ import { PresentationalComponentsModule } from './presentational-components/pres
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
 import { BreadcrumbsModule } from 'ng2-breadcrumbs';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TeamModule } from './team/team.module';
 
 export function authHttpServiceFactory(http: Http) {
   return new AuthHttp(new AuthConfig({
@@ -45,6 +46,7 @@ export function authHttpServiceFactory(http: Http) {
     HttpModule,
     BlogModule,
     ProjectsModule,
+    TeamModule,
     PresentationalComponentsModule,
     BrowserAnimationsModule,
     BrowserModule,
