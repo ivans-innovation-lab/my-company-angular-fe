@@ -6,6 +6,7 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { TeamNewComponent } from './team-new/team-new.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
+import { TeamsService } from './shared/team.service';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     TeamRoutingModule,
     PresentationalComponentsModule
   ],
-  declarations: [TeamComponent, TeamListComponent, TeamNewComponent, TeamDetailComponent]
+  declarations: [TeamComponent, TeamListComponent, TeamNewComponent, TeamDetailComponent],
+  providers: [TeamsService]
 })
 export class TeamModule { }
