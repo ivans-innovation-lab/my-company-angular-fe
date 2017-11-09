@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamsService } from '../shared/team.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { EventManager } from '../../shared/event-manager.service';
+import { TeamModel } from '../shared/team.model';
 
 @Component({
   selector: 'app-team-new',
@@ -7,9 +12,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamNewComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  isSaving: Boolean;
+
+  constructor(
+    private teamsService: TeamsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private eventManager: EventManager
+  ) {
+    this.form = fb.group({
+      'name': ['', Validators.required],
+      'description': ['', Validators.required],
+      'status': ['', Validators.required]
+    });
+  }
+
 
   ngOnInit() {
   }
+
+  onSubmit({ value, valid }: { value: TeamModel, valid: boolean }) {
+    this.teamsService.addTeam(value).subscribe(response => this.onSaveSuccess(response), () => this.onSaveError());
+  }
+
+  private onSaveSuccess(result) {
+    this.eventManager.broadcast({ name: 'teamListModification', content: 'OK' });
+    this.isSaving = false;
+  }
+
+  private onSaveError() {
+    this.isSaving = false;
+  }
+
 
 }

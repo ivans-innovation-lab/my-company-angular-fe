@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamModel } from '../shared/team.model';
+import { TeamsService } from '../shared/team.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-team-detail',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamDetailComponent implements OnInit {
 
-  constructor() { }
+  
+  team: TeamModel;
+  errorMessage: string;
+  navigated = false;
+
+  constructor(
+    private teamsService: TeamsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      if (params['id'] !== undefined) {
+        const id = params['id'];
+        this.navigated = true;
+        this.getTeam(id);
+      } else {
+        this.navigated = false;
+        this.team = new TeamModel();
+      }
+    });
   }
 
+  private getTeam(id: string): void {
+    this.teamsService.getTeam(id).subscribe(
+      team => this.team = team,
+      error => this.errorMessage = <any>error);
+  }
 }

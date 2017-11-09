@@ -1,0 +1,19 @@
+<app-main-detail title="Team detail">
+  <md-tab-group>
+    <md-tab label="Properties">
+      <md-list class="app-list" *ngIf="team">
+        <md-list-item>
+          Name: {{team.name}}
+        </md-list-item>
+        <md-list-item>
+          Description: {{team.description}}
+        </md-list-item>
+        <md-list-item>
+          Status: {{team.status}}
+        </md-list-item>
+      </md-list>
+    </md-tab>
+    <md-tab label="Actions">
+    </md-tab>
+  </md-tab-group>
+</app-main-detail>

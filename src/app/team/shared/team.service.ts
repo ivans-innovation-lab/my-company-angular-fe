@@ -17,7 +17,7 @@ export class TeamsService {
         const body = res.json();
         this.teams = new TeamsModel();
         this.teams.page = body.page;
-        this.teams.teams = body._embedded.teams || {};
+        this.teams.teams = body._embedded.team || {};
         return this.teams;
     }
 
