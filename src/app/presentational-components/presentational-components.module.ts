@@ -20,6 +20,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainNewProjectComponent } from './main-new-project/main-new-project.component';
 import { BreadcrumbsModule } from 'ng2-breadcrumbs';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { MainListTeamComponent } from './main-list-team/main-list-team.component';
+import { MainNewTeamComponent } from './main-new-team/main-new-team.component';
+import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.component';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     MainNewComponent,
     MainNewBlogComponent,
     MainNewProjectComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    MainListTeamComponent,
+    MainNewTeamComponent,
+    MainDetailTeamComponent
   ],
   exports: [
     SideMenuComponent,
@@ -61,7 +67,10 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     MainListProjectsComponent,
     MainNewBlogComponent,
     MainNewProjectComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    MainListTeamComponent,
+    MainNewTeamComponent,
+    MainDetailTeamComponent
     // *** Excluding template components ***
     //MainListComponent,
     //MainDetailComponent,
