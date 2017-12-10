@@ -127,3 +127,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - https://angular.io/guide/quickstart
  - https://medium.com/@amcdnl/service-worker-pwas-with-the-angular-cli-98a8f16d62d6
  - https://medium.com/@webmaxru/a-new-angular-service-worker-creating-automatic-progressive-web-apps-part-1-theory-37d7d7647cc7
+ 
+---
+Created by [Ivan Dugalic][idugalic]@[lab][lab].
+Need Help?  [Join our Slack team][slack].
+
+[idugalic]: http://idugalic.pro
+[lab]: http://lab.idugalic.pro
+[slack]: https://communityinviter.com/apps/idugalic/idugalic
+[atomist]: https://www.atomist.com/
+
