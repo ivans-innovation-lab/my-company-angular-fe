@@ -20,13 +20,21 @@
       </md-list>
     </md-tab>
     <md-tab label="Actions">
-
       <md-nav-list>
-        <h4 md-subheader>Actions</h4>
-        <a md-list-item routerLink="action/edit">
+        <a md-list-item [routerLink]="editRouterLinkUrl">
           <md-icon md-list-icon>mode_edit</md-icon>
           <span md-line>Edit</span>
-          <span md-line>Project</span>
+          <span md-line>Update your project by changing name, URLs or a description</span>
+        </a>
+        <a md-list-item [routerLink]="activateRouterLinkUrl">
+          <md-icon md-list-icon>thumb_up</md-icon>
+          <span md-line>Activate</span>
+          <span md-line>Make your project active. This will enable you to link it to a specific team.</span>
+        </a>
+        <a md-list-item [routerLink]="deactivateRouterLinkUrl">
+          <md-icon md-list-icon>thumb_down</md-icon>
+          <span md-line>Deactivate</span>
+          <span md-line>Make your project in-active. This will disable you to manage your project further.</span>
         </a>
       </md-nav-list>
     </md-tab>

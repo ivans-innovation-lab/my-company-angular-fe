@@ -9,6 +9,9 @@ import { ProjectModel } from '../../projects/shared/project.model';
 export class MainDetailProjectComponent implements OnInit {
 
   @Input() project: ProjectModel;
+  @Input() editRouterLinkUrl: string;
+  @Input() activateRouterLinkUrl: string;
+  @Input() deactivateRouterLinkUrl: string;
   constructor() { }
 
   ngOnInit() {
