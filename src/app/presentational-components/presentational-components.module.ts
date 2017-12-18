@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MainEditProjectComponent} from "./main-edit-project/main-edit-project.component";
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -50,6 +51,7 @@ import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.com
     MainNewComponent,
     MainNewBlogComponent,
     MainNewProjectComponent,
+    MainEditProjectComponent,
     BreadcrumbsComponent,
     MainListTeamComponent,
     MainNewTeamComponent,
@@ -67,6 +69,7 @@ import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.com
     MainListProjectsComponent,
     MainNewBlogComponent,
     MainNewProjectComponent,
+    MainEditProjectComponent,
     BreadcrumbsComponent,
     MainListTeamComponent,
     MainNewTeamComponent,

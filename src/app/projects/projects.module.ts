@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsNewComponent } from './projects-new/projects-new.component';
+import { ProjectsEditComponent } from './projects-edit/projects-edit.component';
 import { ProjectsDetailComponent } from './projects-detail/projects-detail.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsService } from './shared/projects.service';
@@ -22,7 +23,7 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     MaterialModule,
     BrowserAnimationsModule
   ],
-  declarations: [ProjectsComponent, ProjectsNewComponent, ProjectsDetailComponent, ProjectsListComponent],
+  declarations: [ProjectsComponent, ProjectsNewComponent, ProjectsDetailComponent, ProjectsListComponent, ProjectsEditComponent],
   providers: [ProjectsService]
 })
 export class ProjectsModule { }

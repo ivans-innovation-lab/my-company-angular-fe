@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ProjectsEditComponent} from "./projects-edit/projects-edit.component";
 import { ProjectsComponent } from './projects.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsNewComponent } from './projects-new/projects-new.component';
@@ -28,7 +29,17 @@ const routes: Routes = [
             data: {
               breadcrumb: 'detail'
           },
-            canActivate: [AuthGuard]
+            canActivate: [AuthGuard],
+            children: [
+              {
+                path: 'action/edit',
+                component: ProjectsEditComponent,
+                data: {
+                  breadcrumb: 'edit'
+                },
+                canActivate: [AuthGuard, AdminAuthGuard],
+              }
+            ]
           },
           {
             path: 'action/new',
