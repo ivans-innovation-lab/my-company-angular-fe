@@ -73,11 +73,11 @@ import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.com
     BreadcrumbsComponent,
     MainListTeamComponent,
     MainNewTeamComponent,
-    MainDetailTeamComponent
+    MainDetailTeamComponent,
     // *** Excluding template components ***
     //MainListComponent,
     //MainDetailComponent,
-    //MainNewComponent
+    MainNewComponent
   ]
 })
 export class PresentationalComponentsModule { }

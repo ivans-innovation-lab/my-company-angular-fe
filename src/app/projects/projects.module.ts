@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ProjectsActivateComponent} from './projects-activate/projects-activate.component';
+import {ProjectsDeactivateComponent} from './projects-deactivate/projects-deactivate.component';
 
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
@@ -13,7 +15,6 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +24,15 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     MaterialModule,
     BrowserAnimationsModule
   ],
-  declarations: [ProjectsComponent, ProjectsNewComponent, ProjectsDetailComponent, ProjectsListComponent, ProjectsEditComponent],
+  declarations: [
+    ProjectsComponent,
+    ProjectsNewComponent,
+    ProjectsDetailComponent,
+    ProjectsListComponent,
+    ProjectsEditComponent,
+    ProjectsActivateComponent,
+    ProjectsDeactivateComponent
+  ],
   providers: [ProjectsService]
 })
 export class ProjectsModule { }

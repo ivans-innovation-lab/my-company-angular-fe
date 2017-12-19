@@ -30,6 +30,11 @@
       <md-cell *mdCellDef="let element"> {{element.category}} </md-cell>
     </ng-container>
 
+    <ng-container mdColumnDef="active">
+      <md-header-cell *mdHeaderCellDef> Active </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.active}} </md-cell>
+    </ng-container>
+
     <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
     <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
   </md-table>

@@ -48,4 +48,14 @@ export class ProjectsService {
     const url = `${environment.projectsCommandBaseUrl}/${projectId}/updatecommand`;
     return this.http.post(url, project);
   }
+
+  public activateProject(projectId: string): Observable<any> {
+    const url = `${environment.projectsCommandBaseUrl}/${projectId}/activatecommand`;
+    return this.http.post(url, null);
+  }
+
+  public deactivateProject(projectId: string): Observable<any> {
+    const url = `${environment.projectsCommandBaseUrl}/${projectId}/deactivatecommand`;
+    return this.http.post(url, null);
+  }
 }
