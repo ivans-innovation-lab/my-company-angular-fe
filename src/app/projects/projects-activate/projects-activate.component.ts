@@ -16,7 +16,6 @@ export class ProjectsActivateComponent implements OnInit {
 
   form: FormGroup;
   isSaving: Boolean;
-  project: ProjectModel;
   projectId: string;
 
   constructor(

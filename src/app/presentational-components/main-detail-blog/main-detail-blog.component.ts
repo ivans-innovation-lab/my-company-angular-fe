@@ -9,6 +9,8 @@ import { BlogModel } from '../../blog/shared/blog.model';
 export class MainDetailBlogComponent implements OnInit {
 
   @Input() blogPost: BlogModel;
+  @Input() publishRouterLinkUrl: string;
+  @Input() unpublishRouterLinkUrl: string;
   constructor() { }
 
   ngOnInit() {

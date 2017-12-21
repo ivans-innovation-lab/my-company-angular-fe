@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {post} from 'selenium-webdriver/http';
 import { environment } from '../../environment';
 import { Response } from '@angular/http';
 import { BlogModel } from './blog.model';
@@ -47,5 +48,17 @@ export class BlogService {
 
   public addBlogPost(post: BlogModel): Observable<any> {
     return this.http.post(environment.blogPostCommandBaseUrl, post);
+  }
+
+  public publishBlogPost(id: string, publishAt: Date): Observable<any> {
+    const blog: BlogModel = new BlogModel();
+    blog.publishAt = publishAt;
+    const url = `${environment.blogPostCommandBaseUrl}/${id}/publishcommand`;
+    return this.http.post(url, blog);
+  }
+
+  public unPublishBlogPost(id: string): Observable<any> {
+    const url = `${environment.blogPostCommandBaseUrl}/${id}/unpublishcommand`;
+    return this.http.post(url, null);
   }
 }

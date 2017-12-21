@@ -12,6 +12,18 @@
       </md-card>
     </md-tab>
     <md-tab label="Actions">
+      <md-nav-list>
+        <a md-list-item [routerLink]="publishRouterLinkUrl">
+          <md-icon md-list-icon>thumb_up</md-icon>
+          <span md-line>Publish</span>
+          <span md-line>Publish your blog post. This will make your post public.</span>
+        </a>
+        <a md-list-item [routerLink]="unpublishRouterLinkUrl">
+          <md-icon md-list-icon>thumb_down</md-icon>
+          <span md-line>UnPublish</span>
+          <span md-line>Un Publish your blog post.</span>
+        </a>
+      </md-nav-list>
     </md-tab>
   </md-tab-group>
 </app-main-detail>

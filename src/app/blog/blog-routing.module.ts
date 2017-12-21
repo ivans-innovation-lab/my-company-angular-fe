@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BlogPublishComponent } from './blog-publish/blog-publish.component';
+import { BlogUnPublishComponent } from './blog-unpublish/blog-unpublish.component';
 import { BlogComponent } from './blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
@@ -27,7 +29,25 @@ const routes: Routes = [
             data: {
               breadcrumb: 'detail'
           },
-            canActivate: [AuthGuard]
+            canActivate: [AuthGuard],
+            children: [
+              {
+                path: 'action/publish',
+                component: BlogPublishComponent,
+                data: {
+                  breadcrumb: 'publish'
+                },
+                canActivate: [AuthGuard, AdminAuthGuard],
+              },
+              {
+                path: 'action/unpublish',
+                component: BlogUnPublishComponent,
+                data: {
+                  breadcrumb: 'unpublish'
+                },
+                canActivate: [AuthGuard, AdminAuthGuard],
+              }
+            ]
           },
           {
             path: 'action/new',

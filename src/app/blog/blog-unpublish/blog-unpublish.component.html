@@ -1,0 +1,10 @@
+<app-main-new title="Un Publish Blog Post">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <p>
+      <button md-raised-button color="accent"  type="submit" [disabled]="!form.valid">Submit</button>
+    </p>
+    <p class="error">
+      {{error}}
+    </p>
+  </form>
+</app-main-new>

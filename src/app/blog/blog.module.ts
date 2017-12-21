@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BlogPublishComponent } from './blog-publish/blog-publish.component';
 
 import { BlogRoutingModule } from './blog-routing.module';
+import { BlogUnPublishComponent } from './blog-unpublish/blog-unpublish.component';
 import { BlogComponent } from './blog.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
@@ -22,7 +24,7 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     MaterialModule,
     BrowserAnimationsModule
   ],
-  declarations: [BlogComponent, BlogDetailComponent, BlogListComponent, BlogNewComponent],
+  declarations: [BlogComponent, BlogDetailComponent, BlogListComponent, BlogNewComponent, BlogPublishComponent, BlogUnPublishComponent],
   providers: [BlogService]
 })
 export class BlogModule { }
