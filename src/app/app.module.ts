@@ -40,7 +40,7 @@ export function jwtOptionsFactory() {
       return localStorage.getItem(TOKEN_NAME);
     },
     throwNoTokenError: false,
-    whitelistedDomains: ['localhost:8080', 'foo.com', 'bar.com']
+    whitelistedDomains: ['localhost:8080', 'stage-my-company-monolith.cfapps.io', 'prod-my-company-monolith.cfapps.io']
   };
 }
 
