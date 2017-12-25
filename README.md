@@ -6,7 +6,7 @@ This is an example application. We have tried to find an appropriate balance bet
 
 The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing (CRUD operations) 'blog posts' and 'projects'. 
 
-It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0. Current Angular version is 4.2.4.
+It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2. Current Angular version is 5.1.2.
 
 ## Feature Components vs Presentational Components
 
