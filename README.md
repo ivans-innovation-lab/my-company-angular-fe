@@ -38,6 +38,14 @@ Let's place components into a layout and articulate the design’s underlying co
 
 ![My Company - Blog](https://github.com/ivans-innovation-lab/my-company-angular-fe/raw/master/MyCompanyFE-Blog.png)
 
+## Theming our custom presentational components
+
+Our application supports use of potentially unlimited number of [different themes](https://github.com/ivans-innovation-lab/my-company-angular-fe/blob/master/src/styles/_theme.scss). This is useful in itself but these themes will only style components provided by the Angular Material library itself.
+
+We put our general layout and styling to the [`main-list-blog.component.scss`](https://github.com/ivans-innovation-lab/my-company-angular-fe/blob/master/src/app/presentational-components/main-list-blog/_main-list-blog.component.theme.scss), but we also create a new file [`main-list-blog.component.theme.scss`](https://github.com/ivans-innovation-lab/my-company-angular-fe/blob/master/src/app/presentational-components/main-list-blog/main-list-blog.component.scss) where we are using style rules which have something to do with the color. In our mixin, we retrieved all the necessary theme variables needed for the styling of our custom component.
+
+To use our custom component theme, we have to include it in main [styles.scss](https://github.com/ivans-innovation-lab/my-company-angular-fe/blob/master/src/styles/styles.scss) file.
+
 ## Progressive Web Application
 
 PWAs leverage Transport Layer Security (TLS), webapp manifests, and service workers to make an application installable with offline capabilities. In other words, a PWA is like a native app on your phone, but it’s built with web technologies like HTML5, JavaScript, and CSS3. If built right, a PWA is indistinguishable from a native application.
@@ -95,11 +103,11 @@ $ ./mvnw spring-boot:run
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-You can choose `blog` or `projects` from the menu on the left. You will be prompted for credentials:
+You can login with credentials:
  - username: john.doe    ; password: jwtpass  ; role: USER
  - username: admin.admin ; password: jwtpass  ; role: ADMIN
 
-Blog and Projects require authenticated user in any role, but to create blog or project you should be in the role of ADMIN. Backend API application is using OAuth2 with JWT token.
+Please note that only ADMIN role is authorized to manage (create, update, delete) `blog`, `projects` and `teams`.
 
 ## Code scaffolding
 
@@ -127,6 +135,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - https://angular.io/guide/quickstart
  - https://medium.com/@amcdnl/service-worker-pwas-with-the-angular-cli-98a8f16d62d6
  - https://medium.com/@webmaxru/a-new-angular-service-worker-creating-automatic-progressive-web-apps-part-1-theory-37d7d7647cc7
+ - https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1
  
 ---
 Created by [Ivan Dugalic][idugalic]@[lab][lab].
