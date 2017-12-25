@@ -53,7 +53,6 @@ export function jwtOptionsFactory() {
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpModule,
     AppRoutingModule,
     BlogModule,
     ProjectsModule,

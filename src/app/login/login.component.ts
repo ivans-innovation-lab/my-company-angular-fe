@@ -12,7 +12,6 @@ import { UserService } from '../shared/user.service';
 })
 export class LoginComponent implements OnInit {
     model: any = {};
-    loading = false;
     error = '';
     redirectUrl: string;
 
@@ -28,14 +27,12 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        this.loading = true;
-
+        this.userService.logout();
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
-            result => {
-                this.loading = false;
-                if (result) {
-                    this.userService.login(result);
+            token => {
+                if (token) {
+                    this.userService.login(token);
                     this.navigateAfterSuccess();
                 } else {
                     this.error = 'Username or password is incorrect';
@@ -43,7 +40,6 @@ export class LoginComponent implements OnInit {
             },
             error => {
                 this.error = 'Username or password is incorrect';
-                this.loading = false;
                 console.error(error);
             }
             );

@@ -1,45 +1,43 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import { TOKEN_NAME } from './auth.constant';
+import {TOKEN_NAME} from './auth.constant';
 
 
 @Injectable()
 export class UserService {
-    // jwtHelper: JwtHelperService = new JwtHelperService(null);
-    accessToken: string;
-    isAdmin: boolean;
 
-    constructor(private jwtHelper: JwtHelperService) {
-        if (localStorage.getItem(TOKEN_NAME)) {
-            this.login(localStorage.getItem(TOKEN_NAME));
-        }else {
-            this.accessToken = null;
-            this.isAdmin = false;
-        }
-    }
+  constructor(private jwtHelper: JwtHelperService) {
+  }
 
-    login(accessToken: string) {
-        const decodedToken = this.jwtHelper.decodeToken(accessToken);
-        this.isAdmin = decodedToken.authorities.some(el => el === 'ADMIN_USER');
-        this.accessToken = accessToken;
-        localStorage.setItem(TOKEN_NAME, accessToken);
-    }
+  public login(accessToken: string) {
+    localStorage.setItem(TOKEN_NAME, accessToken);
+  }
 
-    logout() {
-        this.accessToken = null;
-        this.isAdmin = false;
-        localStorage.removeItem(TOKEN_NAME);
-    }
+  public logout() {
+    localStorage.removeItem(TOKEN_NAME);
+  }
 
-    isAdminUser(): boolean {
-        return this.isAdmin;
+  public isAdminUser(): boolean {
+    if (localStorage.getItem(TOKEN_NAME)) {
+      const decodedToken = this.jwtHelper.decodeToken(localStorage.getItem(TOKEN_NAME));
+      return decodedToken.authorities.some(el => el === 'ADMIN_USER');
+    } else {
+      return false;
     }
+  }
 
-    isUser(): boolean {
-        return this.accessToken && !this.isAdmin;
-    }
+  public isUser(): boolean {
+    return localStorage.getItem(TOKEN_NAME) && !this.isAdminUser();
+  }
 
-    isAuthenticated(): boolean {
-        return this.accessToken && true;
-    }
+  public isAuthenticated(): boolean {
+    return localStorage.getItem(TOKEN_NAME) && true;
+  }
+
+  public isTokenExpired(): boolean {
+    return (localStorage.getItem(TOKEN_NAME) == null || this.jwtHelper.isTokenExpired(localStorage.getItem(TOKEN_NAME)));
+
+  }
 }
+
+

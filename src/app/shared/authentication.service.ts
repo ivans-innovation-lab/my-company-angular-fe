@@ -12,6 +12,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
+
     const body = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&grant_type=password`;
 
     let headers = new HttpHeaders();
