@@ -1,22 +1,22 @@
 <app-main-new title="New Team">
   <form [formGroup]="form" (ngSubmit)="submit(form)">
-    <md-input-container floatingPlaceholder=true style="width: 100%">
-      <input mdInput placeholder="Name" formControlName="name">
-    </md-input-container>
-    
-    <md-input-container floatingPlaceholder=true style="width: 100%">
-      <textarea mdInput placeholder="Description" formControlName="description"></textarea>
-    </md-input-container>
+    <mat-input-container floatingPlaceholder=true style="width: 100%">
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-input-container>
+
+    <mat-input-container floatingPlaceholder=true style="width: 100%">
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-input-container>
 
     <p style="width: 100%">
-      <md-select placeholder="Status" formControlName="status" style="width: 100%">
-        <md-option value="ACTIVE">Active</md-option>
-        <md-option value="PASSIVE">Passive</md-option>
-      </md-select>
+      <mat-select placeholder="Status" formControlName="status" style="width: 100%">
+        <mat-option value="ACTIVE">Active</mat-option>
+        <mat-option value="PASSIVE">Passive</mat-option>
+      </mat-select>
     </p>
-    
+
     <p>
-      <button md-raised-button color="accent" type="submit" [disabled]="!form.valid">Submit</button>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!form.valid">Submit</button>
     </p>
   </form>
 </app-main-new>

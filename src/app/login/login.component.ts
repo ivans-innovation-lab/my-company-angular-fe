@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
             .subscribe(
             result => {
                 this.loading = false;
-
                 if (result) {
                     this.userService.login(result);
                     this.navigateAfterSuccess();
@@ -45,6 +44,7 @@ export class LoginComponent implements OnInit {
             error => {
                 this.error = 'Username or password is incorrect';
                 this.loading = false;
+                console.error(error);
             }
             );
     }

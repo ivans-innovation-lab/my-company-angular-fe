@@ -1,25 +1,57 @@
 import { TestBed, async } from '@angular/core/testing';
+import {
+  MatButtonModule,
+  MatCardModule, MatCheckboxModule, MatCommonModule, MatDatepickerModule, MatIconModule, MatInputModule, MatListModule,
+  MatNativeDateModule,
+  MatOptionModule,
+  MatPaginatorModule, MatRadioModule, MatSelectModule,
+  MatSidenavModule, MatTableModule,
+  MatTabsModule, MatToolbarModule
+} from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from '@angular/material';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 
 import { AppComponent } from './app.component';
+import { TOKEN_NAME } from './shared/auth.constant';
 import { UserService } from './shared/user.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { AuthGuard } from './shared/guards/auth-guard.service';
 import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
-import { AuthHttp } from 'angular2-jwt';
-import { authHttpServiceFactory } from './app.module';
-import { Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
 
-
+function jwtOptionsFactory() {
+  return {
+    tokenGetter: () => {
+      return localStorage.getItem(TOKEN_NAME);
+    }
+  };
+}
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule, MaterialModule, BrowserAnimationsModule, PresentationalComponentsModule
+        RouterTestingModule,
+        BrowserAnimationsModule,
+        PresentationalComponentsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatCommonModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatNativeDateModule
       ],
       declarations: [
         AppComponent
@@ -29,11 +61,11 @@ describe('AppComponent', () => {
         AuthenticationService,
         AuthGuard,
         AdminAuthGuard,
-        {
-          provide: AuthHttp,
-          useFactory: authHttpServiceFactory,
-          deps: [Http, RequestOptions]
-        }
+        JwtHelperService,
+       {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+       }
       ]
     }).compileComponents();
   }));

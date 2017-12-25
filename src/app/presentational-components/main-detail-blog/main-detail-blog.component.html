@@ -1,29 +1,29 @@
 <app-main-detail title="Blog detail">
-  <md-tab-group>
-    <md-tab label="Properties">
-      <md-card class="mat-elevation-z0">
-        <md-card-title>{{blogPost?.title}}</md-card-title>
-        <md-card-subtitle>
+  <mat-tab-group>
+    <mat-tab label="Properties">
+      <mat-card class="mat-elevation-z0">
+        <mat-card-title>{{blogPost?.title}}</mat-card-title>
+        <mat-card-subtitle>
           <p>{{blogPost?.category}} | Draft: {{blogPost?.draft}} | {{blogPost?.publishAt | date}}</p>
-        </md-card-subtitle>
-        <md-card-content>
+        </mat-card-subtitle>
+        <mat-card-content>
           {{blogPost?.renderContent}}
-        </md-card-content>
-      </md-card>
-    </md-tab>
-    <md-tab label="Actions">
-      <md-nav-list>
-        <a md-list-item [routerLink]="publishRouterLinkUrl">
-          <md-icon md-list-icon>thumb_up</md-icon>
-          <span md-line>Publish</span>
-          <span md-line>Publish your blog post. This will make your post public.</span>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Actions">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="publishRouterLinkUrl">
+          <mat-icon mat-list-icon>thumb_up</mat-icon>
+          <span mat-line>Publish</span>
+          <span mat-line>Publish your blog post. This will make your post public.</span>
         </a>
-        <a md-list-item [routerLink]="unpublishRouterLinkUrl">
-          <md-icon md-list-icon>thumb_down</md-icon>
-          <span md-line>UnPublish</span>
-          <span md-line>Un Publish your blog post.</span>
+        <a mat-list-item [routerLink]="unpublishRouterLinkUrl">
+          <mat-icon mat-list-icon>thumb_down</mat-icon>
+          <span mat-line>UnPublish</span>
+          <span mat-line>Un Publish your blog post.</span>
         </a>
-      </md-nav-list>
-    </md-tab>
-  </md-tab-group>
+      </mat-nav-list>
+    </mat-tab>
+  </mat-tab-group>
 </app-main-detail>

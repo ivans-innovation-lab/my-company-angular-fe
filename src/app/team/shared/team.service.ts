@@ -1,29 +1,27 @@
+import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environment';
 import { Response, RequestOptions } from '@angular/http';
 import { TeamModel } from './team.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { AuthHttp } from 'angular2-jwt';
 import { TeamsModel } from './teams.model';
 
 @Injectable()
 export class TeamsService {
     teams: TeamsModel;
 
-    constructor(private http: AuthHttp) { }
+    constructor(private http: HttpClient) { }
 
-    private extractListData(res: Response) {
-        const body = res.json();
+    private extractListData(res) {
         this.teams = new TeamsModel();
-        this.teams.page = body.page;
-        this.teams.teams = body._embedded.team || {};
+        this.teams.page = res.page;
+        this.teams.teams = res._embedded.team || {};
         return this.teams;
     }
 
-    private extractSingleData(res: Response) {
-        const body = res.json();
-        return body || {};
+    private extractSingleData(res) {
+        return res || {};
     }
 
     public geTeams(): Observable<TeamsModel> {

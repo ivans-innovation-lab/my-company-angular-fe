@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatButtonModule, MatDatepickerModule, MatInputModule} from '@angular/material';
 import { BlogPublishComponent } from './blog-publish/blog-publish.component';
 
 import { BlogRoutingModule } from './blog-routing.module';
@@ -10,7 +11,6 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogNewComponent } from './blog-new/blog-new.component';
 import { BlogService } from './shared/blog.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
 
@@ -21,8 +21,10 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     BlogRoutingModule,
     PresentationalComponentsModule,
     ReactiveFormsModule,
-    MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatButtonModule
   ],
   declarations: [BlogComponent, BlogDetailComponent, BlogListComponent, BlogNewComponent, BlogPublishComponent, BlogUnPublishComponent],
   providers: [BlogService]

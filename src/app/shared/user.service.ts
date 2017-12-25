@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt';
+import {JwtHelperService} from '@auth0/angular-jwt';
 import { TOKEN_NAME } from './auth.constant';
 
 
 @Injectable()
 export class UserService {
-    jwtHelper: JwtHelper = new JwtHelper();
+    // jwtHelper: JwtHelperService = new JwtHelperService(null);
     accessToken: string;
     isAdmin: boolean;
 
-    constructor() {
+    constructor(private jwtHelper: JwtHelperService) {
         if (localStorage.getItem(TOKEN_NAME)) {
             this.login(localStorage.getItem(TOKEN_NAME));
         }else {

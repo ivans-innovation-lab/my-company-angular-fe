@@ -8,7 +8,6 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
 import { TeamsService } from './shared/team.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -18,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TeamRoutingModule,
     PresentationalComponentsModule,
     ReactiveFormsModule,
-    MaterialModule,
     BrowserAnimationsModule
   ],
   declarations: [TeamComponent, TeamListComponent, TeamNewComponent, TeamDetailComponent],

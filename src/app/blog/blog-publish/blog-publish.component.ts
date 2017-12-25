@@ -1,3 +1,4 @@
+import {HttpErrorResponse} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ProjectModel} from '../../projects/shared/project.model';
@@ -48,9 +49,10 @@ export class BlogPublishComponent implements OnInit {
     this.error = null;
   }
   // TODO think of better way of handling exceptions.
-  private onSaveError(err) {
+  private onSaveError(err: HttpErrorResponse) {
+    console.log(err);
     this.isSaving = false;
-    this.error = err._body;
+    this.error = err.message;
   }
 
 }

@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatCommonModule, MatDatepickerModule, MatIconModule,
+  MatInputModule, MatListModule, MatNativeDateModule, MatNavList, MatOptionModule, MatPaginatorModule, MatRadioModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule
+} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MainEditProjectComponent} from "./main-edit-project/main-edit-project.component";
+import { MainEditProjectComponent } from './main-edit-project/main-edit-project.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,7 +23,6 @@ import { MainDetailProjectComponent } from './main-detail-project/main-detail-pr
 import { MainDetailBlogComponent } from './main-detail-blog/main-detail-blog.component';
 import { MainListBlogComponent } from './main-list-blog/main-list-blog.component';
 import { MainListProjectsComponent } from './main-list-projects/main-list-projects.component';
-import { MaterialModule } from '@angular/material';
 import { MainNewComponent } from './main-new/main-new.component';
 import { MainNewBlogComponent } from './main-new-blog/main-new-blog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -26,15 +34,32 @@ import { MainNewTeamComponent } from './main-new-team/main-new-team.component';
 import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
     BrowserAnimationsModule,
     BreadcrumbsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatCommonModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatNativeDateModule
   ],
   declarations: [
     SideMenuComponent,

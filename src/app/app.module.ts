@@ -1,37 +1,47 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import {
+  MatButtonModule,
+  MatCardModule, MatCheckboxModule, MatCommonModule, MatDatepickerModule, MATERIAL_SANITY_CHECKS, MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatPaginatorModule, MatRadioModule,
+  MatSidenavModule, MatTableModule,
+  MatTabsModule, MatToolbarModule
+} from '@angular/material';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import {BreadcrumbsModule} from 'ng2-breadcrumbs';
+import {falseIfMissing} from 'protractor/built/util';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BlogModule } from './blog/blog.module';
-import { ProjectsModule } from './projects/projects.module';
-import { HttpModule, Http, RequestOptions } from '@angular/http';
-import { EventManager } from './shared/event-manager.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { TOKEN_NAME } from './shared/auth.constant';
-import { UserService } from './shared/user.service';
-import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AuthenticationService } from './shared/authentication.service';
-import { AuthGuard } from './shared/guards/auth-guard.service';
-import { AdminAuthGuard } from './shared/guards/admin-auth-guard.service';
-import { HomeComponent } from './home/home.component';
-import { PresentationalComponentsModule } from './presentational-components/presentational-components.module';
-import { MaterialModule, MdNativeDateModule } from '@angular/material';
-import { BreadcrumbsModule } from 'ng2-breadcrumbs';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { TeamModule } from './team/team.module';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BlogModule} from './blog/blog.module';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
+import {PresentationalComponentsModule} from './presentational-components/presentational-components.module';
+import {ProjectsModule} from './projects/projects.module';
+import {TOKEN_NAME} from './shared/auth.constant';
+import {AuthenticationService} from './shared/authentication.service';
+import {EventManager} from './shared/event-manager.service';
+import {AdminAuthGuard} from './shared/guards/admin-auth-guard.service';
+import {AuthGuard} from './shared/guards/auth-guard.service';
+import {UserService} from './shared/user.service';
+import {TeamModule} from './team/team.module';
 
-export function authHttpServiceFactory(http: Http) {
-  return new AuthHttp(new AuthConfig({
-    headerPrefix: 'Bearer',
-    tokenName: TOKEN_NAME,
-    globalHeaders: [{ 'Content-Type': 'application/json' }],
-    noJwtError: false,
-    noTokenScheme: true,
-    tokenGetter: (() => localStorage.getItem(TOKEN_NAME))
-  }), http);
+
+export function jwtOptionsFactory() {
+  return {
+    tokenGetter: () => {
+      return localStorage.getItem(TOKEN_NAME);
+    },
+    throwNoTokenError: false,
+    whitelistedDomains: ['localhost:8080', 'foo.com', 'bar.com']
+  };
 }
 
 @NgModule({
@@ -42,20 +52,29 @@ export function authHttpServiceFactory(http: Http) {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    HttpClientModule,
     HttpModule,
+    AppRoutingModule,
     BlogModule,
     ProjectsModule,
     TeamModule,
     PresentationalComponentsModule,
     BrowserAnimationsModule,
     BrowserModule,
-    MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MdNativeDateModule,
     BreadcrumbsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+      }
+    })
   ],
   providers: [
     EventManager,
@@ -63,12 +82,9 @@ export function authHttpServiceFactory(http: Http) {
     AuthenticationService,
     AuthGuard,
     AdminAuthGuard,
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    }
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

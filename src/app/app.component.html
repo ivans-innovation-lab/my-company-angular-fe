@@ -1,17 +1,17 @@
 <div class="outer-sidenav-content">
-  <md-sidenav-container>
+  <mat-sidenav-container>
 
-    <md-sidenav #mySidenav class="sidenav" mode="push">
+    <mat-sidenav #mySidenav class="sidenav" mode="push">
       <app-side-menu [nav]="mySidenav" [authenticated]="isAuthenticated"></app-side-menu>
-    </md-sidenav>
+    </mat-sidenav>
 
     <app-header [title]="title" [nav]="mySidenav" sourceCodeUrl="https://github.com/ivans-innovation-lab/my-company-angular-fe"></app-header>
-    
+
     <div class="inner-sidenav-content">
       <router-outlet></router-outlet>
 
       <app-footer></app-footer>
     </div>
 
-  </md-sidenav-container>
+  </mat-sidenav-container>
 </div>

@@ -1,16 +1,16 @@
 <header>
-  <md-toolbar color="primary">
+  <mat-toolbar color="primary">
 
-     <button md-icon-button (click)="toggleSideNav()">
-      <md-icon>menu</md-icon>
+     <button mat-icon-button (click)="toggleSideNav()">
+      <mat-icon>menu</mat-icon>
     </button>
 
     <span><a routerLink="/">{{title}}</a></span>
-    <app-breadcrumbs></app-breadcrumbs> 
-    
+    <app-breadcrumbs></app-breadcrumbs>
+
     <span class="fill-remaining-space"></span>
-    <a md-mini-fab href="{{sourceCodeUrl}}" target="_blank">
-      <md-icon>code</md-icon>
+    <a mat-mini-fab href="{{sourceCodeUrl}}" target="_blank">
+      <mat-icon>code</mat-icon>
     </a>
-  </md-toolbar>
+  </mat-toolbar>
 </header>

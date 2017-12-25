@@ -1,11 +1,10 @@
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {post} from 'selenium-webdriver/http';
 import { environment } from '../../environment';
 import { Response } from '@angular/http';
 import { BlogModel } from './blog.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { AuthHttp } from 'angular2-jwt';
 import { BlogsModel } from './blogs.model';
 
 
@@ -14,19 +13,17 @@ export class BlogService {
 
   blogs: BlogsModel;
 
-  constructor(private http: AuthHttp) { }
+  constructor(private http: HttpClient) { }
 
-  private extractListData(res: Response) {
-    const body = res.json();
+  private extractListData(res) {
     this.blogs = new BlogsModel();
-    this.blogs.page = body.page;
-    this.blogs.blogposts = body._embedded.blogposts || {};
+    this.blogs.page = res.page;
+    this.blogs.blogposts = res._embedded.blogposts || {};
     return this.blogs;
   }
 
-  private extractSingleData(res: Response) {
-    const body = res.json();
-    return body || {};
+  private extractSingleData(res) {
+    return res || {};
   }
 
   public getBlogPosts(): Observable<BlogsModel> {
@@ -46,8 +43,8 @@ export class BlogService {
       .map(this.extractSingleData);
   }
 
-  public addBlogPost(post: BlogModel): Observable<any> {
-    return this.http.post(environment.blogPostCommandBaseUrl, post);
+  public addBlogPost(blogPost: BlogModel): Observable<any> {
+    return this.http.post(environment.blogPostCommandBaseUrl, blogPost);
   }
 
   public publishBlogPost(id: string, publishAt: Date): Observable<any> {
@@ -58,7 +55,8 @@ export class BlogService {
   }
 
   public unPublishBlogPost(id: string): Observable<any> {
+    const blog: BlogModel = new BlogModel();
     const url = `${environment.blogPostCommandBaseUrl}/${id}/unpublishcommand`;
-    return this.http.post(url, null);
+    return this.http.post(url, blog);
   }
 }

@@ -1,6 +1,6 @@
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Response} from '@angular/http';
-import {AuthHttp} from 'angular2-jwt';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environment';
@@ -11,20 +11,18 @@ import {ProjectsModel} from './projects.model';
 export class ProjectsService {
   projects: ProjectsModel;
 
-  constructor(private http: AuthHttp) {
+  constructor(private http: HttpClient) {
   }
 
-  private extractListData(res: Response) {
-    const body = res.json();
+  private extractListData(res) {
     this.projects = new ProjectsModel();
-    this.projects.page = body.page;
-    this.projects.projects = body._embedded.projects || {};
+    this.projects.page = res.page;
+    this.projects.projects = res._embedded.projects || {};
     return this.projects;
   }
 
-  private extractSingleData(res: Response) {
-    const body = res.json();
-    return body || {};
+  private extractSingleData(res) {
+    return res || {};
   }
 
   public getProjects(): Observable<ProjectsModel> {
@@ -50,12 +48,14 @@ export class ProjectsService {
   }
 
   public activateProject(projectId: string): Observable<any> {
+    const project: ProjectModel = new ProjectModel();
     const url = `${environment.projectsCommandBaseUrl}/${projectId}/activatecommand`;
-    return this.http.post(url, null);
+    return this.http.post(url, project);
   }
 
   public deactivateProject(projectId: string): Observable<any> {
+    const project: ProjectModel = new ProjectModel();
     const url = `${environment.projectsCommandBaseUrl}/${projectId}/deactivatecommand`;
-    return this.http.post(url, null);
+    return this.http.post(url, project);
   }
 }

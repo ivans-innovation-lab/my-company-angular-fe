@@ -1,42 +1,42 @@
 <app-main-detail title="Project detail">
-  <md-tab-group>
-    <md-tab label="Properties">
-      <md-list class="app-list" *ngIf="project">
-        <md-list-item>
+  <mat-tab-group>
+    <mat-tab label="Properties">
+      <mat-list class="app-list" *ngIf="project">
+        <mat-list-item>
           Name: {{project.name}}
-        </md-list-item>
-        <md-list-item>
+        </mat-list-item>
+        <mat-list-item>
           Repo URL: {{project.repoUrl}}
-        </md-list-item>
-        <md-list-item>
+        </mat-list-item>
+        <mat-list-item>
           Site URL: {{project.siteUrl}}
-        </md-list-item>
-        <md-list-item>
+        </mat-list-item>
+        <mat-list-item>
           Description: {{project.description}}
-        </md-list-item>
-        <md-list-item>
+        </mat-list-item>
+        <mat-list-item>
           Category: {{project.category}}
-        </md-list-item>
-      </md-list>
-    </md-tab>
-    <md-tab label="Actions">
-      <md-nav-list>
-        <a md-list-item [routerLink]="editRouterLinkUrl">
-          <md-icon md-list-icon>mode_edit</md-icon>
-          <span md-line>Edit</span>
-          <span md-line>Update your project by changing name, URLs or a description</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-tab>
+    <mat-tab label="Actions">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="editRouterLinkUrl">
+          <mat-icon mat-list-icon>mode_edit</mat-icon>
+          <span mat-line>Edit</span>
+          <span mat-line>Update your project by changing name, URLs or a description</span>
         </a>
-        <a md-list-item [routerLink]="activateRouterLinkUrl">
-          <md-icon md-list-icon>thumb_up</md-icon>
-          <span md-line>Activate</span>
-          <span md-line>Make your project active. This will enable you to link it to a specific team.</span>
+        <a mat-list-item [routerLink]="activateRouterLinkUrl">
+          <mat-icon mat-list-icon>thumb_up</mat-icon>
+          <span mat-line>Activate</span>
+          <span mat-line>Make your project active. This will enable you to link it to a specific team.</span>
         </a>
-        <a md-list-item [routerLink]="deactivateRouterLinkUrl">
-          <md-icon md-list-icon>thumb_down</md-icon>
-          <span md-line>Deactivate</span>
-          <span md-line>Make your project in-active. This will disable you to manage your project further.</span>
+        <a mat-list-item [routerLink]="deactivateRouterLinkUrl">
+          <mat-icon mat-list-icon>thumb_down</mat-icon>
+          <span mat-line>Deactivate</span>
+          <span mat-line>Make your project in-active. This will disable you to manage your project further.</span>
         </a>
-      </md-nav-list>
-    </md-tab>
-  </md-tab-group>
+      </mat-nav-list>
+    </mat-tab>
+  </mat-tab-group>
 </app-main-detail>

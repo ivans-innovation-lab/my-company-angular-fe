@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatButtonModule} from '@angular/material';
 import {ProjectsActivateComponent} from './projects-activate/projects-activate.component';
 import {ProjectsDeactivateComponent} from './projects-deactivate/projects-deactivate.component';
 
@@ -11,7 +12,6 @@ import { ProjectsDetailComponent } from './projects-detail/projects-detail.compo
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsService } from './shared/projects.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
 
@@ -21,8 +21,8 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     ProjectsRoutingModule,
     PresentationalComponentsModule,
     ReactiveFormsModule,
-    MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   declarations: [
     ProjectsComponent,

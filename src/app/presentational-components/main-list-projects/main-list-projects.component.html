@@ -1,46 +1,46 @@
 <app-main-list>
-  <md-table #table [dataSource]="dataSource">
-    <ng-container mdColumnDef="id">
-      <md-header-cell *mdHeaderCellDef> Id </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="name">
-      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
-      <md-cell *mdCellDef="let element"> <a [routerLink]="[element.id]">{{ element.name }}</a> </md-cell>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <a [routerLink]="[element.id]">{{ element.name }}</a> </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="repoUrl">
-      <md-header-cell *mdHeaderCellDef> Repo URL </md-header-cell>
-      <md-cell *mdCellDef="let element"> <a href="{{element.repoUrl}}" target="_blank">{{element.repoUrl}}</a></md-cell>
+    <ng-container matColumnDef="repoUrl">
+      <mat-header-cell *matHeaderCellDef> Repo URL </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <a href="{{element.repoUrl}}" target="_blank">{{element.repoUrl}}</a></mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="siteUrl">
-      <md-header-cell *mdHeaderCellDef> Site URL </md-header-cell>
-      <md-cell *mdCellDef="let element"> <a href="{{element.siteUrl}}" target="_blank">{{element.siteUrl}}</a></md-cell>
+    <ng-container matColumnDef="siteUrl">
+      <mat-header-cell *matHeaderCellDef> Site URL </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <a href="{{element.siteUrl}}" target="_blank">{{element.siteUrl}}</a></mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="description">
-      <md-header-cell *mdHeaderCellDef> Description </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.description}} </md-cell>
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="category">
-      <md-header-cell *mdHeaderCellDef> Category </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.category}} </md-cell>
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
     </ng-container>
 
-    <ng-container mdColumnDef="active">
-      <md-header-cell *mdHeaderCellDef> Active </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.active}} </md-cell>
+    <ng-container matColumnDef="active">
+      <mat-header-cell *matHeaderCellDef> Active </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.active}} </mat-cell>
     </ng-container>
 
-    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
-  <md-paginator (page)="pageChanged($event)" [pageSizeOptions]="[5, 10, 15, 35, 50, 100, 200]" [length]="dataSource?.page?.totalElements" [pageIndex]="dataSource?.page?.number"
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator (page)="pageChanged($event)" [pageSizeOptions]="[5, 10, 15, 35, 50, 100, 200]" [length]="dataSource?.page?.totalElements" [pageIndex]="dataSource?.page?.number"
     [pageSize]="dataSource?.page?.size">
-  </md-paginator>
+  </mat-paginator>
 
-  <button color="accent" md-raised-button [routerLink]="'action/new'">Create New Project</button>
+  <button color="accent" mat-raised-button [routerLink]="'action/new'">Create New Project</button>
 </app-main-list>

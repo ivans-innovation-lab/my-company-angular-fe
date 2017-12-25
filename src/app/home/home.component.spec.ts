@@ -1,7 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatButtonModule,
+  MatCardModule, MatCheckboxModule, MatCommonModule, MatDatepickerModule, MatIconModule, MatInputModule, MatListModule,
+  MatNativeDateModule,
+  MatOptionModule,
+  MatPaginatorModule, MatRadioModule, MatSelectModule,
+  MatSidenavModule, MatTableModule,
+  MatTabsModule, MatToolbarModule
+} from '@angular/material';
 
 import { HomeComponent } from './home.component';
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
 
@@ -11,7 +19,27 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, BrowserAnimationsModule, PresentationalComponentsModule],
+      imports: [
+        BrowserAnimationsModule,
+        PresentationalComponentsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatCommonModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatNativeDateModule
+      ],
       declarations: [HomeComponent]
     })
       .compileComponents();
