@@ -48,11 +48,11 @@ export class BlogPublishComponent implements OnInit {
     this.isSaving = false;
     this.error = null;
   }
-  // TODO think of better way of handling exceptions.
+
   private onSaveError(err: HttpErrorResponse) {
     console.log(err);
     this.isSaving = false;
-    this.error = err.message;
+    this.error = err;
   }
 
 }

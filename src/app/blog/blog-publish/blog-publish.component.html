@@ -9,7 +9,7 @@
       <button mat-raised-button color="accent"  type="submit" [disabled]="!form.valid">Submit</button>
     </p>
     <p class="error">
-      {{error}}
+      {{error?.name}} {{error?.message}}
     </p>
   </form>
 </app-main-new>

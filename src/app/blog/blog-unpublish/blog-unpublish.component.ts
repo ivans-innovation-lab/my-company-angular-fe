@@ -46,13 +46,13 @@ export class BlogUnPublishComponent implements OnInit {
   private onSaveSuccess(result) {
     this.eventManager.broadcast({ name: 'blogPostListModification', content: 'OK' });
     this.isSaving = false;
+    this.error = null;
   }
 
-  // TODO think of better way of handling exceptions.
   private onSaveError(err: HttpErrorResponse) {
     console.log(err);
     this.isSaving = false;
-    this.error = err.message;
+    this.error = err;
   }
 
 

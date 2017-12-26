@@ -1,7 +1,8 @@
+import {HttpErrorResponse} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BlogService } from '../shared/blog.service';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import {FormGroup, Validators, FormBuilder, FormControl, ValidationErrors} from '@angular/forms';
 import { EventManager } from '../../shared/event-manager.service';
 import { BlogModel } from '../shared/blog.model';
 
@@ -14,7 +15,7 @@ export class BlogNewComponent implements OnInit {
 
   form: FormGroup;
   isSaving: Boolean;
-  error: any;
+  error: HttpErrorResponse;
 
   constructor(
     private blogPostsService: BlogService,
@@ -42,12 +43,13 @@ export class BlogNewComponent implements OnInit {
   private onSaveSuccess(result) {
     this.eventManager.broadcast({ name: 'blogPostListModification', content: 'OK' });
     this.isSaving = false;
+    this.error = null;
   }
 
-  // TODO think of better way of handling exceptions.
-  private onSaveError(err) {
+  private onSaveError(err: HttpErrorResponse) {
+    console.log(err);
     this.isSaving = false;
-    this.error = err._body;
+    this.error = err;
   }
 
 }
