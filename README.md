@@ -113,6 +113,15 @@ Please note that only ADMIN role is authorized to manage (create, update, delete
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+```
+$ cd src/app
+$ ng g module users
+$ ng g component users
+$ ng g component users/users-new
+$ ng g component users/users-list
+$ ng g component users/users-detail
+```
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.

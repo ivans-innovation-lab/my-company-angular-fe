@@ -32,6 +32,7 @@ import {AdminAuthGuard} from './shared/guards/admin-auth-guard.service';
 import {AuthGuard} from './shared/guards/auth-guard.service';
 import {UserService} from './shared/user.service';
 import {TeamModule} from './team/team.module';
+import { UsersModule } from './users/users.module';
 
 
 export function jwtOptionsFactory() {
@@ -57,6 +58,7 @@ export function jwtOptionsFactory() {
     BlogModule,
     ProjectsModule,
     TeamModule,
+    UsersModule,
     PresentationalComponentsModule,
     BrowserAnimationsModule,
     BrowserModule,
