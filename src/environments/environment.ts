@@ -11,5 +11,6 @@ export const environment = {
   projectsCommandBaseUrl: 'http://localhost:8080/api/projectcommands',
   teamsQueryBaseUrl: 'http://localhost:8080/api/team',
   teamsCommandBaseUrl: 'http://localhost:8080/api/teamcommands',
-  authTokenUrl: 'http://localhost:8080/oauth/token'
+  authTokenUrl: 'http://localhost:8080/oauth/token',
+  usersBaseUrl: 'http://localhost:8080/api/users',
 };

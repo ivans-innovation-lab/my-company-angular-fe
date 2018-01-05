@@ -6,5 +6,6 @@ export const environment = {
   projectsCommandBaseUrl: 'https://prod-my-company-monolith.cfapps.io/api/projectcommands',
   teamsQueryBaseUrl: 'https://prod-my-company-monolith.cfapps.io/api/team',
   teamsCommandBaseUrl: 'https://prod-my-company-monolith.cfapps.io/api/teamcommands',
-  authTokenUrl: 'https://prod-my-company-monolith.cfapps.io/oauth/token'
+  authTokenUrl: 'https://prod-my-company-monolith.cfapps.io/oauth/token',
+  usersBaseUrl: 'http://localhost:8080/api/users',
 };

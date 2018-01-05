@@ -32,6 +32,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { MainListTeamComponent } from './main-list-team/main-list-team.component';
 import { MainNewTeamComponent } from './main-new-team/main-new-team.component';
 import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.component';
+import { MainListUsersComponent } from './main-list-users/main-list-users.component';
 
 
 
@@ -80,7 +81,8 @@ import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.com
     BreadcrumbsComponent,
     MainListTeamComponent,
     MainNewTeamComponent,
-    MainDetailTeamComponent
+    MainDetailTeamComponent,
+    MainListUsersComponent
   ],
   exports: [
     SideMenuComponent,
@@ -99,6 +101,7 @@ import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.com
     MainListTeamComponent,
     MainNewTeamComponent,
     MainDetailTeamComponent,
+    MainListUsersComponent,
     // *** Excluding template components ***
     //MainListComponent,
     //MainDetailComponent,

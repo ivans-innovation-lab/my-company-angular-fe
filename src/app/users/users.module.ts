@@ -6,6 +6,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
+import { UsersService } from './shared/users.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { PresentationalComponentsModule } from '../presentational-components/pre
     UsersRoutingModule,
     PresentationalComponentsModule
   ],
-  declarations: [UsersComponent, UsersNewComponent, UsersListComponent, UsersDetailComponent]
+  declarations: [UsersComponent, UsersNewComponent, UsersListComponent, UsersDetailComponent],
+  providers: [UsersService]
 })
 export class UsersModule { }
