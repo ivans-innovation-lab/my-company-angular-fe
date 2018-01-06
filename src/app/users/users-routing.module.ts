@@ -6,6 +6,7 @@ import { UsersComponent } from './users.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { UsersNewComponent } from './users-new/users-new.component';
+import { UsersEditComponent } from './users-edit/users-edit.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,18 @@ const routes: Routes = [
             component: UsersDetailComponent,
             data: {
               breadcrumb: 'detail'
-          },
-            canActivate: [AuthGuard]
+            },
+            canActivate: [AuthGuard],
+            children: [
+              {
+                path: 'action/edit',
+                component: UsersEditComponent,
+                data: {
+                  breadcrumb: 'edit'
+                },
+                canActivate: [AuthGuard, AdminAuthGuard]
+              }
+            ]
           },
           {
             path: 'action/new',

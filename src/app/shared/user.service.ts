@@ -20,7 +20,7 @@ export class UserService {
   public isAdminUser(): boolean {
     if (localStorage.getItem(TOKEN_NAME)) {
       const decodedToken = this.jwtHelper.decodeToken(localStorage.getItem(TOKEN_NAME));
-      return decodedToken.authorities.some(el => el === 'ADMIN_USER');
+      return decodedToken.authorities && decodedToken.authorities.some(el => el === 'ADMIN_USER');
     } else {
       return false;
     }

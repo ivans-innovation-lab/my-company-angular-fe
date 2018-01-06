@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../shared/users.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UserModel } from '../shared/user.model';
+import { EventManager } from '../../shared/event-manager.service';
 
 @Component({
   selector: 'app-users-new',
@@ -7,9 +12,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersNewComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  isSaving: Boolean;
+
+  constructor(
+    private usersService: UsersService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private eventManager: EventManager
+  ) {
+    this.form = fb.group({
+      'firstName': ['', Validators.required],
+      'lastName': ['', Validators.required],
+      'username': ['', Validators.required],
+      'password': ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
   }
 
+  onSubmit({ value, valid }: { value: UserModel, valid: boolean }) {
+    this.usersService.addUser(value).subscribe(response => this.onSaveSuccess(response), () => this.onSaveError());
+  }
+
+  private onSaveSuccess(result) {
+    this.eventManager.broadcast({ name: 'userListModification', content: 'OK' });
+    this.isSaving = false;
+  }
+
+  private onSaveError() {
+    this.isSaving = false;
+  }
 }

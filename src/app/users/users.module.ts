@@ -7,6 +7,7 @@ import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { PresentationalComponentsModule } from '../presentational-components/presentational-components.module';
 import { UsersService } from './shared/users.service';
+import { UsersEditComponent } from './users-edit/users-edit.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { UsersService } from './shared/users.service';
     UsersRoutingModule,
     PresentationalComponentsModule
   ],
-  declarations: [UsersComponent, UsersNewComponent, UsersListComponent, UsersDetailComponent],
+  declarations: [UsersComponent, UsersNewComponent, UsersListComponent, UsersDetailComponent, UsersEditComponent],
   providers: [UsersService]
 })
 export class UsersModule { }

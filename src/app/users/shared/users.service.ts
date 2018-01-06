@@ -42,4 +42,8 @@ export class UsersService {
     return this.http.post(environment.usersBaseUrl, user);
   }
 
+  public updateUser(userId: string, user: UserModel): Observable<any> {
+    const url = `${environment.usersBaseUrl}/${userId}`;
+    return this.http.put(url, user);
+  }
 }

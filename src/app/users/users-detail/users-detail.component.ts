@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../shared/user.model';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { UsersService } from '../shared/users.service';
 
 @Component({
   selector: 'app-users-detail',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersDetailComponent implements OnInit {
 
-  constructor() { }
+  user: UserModel;
+  errorMessage: string;
+  navigated = false;
+
+  constructor(
+    private usersService: UsersService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      if (params['id'] !== undefined) {
+        const id = params['id'];
+        this.navigated = true;
+        this.getUser(id);
+      } else {
+        this.navigated = false;
+        this.user = new UserModel();
+      }
+    });
+  }
+
+  private getUser(id: string): void {
+    this.usersService.getUser(id).subscribe(
+      user => this.user = user,
+      error => this.errorMessage = <any>error);
   }
 
 }

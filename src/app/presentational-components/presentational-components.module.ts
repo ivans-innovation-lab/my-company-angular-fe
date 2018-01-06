@@ -33,6 +33,9 @@ import { MainListTeamComponent } from './main-list-team/main-list-team.component
 import { MainNewTeamComponent } from './main-new-team/main-new-team.component';
 import { MainDetailTeamComponent } from './main-detail-team/main-detail-team.component';
 import { MainListUsersComponent } from './main-list-users/main-list-users.component';
+import { MainDetailUserComponent } from './main-detail-user/main-detail-user.component';
+import { MainNewUserComponent } from './main-new-user/main-new-user.component';
+import { MainEditUserComponent } from './main-edit-user/main-edit-user.component';
 
 
 
@@ -82,7 +85,10 @@ import { MainListUsersComponent } from './main-list-users/main-list-users.compon
     MainListTeamComponent,
     MainNewTeamComponent,
     MainDetailTeamComponent,
-    MainListUsersComponent
+    MainListUsersComponent,
+    MainDetailUserComponent,
+    MainNewUserComponent,
+    MainEditUserComponent
   ],
   exports: [
     SideMenuComponent,
@@ -102,6 +108,9 @@ import { MainListUsersComponent } from './main-list-users/main-list-users.compon
     MainNewTeamComponent,
     MainDetailTeamComponent,
     MainListUsersComponent,
+    MainDetailUserComponent,
+    MainNewUserComponent,
+    MainEditUserComponent,
     // *** Excluding template components ***
     //MainListComponent,
     //MainDetailComponent,
