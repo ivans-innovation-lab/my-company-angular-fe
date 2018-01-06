@@ -48,8 +48,7 @@ export class UsersEditComponent implements OnInit {
          this.form.reset({
            'firstName': user.firstName,
            'lastName': user.lastName,
-           'username': user.username,
-           'password': user.password,
+           'username': user.username
            }
            );
       },

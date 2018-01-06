@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environment';
 import { Response, RequestOptions } from '@angular/http';
@@ -9,15 +9,14 @@ import { TeamsModel } from './teams.model';
 
 @Injectable()
 export class TeamsService {
-    teams: TeamsModel;
 
     constructor(private http: HttpClient) { }
 
     private extractListData(res) {
-        this.teams = new TeamsModel();
-        this.teams.page = res.page;
-        this.teams.teams = res._embedded.team || {};
-        return this.teams;
+        const teams: TeamsModel = new TeamsModel();
+        teams.page = res.page;
+        teams.teams = res._embedded.team || {};
+        return teams;
     }
 
     private extractSingleData(res) {

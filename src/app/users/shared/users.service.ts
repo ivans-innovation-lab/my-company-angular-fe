@@ -6,19 +6,26 @@ import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environment';
 import {UserModel} from './user.model';
 import {UsersModel} from './users.model';
+import { RolesModel } from './roles.model';
 
 @Injectable()
 export class UsersService {
-  users: UsersModel;
 
   constructor(private http: HttpClient) {
   }
 
   private extractListData(res) {
-    this.users = new UsersModel();
-    this.users.page = res.page;
-    this.users.users = res._embedded.users || {};
-    return this.users;
+    const users: UsersModel = new UsersModel();
+    users.page = res.page;
+    users.users = res._embedded.users || {};
+    return users;
+  }
+
+  private extractRolesListData(res) {
+    const roles: RolesModel = new RolesModel();
+    roles.page = res.page;
+    roles.roles = res._embedded.roles || {};
+    return roles;
   }
 
   private extractSingleData(res) {
@@ -45,5 +52,14 @@ export class UsersService {
   public updateUser(userId: string, user: UserModel): Observable<any> {
     const url = `${environment.usersBaseUrl}/${userId}`;
     return this.http.put(url, user);
+  }
+
+  public getAllRoles(): Observable<RolesModel> {
+    return this.http.get(environment.rolesBaseUrl).map(this.extractRolesListData);
+  }
+
+  public getAllRolesOfUser(userId: string): Observable<RolesModel> {
+    const url = `${environment.usersBaseUrl}/${userId}/roles`;
+    return this.http.get(url).map(this.extractRolesListData);
   }
 }

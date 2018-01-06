@@ -37,6 +37,10 @@ export class UsersDetailComponent implements OnInit {
     this.usersService.getUser(id).subscribe(
       user => this.user = user,
       error => this.errorMessage = <any>error);
+
+    this.usersService.getAllRolesOfUser(id).subscribe(
+      role => this.user.roles = role.roles,
+      error => this.errorMessage = <any>error);
   }
 
 }

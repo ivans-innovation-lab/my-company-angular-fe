@@ -9,16 +9,15 @@ import {ProjectsModel} from './projects.model';
 
 @Injectable()
 export class ProjectsService {
-  projects: ProjectsModel;
 
   constructor(private http: HttpClient) {
   }
 
   private extractListData(res) {
-    this.projects = new ProjectsModel();
-    this.projects.page = res.page;
-    this.projects.projects = res._embedded.projects || {};
-    return this.projects;
+    const projects: ProjectsModel = new ProjectsModel();
+    projects.page = res.page;
+    projects.projects = res._embedded.projects || {};
+    return projects;
   }
 
   private extractSingleData(res) {

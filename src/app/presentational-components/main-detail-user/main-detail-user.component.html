@@ -3,13 +3,18 @@
     <mat-tab label="Properties">
       <mat-list class="app-list" *ngIf="user">
         <mat-list-item>
-          Name: {{user.firstName}}
+          First Name: {{user.firstName}}
         </mat-list-item>
         <mat-list-item>
-          Repo URL: {{user.lastName}}
+          Last Name: {{user.lastName}}
         </mat-list-item>
         <mat-list-item>
-          Site URL: {{user.username}}
+          Username: {{user.username}}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>Roles</h3>
+        <mat-list-item *ngFor="let role of user.roles">
+          {{role.roleName}}
         </mat-list-item>
       </mat-list>
     </mat-tab>

@@ -11,15 +11,13 @@ import { BlogsModel } from './blogs.model';
 @Injectable()
 export class BlogService {
 
-  blogs: BlogsModel;
-
   constructor(private http: HttpClient) { }
 
   private extractListData(res) {
-    this.blogs = new BlogsModel();
-    this.blogs.page = res.page;
-    this.blogs.blogposts = res._embedded.blogposts || {};
-    return this.blogs;
+    const blogs: BlogsModel = new BlogsModel();
+    blogs.page = res.page;
+    blogs.blogposts = res._embedded.blogposts || {};
+    return blogs;
   }
 
   private extractSingleData(res) {
