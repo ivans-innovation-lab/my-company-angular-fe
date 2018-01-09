@@ -35,12 +35,15 @@ export class UsersDetailComponent implements OnInit {
 
   private getUser(id: string): void {
     this.usersService.getUser(id).subscribe(
-      user => this.user = user,
-      error => this.errorMessage = <any>error);
-
-    this.usersService.getAllRolesOfUser(id).subscribe(
-      role => this.user.roles = role.roles,
-      error => this.errorMessage = <any>error);
+      user => {
+        this.user = user;
+        this.usersService.getAllRolesOfUser(id).subscribe(
+          role => this.user.roles = role.roles,
+          error => this.errorMessage = <any>error);
+      }
+        ,
+      error => this.errorMessage = <any>error
+    );
   }
 
 }

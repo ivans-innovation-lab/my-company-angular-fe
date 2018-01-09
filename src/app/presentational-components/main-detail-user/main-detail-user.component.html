@@ -13,8 +13,8 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <h3 matSubheader>Roles</h3>
-        <mat-list-item *ngFor="let role of user.roles">
-          {{role.roleName}}
+        <mat-list-item *ngFor="let role of user?.roles">
+          {{role?.roleName}}
         </mat-list-item>
       </mat-list>
     </mat-tab>
