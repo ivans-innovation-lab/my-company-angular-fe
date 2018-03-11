@@ -6,6 +6,29 @@ This application is generated with [Angular CLI](https://github.com/angular/angu
 
 The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing `blog posts`, `projects` and `teams`. 
 
+## Table of contents
+
+   * My Company - Angular  
+      * [Feature Components vs Presentational Components](#feature-components-vs-presentational-components)
+         * [Feature components](#feature-components)
+         * [Presentational components](#presentational-components)
+            * [Home template](#home-template)
+            * [Blog post detail 'template'](#blog-post-detail-template)
+      * [Theming our custom presentational components](#theming-our-custom-presentational-components)
+      * [Progressive Web Application](#progressive-web-application)
+      * [Backend - API](#backend---api)
+         * [Prerequisite](#prerequisite)
+            * [Step 1: Clone the project](#step-1-clone-the-project)
+            * [Step 2: Run it](#step-2-run-it)
+            * [Step 3 (optional): Browse the database](#step-3-optional-browse-the-database)
+            * [Step 4 (optional): Browse the API specification](#step-4-optional-browse-the-api-specification)
+      * [Development server](#development-server)
+      * [Code scaffolding](#code-scaffolding)
+      * [Build](#build)
+      * [Running unit tests](#running-unit-tests)
+      * [Running end-to-end tests](#running-end-to-end-tests)
+      * [References and Further help](#references-and-further-help)
+
 
 ## Feature Components vs Presentational Components
 
