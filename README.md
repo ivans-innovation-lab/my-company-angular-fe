@@ -18,10 +18,10 @@ The application consumes a [restfull API](#backend---api) that exposes a JWT ena
       * [Progressive Web Application](#progressive-web-application)
       * [Backend - API](#backend---api)
          * [Prerequisite](#prerequisite)
-            * [Step 1: Clone the project](#step-1-clone-the-project)
-            * [Step 2: Run it](#step-2-run-it)
-            * [Step 3 (optional): Browse the database](#step-3-optional-browse-the-database)
-            * [Step 4 (optional): Browse the API specification](#step-4-optional-browse-the-api-specification)
+         * [Step 1: Clone the project](#step-1-clone-the-project)
+         * [Step 2: Run it](#step-2-run-it)
+         * [Step 3 (optional): Browse the database](#step-3-optional-browse-the-database)
+         * [Step 4 (optional): Browse the API specification](#step-4-optional-browse-the-api-specification)
       * [Development server](#development-server)
       * [Code scaffolding](#code-scaffolding)
       * [Build](#build)
@@ -98,26 +98,26 @@ Please follow the instructions below to run it:
 - [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Git](https://git-scm.com/) 
 
-#### Step 1: Clone the project
+### Step 1: Clone the project
 
 ```bash
 $ git clone https://github.com/ivans-innovation-lab/my-company-monolith.git
 ```
 
-#### Step 2: Run it
+### Step 2: Run it
 
 ```bash
 $ cd my-company-monolith
 $ ./mvnw spring-boot:run
 ```
 
-#### Step 3 (optional): Browse the database
+### Step 3 (optional): Browse the database
 
  - Open the browser and navigate to: http://localhost:8080/h2-console
  - Set JDBC URL to: jdbc:h2:mem:my-company
  - Connect
 
-#### Step 4 (optional): Browse the API specification
+### Step 4 (optional): Browse the API specification
 
 - Open the browser and navigate to: http://localhost:8080/swagger-ui.html
 
