@@ -1,12 +1,34 @@
 # [projects](http://ivans-innovation-lab.github.io/projects)/My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
+This application is generated with [Angular CLI](https://github.com/angular/angular-cli) version ~1.7.3. Current angular version is ^5.2.0.
 
 [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) methodology is used, with the help of [Angular material design components](https://material.angular.io).
 
-The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing (CRUD operations) 'blog posts' and 'projects'. 
+The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing `blog posts`, `projects` and `teams`. 
 
-It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2. Current Angular version is 5.1.2.
+## Table of contents
+
+   * My Company - Angular  
+      * [Feature Components vs Presentational Components](#feature-components-vs-presentational-components)
+         * [Feature components](#feature-components)
+         * [Presentational components](#presentational-components)
+            * [Home template](#home-template)
+            * [Blog post detail 'template'](#blog-post-detail-template)
+      * [Theming our custom presentational components](#theming-our-custom-presentational-components)
+      * [Progressive Web Application](#progressive-web-application)
+      * [Backend - API](#backend---api)
+         * [Prerequisite](#prerequisite)
+         * [Step 1: Clone the project](#step-1-clone-the-project)
+         * [Step 2: Run it](#step-2-run-it)
+         * [Step 3 (optional): Browse the database](#step-3-optional-browse-the-database)
+         * [Step 4 (optional): Browse the API specification](#step-4-optional-browse-the-api-specification)
+      * [Development server](#development-server)
+      * [Code scaffolding](#code-scaffolding)
+      * [Build](#build)
+      * [Running unit tests](#running-unit-tests)
+      * [Running end-to-end tests](#running-end-to-end-tests)
+      * [References and Further help](#references-and-further-help)
+
 
 ## Feature Components vs Presentational Components
 
@@ -76,26 +98,26 @@ Please follow the instructions below to run it:
 - [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Git](https://git-scm.com/) 
 
-#### Step 1: Clone the project
+### Step 1: Clone the project
 
 ```bash
 $ git clone https://github.com/ivans-innovation-lab/my-company-monolith.git
 ```
 
-#### Step 2: Run it
+### Step 2: Run it
 
 ```bash
 $ cd my-company-monolith
 $ ./mvnw spring-boot:run
 ```
 
-#### Step 3 (optional): Browse the database
+### Step 3 (optional): Browse the database
 
  - Open the browser and navigate to: http://localhost:8080/h2-console
  - Set JDBC URL to: jdbc:h2:mem:my-company
  - Connect
 
-#### Step 4 (optional): Browse the API specification
+### Step 4 (optional): Browse the API specification
 
 - Open the browser and navigate to: http://localhost:8080/swagger-ui.html
 
