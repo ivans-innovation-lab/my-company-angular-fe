@@ -1,23 +1,12 @@
+import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {
-  MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatCommonModule, MatDatepickerModule, MATERIAL_SANITY_CHECKS, MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatPaginatorModule, MatRadioModule,
-  MatSidenavModule, MatTableModule,
-  MatTabsModule, MatToolbarModule
-} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatSidenavModule,} from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import {BreadcrumbsModule} from 'ng2-breadcrumbs';
-import {falseIfMissing} from 'protractor/built/util';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BlogModule} from './blog/blog.module';
@@ -32,7 +21,7 @@ import {AdminAuthGuard} from './shared/guards/admin-auth-guard.service';
 import {AuthGuard} from './shared/guards/auth-guard.service';
 import {UserService} from './shared/user.service';
 import {TeamModule} from './team/team.module';
-import { UsersModule } from './users/users.module';
+import {UsersModule} from './users/users.module';
 
 
 export function jwtOptionsFactory() {
