@@ -6,7 +6,7 @@ This application is generated with [Angular CLI](https://github.com/angular/angu
 
 The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing `blog posts`, `projects` and `teams`. 
 
-[StackBlitz](https://stackblitz.com/github/ivans-innovation-lab/my-company-angular-fe) is a lightning fast online IDE that allows you to live edit and view Angular CLI projects in-browser: https://stackblitz.com/github/ivans-innovation-lab/my-company-angular-fe
+[StackBlitz](https://stackblitz.com/github/ivans-innovation-lab/my-company-angular-fe) is a lightning fast online IDE that allows you to live edit and view this Angular CLI project in-browser: [https://stackblitz.com/github/ivans-innovation-lab/my-company-angular-fe](https://stackblitz.com/github/ivans-innovation-lab/my-company-angular-fe)
 
 ## Table of contents
 
