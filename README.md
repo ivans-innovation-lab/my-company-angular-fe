@@ -4,9 +4,9 @@ This is an example application. We have tried to find an appropriate balance bet
 
 [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) methodology is used, with the help of [Angular material design components](https://material.angular.io).
 
-The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing (CRUD operations) 'blog posts' and 'projects'. 
+The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing `blog posts`, `projects` and `teams`. 
 
-It is generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2. Current Angular version is 5.1.2.
+It is generated with [Angular CLI](https://github.com/angular/angular-cli) version ~1.7.3. Angular version is ^5.2.0.
 
 ## Feature Components vs Presentational Components
 
