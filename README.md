@@ -1,12 +1,11 @@
 # [projects](http://ivans-innovation-lab.github.io/projects)/My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This is an example application. We have tried to find an appropriate balance between complexity and simplicity. It is meant to be complex enough to showcase interesting building blocks provided by [Angular](https://angular.io) framework.
+This application is generated with [Angular CLI](https://github.com/angular/angular-cli) version ~1.7.3. Current angular version is ^5.2.0.
 
 [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) methodology is used, with the help of [Angular material design components](https://material.angular.io).
 
 The application consumes a [restfull API](#backend---api) that exposes a JWT enabled authorization (OAuth2) endpoints for managing `blog posts`, `projects` and `teams`. 
 
-It is generated with [Angular CLI](https://github.com/angular/angular-cli) version ~1.7.3. Angular version is ^5.2.0.
 
 ## Feature Components vs Presentational Components
 
