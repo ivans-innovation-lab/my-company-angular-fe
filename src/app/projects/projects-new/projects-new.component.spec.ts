@@ -13,7 +13,6 @@ import {
 import { ProjectsNewComponent } from './projects-new.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsService } from '../shared/projects.service';
-import { MockBackend } from '@angular/http/testing';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +32,6 @@ describe('ProjectsNewComponent', () => {
       declarations: [ProjectsNewComponent],
       providers: [
         ProjectsService,
-        MockBackend,
         EventManager,
         HttpClient,
         UserService,

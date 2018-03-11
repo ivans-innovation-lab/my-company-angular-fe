@@ -112,8 +112,8 @@ import { MainEditUserComponent } from './main-edit-user/main-edit-user.component
     MainNewUserComponent,
     MainEditUserComponent,
     // *** Excluding template components ***
-    //MainListComponent,
-    //MainDetailComponent,
+    // MainListComponent,
+    // MainDetailComponent,
     MainNewComponent
   ]
 })

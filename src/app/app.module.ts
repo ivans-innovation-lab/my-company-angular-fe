@@ -2,7 +2,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatCardModule, MatInputModule, MatSidenavModule,} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatSidenavModule, } from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';

@@ -12,7 +12,6 @@ import {
 
 import { BlogDetailComponent } from './blog-detail.component';
 import { BlogService } from '../shared/blog.service';
-import { MockBackend } from '@angular/http/testing';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from '../../shared/user.service';
@@ -30,7 +29,6 @@ describe('BlogDetailComponent', () => {
       declarations: [ BlogDetailComponent ],
       providers: [
         BlogService,
-        MockBackend,
         EventManager,
         UserService,
         AuthenticationService,

@@ -5,35 +5,8 @@ import { EventManager } from '../../shared/event-manager.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { PageEvent } from '@angular/material';
-import { ProjectsModel } from '../shared/projects.model';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { PageModel } from '../../shared/page.model';
 import { Subject } from 'rxjs/Subject';
-
-@Component({
-  selector: 'app-projects-list',
-  templateUrl: './projects-list.component.html',
-  styleUrls: ['./projects-list.component.scss']
-})
-export class ProjectsListComponent implements OnInit {
-
-  dataSource: ProjectsDataSource;
-  pageChange: Subject<PageEvent>;
-
-  constructor(private projectsService: ProjectsService, private eventManager: EventManager) {
-  }
-
-  ngOnInit(): void {
-    this.pageChange = new Subject();
-    this.dataSource = new ProjectsDataSource(this.projectsService, this.pageChange, this.eventManager);
-  }
-
-  pageChanged(pageEvent: PageEvent) {
-    /** Sending 'page event' to the stream */
-    this.pageChange.next(pageEvent);
-  }
-
-}
 
 /** ###################### Data source ########################## **/
 export class ProjectsDataSource extends DataSource<ProjectModel> {
@@ -59,7 +32,7 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
       .startWith(startPageEvent)
       .switchMap((event) => {
         /** Check the type of an event in the stream.
-            In case of 'projectListModification' event set the page index and the page size to initial values **/
+         In case of 'projectListModification' event set the page index and the page size to initial values **/
         if (event.pageIndex || event.pageSize) {
           return this.projectsService.getProjectsByParams(event.pageIndex + '', event.pageSize + '');
         } else {
@@ -78,4 +51,29 @@ export class ProjectsDataSource extends DataSource<ProjectModel> {
   }
   disconnect() {
   }
+}
+
+@Component({
+  selector: 'app-projects-list',
+  templateUrl: './projects-list.component.html',
+  styleUrls: ['./projects-list.component.scss']
+})
+export class ProjectsListComponent implements OnInit {
+
+  dataSource: ProjectsDataSource;
+  pageChange: Subject<PageEvent>;
+
+  constructor(private projectsService: ProjectsService, private eventManager: EventManager) {
+  }
+
+  ngOnInit(): void {
+    this.pageChange = new Subject();
+    this.dataSource = new ProjectsDataSource(this.projectsService, this.pageChange, this.eventManager);
+  }
+
+  pageChanged(pageEvent: PageEvent) {
+    /** Sending 'page event' to the stream */
+    this.pageChange.next(pageEvent);
+  }
+
 }

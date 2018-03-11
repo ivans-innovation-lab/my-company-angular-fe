@@ -8,31 +8,6 @@ import { TeamModel } from '../shared/team.model';
 import { PageModel } from '../../shared/page.model';
 import { Observable } from 'rxjs/Observable';
 
-@Component({
-  selector: 'app-team-list',
-  templateUrl: './team-list.component.html',
-  styleUrls: ['./team-list.component.scss']
-})
-export class TeamListComponent implements OnInit {
-
-  dataSource: TeamsDataSource;
-  pageChange: Subject<PageEvent>;
-
-  constructor(private teamsService: TeamsService, private eventManager: EventManager) {
-  }
-
-  ngOnInit(): void {
-    this.pageChange = new Subject();
-    this.dataSource = new TeamsDataSource(this.teamsService, this.pageChange, this.eventManager);
-  }
-
-  pageChanged(pageEvent: PageEvent) {
-    /** Sending 'page event' to the stream */
-    this.pageChange.next(pageEvent);
-  }
-
-}
-
 /** ###################### Data source ########################## **/
 export class TeamsDataSource extends DataSource<TeamModel> {
   page: PageModel;
@@ -57,7 +32,7 @@ export class TeamsDataSource extends DataSource<TeamModel> {
       .startWith(startPageEvent)
       .switchMap((event) => {
         /** Check the type of an event in the stream.
-            In case of 'teamListModification' event set the page index and the page size to initial values **/
+         In case of 'teamListModification' event set the page index and the page size to initial values **/
         if (event.pageIndex || event.pageSize) {
           return this.teamsService.getTeamsByParams(event.pageIndex + '', event.pageSize + '');
         } else {
@@ -75,6 +50,31 @@ export class TeamsDataSource extends DataSource<TeamModel> {
       });
   }
   disconnect() {
+  }
+
+}
+
+@Component({
+  selector: 'app-team-list',
+  templateUrl: './team-list.component.html',
+  styleUrls: ['./team-list.component.scss']
+})
+export class TeamListComponent implements OnInit {
+
+  dataSource: TeamsDataSource;
+  pageChange: Subject<PageEvent>;
+
+  constructor(private teamsService: TeamsService, private eventManager: EventManager) {
+  }
+
+  ngOnInit(): void {
+    this.pageChange = new Subject();
+    this.dataSource = new TeamsDataSource(this.teamsService, this.pageChange, this.eventManager);
+  }
+
+  pageChanged(pageEvent: PageEvent) {
+    /** Sending 'page event' to the stream */
+    this.pageChange.next(pageEvent);
   }
 
 }

@@ -8,31 +8,6 @@ import { UserModel } from '../shared/user.model';
 import { PageModel } from '../../shared/page.model';
 import { Observable } from 'rxjs/Observable';
 
-@Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
-})
-export class UsersListComponent implements OnInit {
-
-  dataSource: UsersDataSource;
-  pageChange: Subject<PageEvent>;
-
-  constructor(private usersService: UsersService, private eventManager: EventManager) {
-  }
-
-  ngOnInit(): void {
-    this.pageChange = new Subject();
-    this.dataSource = new UsersDataSource(this.usersService, this.pageChange, this.eventManager);
-  }
-
-  pageChanged(pageEvent: PageEvent) {
-    /** Sending 'page event' to the stream */
-    this.pageChange.next(pageEvent);
-  }
-
-}
-
 /** ###################### Data source ########################## **/
 export class UsersDataSource extends DataSource<UserModel> {
   page: PageModel;
@@ -57,7 +32,7 @@ export class UsersDataSource extends DataSource<UserModel> {
       .startWith(startPageEvent)
       .switchMap((event) => {
         /** Check the type of an event in the stream.
-            In case of 'userListModification' event set the page index and the page size to initial values **/
+         In case of 'userListModification' event set the page index and the page size to initial values **/
         if (event.pageIndex || event.pageSize) {
           return this.usersService.getUsersByParams(event.pageIndex + '', event.pageSize + '');
         } else {
@@ -78,3 +53,27 @@ export class UsersDataSource extends DataSource<UserModel> {
   }
 }
 
+@Component({
+  selector: 'app-users-list',
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.scss']
+})
+export class UsersListComponent implements OnInit {
+
+  dataSource: UsersDataSource;
+  pageChange: Subject<PageEvent>;
+
+  constructor(private usersService: UsersService, private eventManager: EventManager) {
+  }
+
+  ngOnInit(): void {
+    this.pageChange = new Subject();
+    this.dataSource = new UsersDataSource(this.usersService, this.pageChange, this.eventManager);
+  }
+
+  pageChanged(pageEvent: PageEvent) {
+    /** Sending 'page event' to the stream */
+    this.pageChange.next(pageEvent);
+  }
+
+}

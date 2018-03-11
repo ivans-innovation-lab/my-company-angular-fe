@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ProjectsActivateComponent} from './projects-activate/projects-activate.component';
 import {ProjectsDeactivateComponent} from './projects-deactivate/projects-deactivate.component';
-import {ProjectsEditComponent} from "./projects-edit/projects-edit.component";
+import {ProjectsEditComponent} from './projects-edit/projects-edit.component';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsNewComponent } from './projects-new/projects-new.component';

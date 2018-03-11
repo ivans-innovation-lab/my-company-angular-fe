@@ -13,7 +13,6 @@ import {
 import { BlogNewComponent } from './blog-new.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogService } from '../shared/blog.service';
-import { MockBackend } from '@angular/http/testing';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,7 +33,6 @@ describe('BlogNewComponent', () => {
       declarations: [BlogNewComponent],
       providers: [
         BlogService,
-        MockBackend,
         EventManager,
         UserService,
         AuthenticationService,

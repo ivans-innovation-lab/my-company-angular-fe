@@ -12,7 +12,6 @@ import {
 
 import { ProjectsDetailComponent } from './projects-detail.component';
 import { ProjectsService } from '../shared/projects.service';
-import { MockBackend } from '@angular/http/testing';
 import { EventManager } from '../../shared/event-manager.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from '../../shared/user.service';
@@ -31,7 +30,6 @@ describe('ProjectsDetailComponent', () => {
       declarations: [ProjectsDetailComponent],
       providers: [
         ProjectsService,
-        MockBackend,
         EventManager,
         HttpClient,
         UserService,

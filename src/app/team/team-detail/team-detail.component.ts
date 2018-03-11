@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class TeamDetailComponent implements OnInit {
 
-  
+
   team: TeamModel;
   errorMessage: string;
   navigated = false;
