@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from './shared/user.service';
+import { UserService } from '@my-company-frontend/shared';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +8,9 @@ import { UserService } from './shared/user.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Ivan\'s innovation lab';
+  title = "Ivan's innovation lab";
 
-  constructor(private router: Router, private userService: UserService) {
-  }
+  constructor(private router: Router, private userService: UserService) {}
 
   logout() {
     this.userService.logout();

@@ -29,7 +29,13 @@
     "core-js": "^2.4.1",
     "ng2-breadcrumbs": "^0.1.281",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "@my-company-frontend/shared": "1.0.0",
+    "@my-company-frontend/presentational-components": "1.0.0",
+    "@my-company-frontend/blog": "1.0.0",
+    "@my-company-frontend/team": "1.0.0",
+    "@my-company-frontend/users": "1.0.0",
+    "@my-company-frontend/projects": "1.0.0"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.3",

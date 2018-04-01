@@ -1,60 +1,108 @@
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatCardModule, MatInputModule, MatSidenavModule, } from '@angular/material';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
-import {BreadcrumbsModule} from 'ng2-breadcrumbs';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {BlogModule} from './blog/blog.module';
-import {HomeComponent} from './home/home.component';
-import {LoginComponent} from './login/login.component';
-import {PresentationalComponentsModule} from './presentational-components/presentational-components.module';
-import {ProjectsModule} from './projects/projects.module';
-import {TOKEN_NAME} from './shared/auth.constant';
-import {AuthenticationService} from './shared/authentication.service';
-import {EventManager} from './shared/event-manager.service';
-import {AdminAuthGuard} from './shared/guards/admin-auth-guard.service';
-import {AuthGuard} from './shared/guards/auth-guard.service';
-import {UserService} from './shared/user.service';
-import {TeamModule} from './team/team.module';
-import {UsersModule} from './users/users.module';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { PresentationalComponentsModule } from '@my-company-frontend/presentational-components';
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 
+import {
+  MatSidenavModule,
+  MatInputModule,
+  MatCardModule,
+  MatButtonModule
+} from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BreadcrumbsModule } from 'ng2-breadcrumbs';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import {
+  AuthenticationService,
+  ProjectModel,
+  TOKEN_NAME,
+  AuthGuard,
+  AdminAuthGuard,
+  UserService,
+  EventManager
+} from '@my-company-frontend/shared';
+import { projectRoutes, ProjectsModule } from '@my-company-frontend/projects';
+import { teamRoutes, TeamModule } from '@my-company-frontend/team';
+import { blogRoutes, BlogModule } from '@my-company-frontend/blog';
+import { usersRoutes, UsersModule } from '@my-company-frontend/users';
+
+export function tokenGenerator() {
+  return localStorage.getItem(TOKEN_NAME);
+}
 
 export function jwtOptionsFactory() {
   return {
-    tokenGetter: () => {
-      return localStorage.getItem(TOKEN_NAME);
-    },
+    tokenGetter: tokenGenerator,
     throwNoTokenError: false,
-    whitelistedDomains: ['localhost:8080', 'stage-my-company-monolith.cfapps.io', 'prod-my-company-monolith.cfapps.io']
+    whitelistedDomains: [
+      'localhost:8080',
+      'stage-my-company-monolith.cfapps.io',
+      'prod-my-company-monolith.cfapps.io'
+    ]
   };
 }
 
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    children: []
+  },
+  {
+    path: 'login',
+    data: {
+      breadcrumb: 'Login'
+    },
+    component: LoginComponent
+  },
+  {
+    path: 'blog',
+    children: blogRoutes,
+    data: {
+      breadcrumb: 'blog'
+    }
+  },
+  {
+    path: 'projects',
+    children: projectRoutes,
+    data: {
+      breadcrumb: 'projects'
+    }
+  },
+  {
+    path: 'teams',
+    children: teamRoutes,
+    data: {
+      breadcrumb: 'teams'
+    }
+  },
+  {
+    path: 'users',
+    children: usersRoutes,
+    data: {
+      breadcrumb: 'users'
+    }
+  }
+];
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent
-  ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     BlogModule,
     ProjectsModule,
     TeamModule,
     UsersModule,
-    PresentationalComponentsModule,
-    BrowserAnimationsModule,
-    BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     BreadcrumbsModule,
     FlexLayoutModule,
+    PresentationalComponentsModule,
     MatSidenavModule,
     MatInputModule,
     MatCardModule,
@@ -62,19 +110,22 @@ export function jwtOptionsFactory() {
     JwtModule.forRoot({
       jwtOptionsProvider: {
         provide: JWT_OPTIONS,
-        useFactory: jwtOptionsFactory,
+        useFactory: jwtOptionsFactory
       }
+    }),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled'
     })
   ],
+  declarations: [AppComponent, LoginComponent, HomeComponent],
+  bootstrap: [AppComponent],
   providers: [
-    EventManager,
-    UserService,
     AuthenticationService,
     AuthGuard,
     AdminAuthGuard,
-    JwtHelperService
-  ],
-  bootstrap: [AppComponent]
+    UserService,
+    JwtHelperService,
+    EventManager
+  ]
 })
-export class AppModule {
-}
+export class AppModule {}
