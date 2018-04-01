@@ -53,7 +53,7 @@ Feature and Presentational Component Design pattern has been called many things 
 
 A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the [`blog.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe-blog/blob/master/libs/blog/src/blog.component.ts) is our Feature Component and **it is composed of many Presentational components**.
 
-Feature components are packaged in separate [libs/modules within](https://www.npmjs.com/settings/my-company-frontend/packages) [specific Github repos.](https://github.com/search?q=topic%3Afeature+org%3Aivans-innovation-lab&type=Repositories)
+[Feature components](https://github.com/search?q=topic%3Afeature+org%3Aivans-innovation-lab&type=Repositories) are packaged in [libs/modules](https://www.npmjs.com/settings/my-company-frontend/packages).
 
 ### Presentational components
 
