@@ -1,6 +1,15 @@
 # [projects](http://ivans-innovation-lab.github.io/projects)/My Company - Angular Frontend [![CircleCI](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe.svg?style=svg)](https://circleci.com/gh/ivans-innovation-lab/my-company-angular-fe)
 
-This application is generated with [Angular CLI](https://github.com/angular/angular-cli) version ~1.7.3. Current angular version is ^5.2.0.
+This application is generated with [Angular CLI](https://github.com/angular/angular-cli).
+
+This is a multi-repo version of the lab, and represents a successor of a [mono-repo version](http://ivans-innovation-lab-monorepos.github.io/). Within this version of the lab each [project (app or lib)](https://github.com/search?q=topic%3Afrontend+org%3Aivans-innovation-lab&type=Repositories) has its dedicated repository (one project = one repository).
+
+Every project has a specific deployment pipeline. In addition, projects don't need to share the same dependencies any more. Hence, all projects are versioned with a concrete version numbers (not SNAPSHOT), and everyone can use any version. You have to deal with a private NPM in order to share all versions of projects.
+
+Some teams are writing successful applications leveraging libraries, and at companies like Google and Facebook there is a long tradition of using mono-repos.
+
+![Multirepo](https://github.com/ivans-innovation-lab/ivans-innovation-lab.github.io/raw/master/img/multirepo.png)
+
 
 [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/) methodology is used, with the help of [Angular material design components](https://material.angular.io).
 
@@ -42,15 +51,19 @@ Feature and Presentational Component Design pattern has been called many things 
  
 ### Feature components
 
-A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the [`blog.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/blob/master/src/app/blog/blog.component.ts) is our Feature Component and **it is composed of many Presentational components**.
+A **Feature component** is a top level component that contains all other components in our feature. This commonly is **a routed component** in Angular. Our feature components are responsible for gathering data from various services for our feature to use. If our user saves data the feature component is responsible to pass that data to our Angular Services to save the data to our server API. Feature components are very slim with the amount of application logic. We try to defer this logic to Services if possible. For this example the [`blog.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe-blog/blob/master/libs/blog/src/blog.component.ts) is our Feature Component and **it is composed of many Presentational components**.
+
+Feature components are packaged in separate [libs/modules within](https://www.npmjs.com/settings/my-company-frontend/packages) [specific Github repos.](https://github.com/search?q=topic%3Afeature+org%3Aivans-innovation-lab&type=Repositories)
 
 ### Presentational components
 
-**Presentational Components behave like pure functions** taking in the data via @Input and emitting data via @Output. This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a [`side-item.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/presentational-components/side-menu-item) takes in a @Input of an item to display. This allows the `side-item.component` component to have the only responsibility of rendering the item when the data is passed to it.
+**Presentational Components behave like pure functions** taking in the data via @Input and emitting data via @Output. This allows the majority of our UI to not know the underlying implementation detail of where the data came from. For example a [`side-item.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe-presentational-components/blob/master/libs/presentational-components/src/side-menu-item/side-menu-item.component.ts) takes in a @Input of an item to display. This allows the `side-item.component` component to have the only responsibility of rendering the item when the data is passed to it.
 
 Many if not **most Presentational Components can be abstracted into a style guide or UI library** for the project. Using a shared style guide for an organization or project improves reusability, increases the consistency between the different views that form a web application and encourages the communication between the different teams. It can also ensure that a unified brand is used across different products. To get ideas of component design and style guide maintainability I recommend Brad Frost’s book [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
 
-There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since presentation component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** ([`blog-list.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/blog/blog-list), [`blog-detail.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/blog/blog-detail), [`blog-new.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe/tree/master/src/app/blog/blog-new)) can help elevate this. The communication between feature components is event driven, and enables loose coupling. For example a `blog-new.component` will trigger an event on successfull creation of a blog post, and `blog-list.component` is subscribed to it so it can re-fetch  and refresh a list of blog posts.
+There are downsides to this though. As the feature grows in complexity we may have a deeply nested component structure. Since presentation component events only bubble up one level at a time we will have to manually pass up to each parent component. **Introducing other sub feature components** ([`blog-list.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe-blog/blob/master/libs/blog/src/blog-list/blog-list.component.ts), [`blog-detail.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe-blog/blob/master/libs/blog/src/blog-detail/blog-detail.component.ts), [`blog-new.component`](https://github.com/ivans-innovation-lab/my-company-angular-fe-blog/blob/master/libs/blog/src/blog-new/blog-new.component.ts)) can help elevate this. The communication between feature components is event driven, and enables loose coupling. For example a `blog-new.component` will trigger an event on successfull creation of a blog post, and `blog-list.component` is subscribed to it so it can re-fetch  and refresh a list of blog posts.
+
+[Presentational components](https://github.com/ivans-innovation-lab/my-company-angular-fe-presentational-components)  are packaged in a [lib/module].(https://www.npmjs.com/package/@my-company-frontend/presentational-components)
 
 Let's place components into a layout and articulate the design’s underlying content structure:
 

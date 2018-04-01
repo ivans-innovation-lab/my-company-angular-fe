@@ -103,22 +103,22 @@ workflows:
   my-company-angular-fe-workflow:
     jobs:
        - build
-       - staging:
-           requires:
-             - build
-           filters:
-             branches:
-               only: master
-       - approve-production:
-           type: approval
-           requires:
-             - staging
-           filters:
-             branches:
-               only: master
-       - production:
-           requires:
-             - approve-production
-           filters:
-             branches:
-               only: master
+      #  - staging:
+      #      requires:
+      #        - build
+      #      filters:
+      #        branches:
+      #          only: master
+      #  - approve-production:
+      #      type: approval
+      #      requires:
+      #        - staging
+      #      filters:
+      #        branches:
+      #          only: master
+      #  - production:
+      #      requires:
+      #        - approve-production
+      #      filters:
+      #        branches:
+      #          only: master
